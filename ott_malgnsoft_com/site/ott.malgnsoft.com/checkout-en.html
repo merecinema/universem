@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<title>Checkout - UniversM</title>
+	<link rel="stylesheet" href="comm/css/main.css">
+	<link rel="stylesheet" href="comm/css/minimal.css">
+	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="comm/js/main.js"></script>
+	<style>
+		body { background: #fafafa; }
+		.checkout_wrapper {
+			min-height: 80vh;
+			padding: 180px 20px 80px;
+		}
+		.checkout_container {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 0;
+		}
+		.checkout_header {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		.checkout_header h2 {
+			font-size: 32px;
+			font-weight: 400;
+			color: #000;
+			margin-bottom: 8px;
+			letter-spacing: -0.5px;
+		}
+		.checkout_header p {
+			font-size: 16px;
+			color: #666;
+			font-weight: 300;
+		}
+		.plan_summary {
+			background: #fff;
+			padding: 24px;
+			border-radius: 8px;
+			margin-bottom: 24px;
+			border: 1px solid #e0e0e0;
+		}
+		.plan_summary h3 {
+			font-size: 18px;
+			font-weight: 600;
+			color: #000;
+			margin-bottom: 8px;
+		}
+		.plan_summary .price {
+			font-size: 28px;
+			font-weight: 600;
+			color: #0F91D0;
+		}
+		.payment_form {
+			background: #fff;
+			padding: 24px;
+			border-radius: 8px;
+			border: 1px solid #e0e0e0;
+		}
+		.form_group {
+			margin-bottom: 20px;
+		}
+		.form_group label {
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+			color: #000;
+			margin-bottom: 8px;
+		}
+		.form_group input {
+			width: 100%;
+			padding: 11px 12px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			font-size: 15px;
+			box-sizing: border-box;
+			font-weight: 300;
+		}
+		.form_group input:focus {
+			outline: none;
+			border-color: #0F91D0;
+		}
+		.form_row {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			gap: 12px;
+		}
+		.submit_btn {
+			width: 100%;
+			padding: 14px;
+			background: #0F91D0;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			font-size: 15px;
+			font-weight: 600;
+			cursor: pointer;
+			margin-top: 24px;
+			transition: background 0.2s;
+		}
+		.submit_btn:hover {
+			background: #0d7fb8;
+		}
+		.disclaimer {
+			text-align: center;
+			margin-top: 16px;
+			font-size: 12px;
+			color: #999;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div class="header_in">
+				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
+					<h1 style="margin:0;">
+						<a href="./index-en.html"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniversM" style="height:60px; width:auto;"></a>
+					</h1>
+					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px;">
+						<div class="tab_swiper in_Layer" style="margin-left:0cm;">
+							<ul class="menu swiper-wrapper">
+								<li class="swiper-slide"><a href="./index-en.html#platform">Platform</a></li>
+								<li class="swiper-slide"><a href="./index-en.html#function">Features</a></li>
+								<li class="swiper-slide"><a href="./index-en.html#demo">Free trial</a></li>
+								<li class="swiper-slide"><a href="./index-en.html#charge">Pricing</a></li>
+								<li class="swiper-slide"><a href="./index-en.html#contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="checkout_wrapper">
+			<div class="checkout_container">
+				<div class="checkout_header">
+					<h2>Complete Your Purchase</h2>
+					<p>Securely powered by Stripe</p>
+				</div>
+
+				<div class="plan_summary" id="planInfo">
+					<h3 id="planName">Starter Plan</h3>
+					<p class="price" id="planPrice">$300 USD / month</p>
+				</div>
+
+				<div class="payment_form">
+					<form id="checkoutForm">
+				<div class="form_group">
+					<label>Email</label>
+					<input type="email" name="email" placeholder="your.email@example.com" required>
+				</div>
+
+				<div class="form_group">
+					<label>Card Number</label>
+					<input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+				</div>
+
+				<div class="form_row">
+					<div class="form_group">
+						<label>Expiration</label>
+						<input type="text" name="expiry" placeholder="MM / YY" required>
+					</div>
+					<div class="form_group">
+						<label>CVV</label>
+						<input type="text" name="cvv" placeholder="123" required>
+					</div>
+				</div>
+
+				<div class="form_group">
+					<label>Cardholder Name</label>
+					<input type="text" name="cardholderName" placeholder="John Doe" required>
+				</div>
+
+				<div class="form_group">
+					<label>Billing Address</label>
+					<input type="text" name="billingAddress" placeholder="123 Main St" required>
+				</div>
+
+				<div class="form_row">
+					<div class="form_group">
+						<label>City</label>
+						<input type="text" name="city" placeholder="New York" required>
+					</div>
+					<div class="form_group">
+						<label>ZIP Code</label>
+						<input type="text" name="zipCode" placeholder="10001" required>
+					</div>
+				</div>
+
+					<button type="submit" class="submit_btn">Subscribe</button>
+				</form>
+
+				<p class="disclaimer">
+					By continuing, you agree to our Terms of Use and Privacy Policy.
+				</p>
+			</div>
+		</div>
+		</div>
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<div class="w1350">
+				<div class="foot_bottom" style="display:flex; justify-content:center; align-items:baseline; gap:20px; flex-wrap:wrap; font-size:13px;">
+					<span style="color:#999;">© MERECINEMA, INC. ALL RIGHTS RESERVED.</span>
+					<span style="color:#999;">Privacy Policy</span>
+					<span style="color:#999;">Terms of Use</span>
+					<span style="color:#999;">Sales and Refunds</span>
+					<span style="color:#999;">Legal</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Get plan from URL parameter
+		const urlParams = new URLSearchParams(window.location.search);
+		const plan = urlParams.get('plan');
+		
+		if (plan) {
+			const planData = {
+				starter: { name: 'Starter Plan', price: '$300 USD / month' },
+				standard: { name: 'Standard Plan', price: '$600 USD / month' },
+				professional: { name: 'Professional Plan', price: '$1,000 USD / month' }
+			};
+			
+			if (planData[plan]) {
+				document.getElementById('planName').textContent = planData[plan].name;
+				document.getElementById('planPrice').textContent = planData[plan].price;
+			}
+		}
+
+	document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+		e.preventDefault();
+		alert('Thank you for your purchase! This is a demo checkout page.');
+		window.location.href = './index-en.html';
+	});
+</script>
+</body>
+</html>
+

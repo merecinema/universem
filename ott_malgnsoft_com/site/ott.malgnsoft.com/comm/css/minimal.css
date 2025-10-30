@@ -1,0 +1,178 @@
+/* Minimal Black & White theme for EN pages */
+
+:root {
+  --main: #111;
+  --basic: #222;
+  --black: #111;
+  --white: #fff;
+  --grayBg: #fafafa;
+  --border: #eaeaea;
+}
+
+html, body {
+  background: var(--white);
+  color: var(--black);
+  height: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+/* Ensure wrapper can scroll */
+#wrap {height:auto; overflow:visible;}
+
+/* Header - enforce black background */
+/* Force black header background with highest specificity */
+html body #header,
+body #header,
+#header {background: #000 !important; border-bottom: 0 !important;}
+#header .header_in{display:flex; align-items:center; justify-content:center; gap:30px; background:transparent !important; flex-wrap:nowrap; padding-top:80px; position:relative;}
+#header .header_in h1{margin:0; position:absolute; top:20px; left:50%; transform:translateX(-50%);} 
+#header .header_in .menu_wrap{margin:0;}
+#header .header_in h1 .malgnsoft {filter: grayscale(0%); width:auto; height:60px; background-image:url('../../img/UniverseM_white_logo_transparent_background.png') !important; background-repeat:no-repeat !important; background-position:center !important; background-size:contain !important; display:inline-block;} /* logo larger above menu */
+#header .header_in h1{margin-right:0;}
+#header .header_in h1 .ottcloud {display:none !important;}
+#header .menu {justify-content: center; gap:36px; background:transparent !important;}
+#header .menu_wrap{position:relative; display:flex; justify-content:center !important; align-items:center;}
+#header .menu_wrap .lang-selector{position:absolute; right:0; top:0; bottom:0; transform:none; display:flex; align-items:center;}
+#header .menu > li {padding:0 12px !important;}
+#header .menu > li a {color: #fff !important; font-size:14px; font-weight:300; padding:16px 0; letter-spacing:.2px; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+#header .menu > li a:hover{font-weight:300 !important;}
+#header .menu > li.active a{font-weight:300 !important;}
+#header .menu > li a:after {background: #fff !important; display:none !important;}
+#header.fixed {box-shadow: none !important; background:#000 !important;}
+body #header.fixed, html body #header.fixed {background:#000 !important;}
+#header.fixed .header_in h1 .ottcloud{color:#fff !important;}
+#header.fixed .menu > li a{color:#fff !important;}
+#header.fixed .menu > li a:after{background:#fff !important;}
+
+/* Center page width similar to Apple */
+.w1350{max-width:1200px;}
+
+/* Override default header transparency/white background */
+#header .header_in{background:transparent !important;}
+#header .menu_wrap{background:transparent !important;}
+
+/* Sections */
+.snap-container { scroll-snap-type: y proximity; }
+#visual, #platform, #ott, #function, #charge, #demo, #contact { scroll-snap-align: start; }
+#platform, #ott, #function, #charge, #demo, #contact { min-height: 80vh; }
+.snap-container, #platform, #ott, #function, #charge, #demo, #contact, #portfolio, #case { overflow: visible !important; }
+.grayBg {background: var(--white) !important;}
+.com_pad {padding-top: 130px; padding-bottom: 130px;}
+
+/* Buttons */
+.moreBtn {background: var(--white) !important; color: var(--black) !important; border: 1px solid var(--black); text-align:center !important; font-size:14px !important; font-weight:100 !important; padding:8px 20px !important; height:auto !important; min-width:auto !important;}
+.moreBtn.whiteBtn {background: transparent !important; color: #fff !important; border: 1px solid #fff !important; font-weight:100 !important;}
+.moreBtn:before{display:none !important;}
+.moreBtn:after{display:none !important;}
+.moreBtn font{color:inherit !important; line-height:normal !important;}
+.moreBtn:hover:after{display:none !important;}
+.moreBtn:hover font{color:inherit !important;}
+
+/* Cards/Boxes */
+.borderBox, #quick .quick_in {box-shadow: none !important; border-color: var(--border) !important;}
+
+/* Titles */
+.mTit, .sTit, h2, h3, h4 {color: var(--black) !important;}
+
+/* Footer */
+#footer .foot_bottom {border-top: 1px solid var(--border) !important;}
+#footer .foot_menu li a {color: var(--black) !important;}
+
+/* Demo/CTA emphasis */
+.mTxt .medium {font-weight: 600;}
+
+/* Hero (visual) - enforce visibility and simple layout */
+#visual {background:#000 !important; height:auto; min-height:60vh; display:block; padding:220px 0 120px; box-sizing:border-box;}
+#visual .visual_in {opacity:1 !important; visibility:visible !important; position:relative; height:auto;}
+#visual .visual_in .roll {position:relative !important; height:auto !important;}
+#visual .visual_in .roll .v_bg{display:none !important;}
+#visual .visual_in .roll .v_cont{position:relative !important; left:auto; top:auto; transform:none !important; width:100%; display:flex; justify-content:center;}
+#visual .imgArea {display:none !important;}
+#visual .txtArea {text-align:center; margin:0 auto; align-items:center !important;}
+#visual .visual_in .roll .v_cont > div{width:100% !important;}
+#visual .visual_in .roll .v_cont .txtArea .btnArea{justify-content:center !important;}
+#visual .visual_in .roll .v_cont .txtArea h3{opacity:1 !important; transform:none !important;}
+#visual .visual_in .roll .v_cont .txtArea h2{opacity:1 !important; transform:none !important;}
+#visual .visual_in .roll .v_cont .txtArea .mTxt{opacity:1 !important; transform:none !important;}
+#visual .visual_in .roll .v_cont .txtArea .btnArea{opacity:1 !important; transform:none !important;}
+#visual .txtArea h3 {font-size:18px; font-weight:400; letter-spacing:0.2px;}
+#visual .txtArea h2 {font-size:56px; font-weight:700; letter-spacing:-0.5px; margin-top:8px;}
+#visual .txtArea h2, #visual .txtArea h3, #visual .txtArea p {color:#fff !important;}
+#visual .roll .v_cont .txtArea h3{color:#fff !important;}
+#visual .roll .v_cont .txtArea h2{color:#fff !important;}
+#visual .roll .v_cont .txtArea p{color:#fff !important;}
+#visual .roll .v_cont .txtArea .mTxt{color:#fff !important;}
+
+/* Center section titles/buttons on EN */
+.titleArea {text-align:center !important;}
+.titleArea .btnArea, .btnArea {display:flex; justify-content:center;}
+
+/* Language switcher */
+.lang-switch {display:none !important;}
+#langSelect {appearance: none; -webkit-appearance: none; -moz-appearance: none; background: transparent !important; border: none !important; color: #fff !important; font-size: 13px !important; font-weight: 300 !important; cursor: pointer !important; padding: 5px 25px 5px 10px !important; outline: none !important;}
+#langSelect option {background: #000 !important; color: #fff !important;}
+.lang-selector span {pointer-events: none !important;}
+
+/* Reduce color accents to monochrome */
+.point {color: var(--black) !important;}
+
+/* Quick widget (keep minimal) */
+#quick .quick_top a {background: var(--black) !important;}
+
+/* Contact form styling */
+#contact .contact_form .input, #contact .contact_form .textarea {border: 0 !important; background: transparent !important; color: #000 !important;}
+#contact .contact_form .contact_input dl {border: 1px solid #000 !important; background: #fff !important;}
+#contact .contact_form dt {color: #000 !important;}
+#contact .contact_agree .agree_txt {color: #000 !important;}
+
+/* Get started button hover effect */
+#charge .charge_style .box .moreBtn.whiteBtn{font-weight:normal !important;}
+#charge .charge_style .box .moreBtn.whiteBtn:hover{background:#0F91D0 !important; border-color:#0F91D0 !important; font-weight:600 !important;}
+#charge .charge_style .box .moreBtn.whiteBtn:hover font{color:#fff !important; font-weight:600 !important;}
+
+/* Remove colored boxes from pricing plans - make all text white, boxes transparent with white borders */
+#charge .charge_style .box{background:transparent !important; border: 1px solid rgba(255,255,255,.3) !important; box-shadow:none !important;}
+#charge .charge_style .box h4{color:#fff !important; font-weight:600 !important; font-size:28px !important;}
+#charge .charge_style .box .charge_data li strong{color:#fff !important; font-weight:normal !important; font-size:14px !important;}
+#charge .charge_style .box .charge_data li p{color:#fff !important; font-size:14px !important;}
+/* Price styling - Vimeo style with large price amount and small period */
+#charge .charge_style .box .charge_txt .price_amount{font-size:36px !important; font-weight:600 !important;}
+#charge .charge_style .box .charge_txt .price_period{font-size:13px !important; font-weight:normal !important;}
+#charge .charge_style .box.starter .charge_cate{background:transparent !important; color:#fff !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.starter .charge_txt{color:#fff !important;}
+#charge .charge_style .box.starter .excess_cost dt{background:#fff !important; color:#000 !important; font-weight:normal !important; font-size:13px !important;}
+#charge .charge_style .box.starter .excess_cost{background:transparent !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.starter .excess_cost dd ul li strong{color:#fff !important; font-weight:normal !important; font-size:12px !important;}
+#charge .charge_style .box.starter .excess_cost dd ul li p{color:#fff !important; font-size:12px !important;}
+#charge .charge_style .box.standard .charge_cate{background:transparent !important; color:#fff !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.standard .charge_txt{color:#fff !important;}
+#charge .charge_style .box.standard .excess_cost dt{background:#fff !important; color:#000 !important; font-weight:normal !important; font-size:13px !important;}
+#charge .charge_style .box.standard .excess_cost{background:transparent !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.standard .excess_cost dd ul li strong{color:#fff !important; font-weight:normal !important; font-size:12px !important;}
+#charge .charge_style .box.standard .excess_cost dd ul li p{color:#fff !important; font-size:12px !important;}
+#charge .charge_style .box.professional .charge_cate{background:transparent !important; color:#fff !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.professional .charge_txt{color:#fff !important;}
+#charge .charge_style .box.professional .excess_cost dt{background:#fff !important; color:#000 !important; font-weight:normal !important; font-size:13px !important;}
+#charge .charge_style .box.professional .excess_cost{background:transparent !important; border: 1px solid rgba(255,255,255,.3) !important;}
+#charge .charge_style .box.professional .excess_cost dd ul li strong{color:#fff !important; font-weight:normal !important; font-size:12px !important;}
+#charge .charge_style .box.professional .excess_cost dd ul li p{color:#fff !important; font-size:12px !important;}
+
+/* Menu alignment */
+#header .menu_wrap .tab_swiper{margin-left:6.2cm;}
+
+/* Key Features subtitle box styling */
+#function .function_list > div > div:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    background: transparent;
+}
