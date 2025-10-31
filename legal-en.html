@@ -97,10 +97,16 @@
 				transform: translateX(-50%) !important;
 				margin: 0 !important;
 				order: 1;
-				z-index: 1000 !important;
+				z-index: 10000 !important;
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			#header .header_in > div > h1 img {
 				height: 45px !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+				display: block !important;
 			}
 			/* Remove underline below logo */
 			#header .header_in > div > h1 {
@@ -118,13 +124,37 @@
 				border-bottom: none !important;
 			}
 			
-			/* Hamburger Menu Button */
-			.mobile-menu-toggle {
+			/* Hamburger Menu Button - Mobile Only - Override any external CSS with highest specificity */
+			html body #wrap #header #mobileMenuToggle,
+			html body #wrap #header .mobile-menu-toggle,
+			html body #header #mobileMenuToggle,
+			html body #header .mobile-menu-toggle,
+			html body .mobile-menu-toggle,
+			body #wrap #header #mobileMenuToggle,
+			body #wrap #header .mobile-menu-toggle,
+			body #header #mobileMenuToggle,
+			body #header .mobile-menu-toggle,
+			body .mobile-menu-toggle,
+			#wrap #header #mobileMenuToggle,
+			#wrap #header .mobile-menu-toggle,
+			#header #mobileMenuToggle,
+			#header .mobile-menu-toggle,
+			.mobile-menu-toggle,
+			#mobileMenuToggle {
 				display: block !important;
-				order: 2;
+				order: 2 !important;
 				position: absolute !important;
 				top: 8px !important;
 				right: 20px !important;
+				z-index: 10001 !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				background: transparent !important;
+				border: none !important;
+				cursor: pointer !important;
+				padding: 8px !important;
+				width: 32px !important;
+				height: 32px !important;
 			}
 			.mobile-menu-toggle.active span:nth-child(1) {
 				transform: rotate(45deg) translate(7px, 7px);
@@ -236,10 +266,14 @@
 				height: 0.6px !important;
 				margin: 5px 0 !important;
 			}
+			/* Keep logo fixed and centered on small mobile */
 			#header .header_in > div > h1 {
-				position: static !important;
-				transform: none !important;
-				margin-bottom: 0 !important;
+				position: fixed !important;
+				top: 14px !important;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
+				margin: 0 !important;
+				z-index: 10000 !important;
 			}
 			#header .header_in > div > h1 img {
 				height: 35px !important;
@@ -293,10 +327,10 @@
 					<a href="./index.html"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
-					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="display:none; position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px;">
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">

@@ -10,9 +10,7 @@
 	<title>UniverseM - Cloud Video Streaming Platform</title>
 	<link rel="stylesheet" href="comm/css/main.css">
 	<link rel="stylesheet" href="comm/css/minimal.css">
-	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="comm/js/main.js"></script>
-		<style>
+	<style>
 		/* Pricing Box - Remove button space */
 		#charge .charge_style .box {
 			justify-content: flex-start !important;
@@ -88,14 +86,8 @@
 			opacity: 1 !important;
 		}
 		
-		/* Desktop: Show language selector in menu, hide mobile version */
+		/* Desktop: Hide hamburger menu on desktop - highest specificity */
 		@media screen and (min-width: 769px) {
-			.lang-selector-mobile {
-				display: none !important;
-			}
-			.lang-selector-desktop {
-				display: inline-flex !important;
-			}
 			/* Hide hamburger menu on desktop - highest specificity */
 			html body #header #mobileMenuToggle,
 			html body #header .mobile-menu-toggle,
@@ -239,15 +231,45 @@
 				height: 0 !important;
 				visibility: hidden !important;
 			}
-			/* Force actual img tag to be visible - override all possible selectors */
+			/* Force actual img tag to be visible - override all possible selectors with ID selectors */
+			html body #wrap #header #headerLogo img,
+			html body #wrap #header #headerLogo #logoImg,
+			html body #wrap #header #logoImg,
+			html body #wrap #header .header_in h1 img,
+			html body #wrap #header .header_in h1 a img,
+			html body #wrap #header .header_in > div > h1 img,
+			html body #wrap #header .header_in > div > h1 a img,
+			html body #header #headerLogo img,
+			html body #header #headerLogo #logoImg,
+			html body #header #logoImg,
 			html body #header .header_in h1 img,
 			html body #header .header_in h1 a img,
 			html body #header .header_in > div > h1 img,
 			html body #header .header_in > div > h1 a img,
+			body #wrap #header #headerLogo img,
+			body #wrap #header #headerLogo #logoImg,
+			body #wrap #header #logoImg,
+			body #wrap #header .header_in h1 img,
+			body #wrap #header .header_in h1 a img,
+			body #wrap #header .header_in > div > h1 img,
+			body #wrap #header .header_in > div > h1 a img,
+			body #header #headerLogo img,
+			body #header #headerLogo #logoImg,
+			body #header #logoImg,
 			body #header .header_in h1 img,
 			body #header .header_in h1 a img,
 			body #header .header_in > div > h1 img,
 			body #header .header_in > div > h1 a img,
+			#wrap #header #headerLogo img,
+			#wrap #header #headerLogo #logoImg,
+			#wrap #header #logoImg,
+			#wrap #header .header_in h1 img,
+			#wrap #header .header_in h1 a img,
+			#wrap #header .header_in > div > h1 img,
+			#wrap #header .header_in > div > h1 a img,
+			#header #headerLogo img,
+			#header #headerLogo #logoImg,
+			#header #logoImg,
 			#header .header_in h1 img,
 			#header .header_in h1 a img,
 			#header .header_in > div > h1 img,
@@ -260,6 +282,8 @@
 				background-image: none !important;
 				background: none !important;
 				filter: none !important;
+				-webkit-filter: none !important;
+				-moz-filter: none !important;
 			}
 			#header .header_in h1 a,
 			#header .header_in > div > h1 a,
@@ -337,7 +361,17 @@
 				transform: rotate(-45deg) translate(7px, -7px);
 			}
 			
-			/* Hide menu by default on mobile */
+			/* Hide desktop menu by default on mobile - show only hamburger */
+			/* Force hide desktop menu items - highest specificity */
+			html body #wrap #header .header_in > div > .menu_wrap .tab_swiper .menu,
+			html body #header .header_in > div > .menu_wrap .tab_swiper .menu,
+			body #wrap #header .header_in > div > .menu_wrap .tab_swiper .menu,
+			body #header .header_in > div > .menu_wrap .tab_swiper .menu,
+			#wrap #header .header_in > div > .menu_wrap .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap .menu {
+				display: none !important;
+			}
 			#header .header_in > div > .menu_wrap {
 				order: 3;
 				display: none !important;
@@ -363,21 +397,18 @@
 				visibility: visible !important;
 				opacity: 1 !important;
 			}
-			/* Hide desktop lang selector in mobile menu */
-			#header .header_in > div > .menu_wrap.active .lang-selector-desktop {
+			/* Hide desktop menu on mobile - show only when hamburger is active */
+			#header .header_in > div > .menu_wrap .tab_swiper,
+			#header .header_in > div > .menu_wrap .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap .menu {
 				display: none !important;
 			}
-			/* Show mobile lang selector after Contact menu item */
-			#header .header_in > div > .menu_wrap.active .lang-menu-item {
-				display: block !important;
-			}
-			#header .header_in > div > .menu_wrap.active .lang-selector-mobile-menu {
+			/* Show menu only when hamburger menu is active */
+			#header .header_in > div > .menu_wrap.active .tab_swiper,
+			#header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap.active .menu {
 				display: flex !important;
 			}
-			#header .header_in > div > .menu_wrap.active .lang-selector-mobile-menu span {
-				font-size: 16px !important;
-			}
-			
 			#header .tab_swiper {
 				margin-left: 0 !important;
 				width: 100%;
@@ -403,21 +434,6 @@
 				width: 100%;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 			}
-			#header .tab_swiper .menu li.lang-menu-item {
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-				padding: 0;
-			}
-			#header .tab_swiper .menu li.lang-menu-item .lang-selector-mobile-menu {
-				padding: 15px 20px !important;
-				width: 100% !important;
-				text-align: left !important;
-				margin: 0 !important;
-			}
-			#header .tab_swiper .menu li.lang-menu-item .lang-selector-mobile-menu span {
-				display: inline-block !important;
-				vertical-align: middle !important;
-				color: #fff !important;
-			}
 			#header .tab_swiper .menu li:last-child {
 				border-bottom: none;
 			}
@@ -436,32 +452,6 @@
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
 			}
-			/* Mobile: Hide desktop language selector, hide mobile version from top */
-			.lang-selector-desktop {
-				display: none !important;
-			}
-			.lang-selector-mobile {
-				display: none !important;
-			}
-			
-			/* Language selector in mobile menu - show at bottom when menu is open */
-			#header .header_in > div > .menu_wrap.active .lang-selector-mobile {
-				display: inline-flex !important;
-				position: relative !important;
-				top: auto !important;
-				right: auto !important;
-				width: auto !important;
-				margin: 20px auto 10px !important;
-				background: rgba(255, 255, 255, 0.1) !important;
-				padding: 10px 15px !important;
-				border-radius: 8px !important;
-				justify-content: center !important;
-				align-items: center !important;
-			}
-			#header .header_in > div > .menu_wrap.active .lang-selector-mobile span {
-				font-size: 14px !important;
-			}
-			
 			/* Key Features - Mobile Grid */
 			#function .function_list {
 				grid-template-columns: 1fr !important;
@@ -763,10 +753,35 @@
 				visibility: visible !important;
 				display: block !important;
 			}
+			/* Force logo visibility on small mobile with ID selectors */
+			html body #wrap #header #headerLogo img,
+			html body #wrap #header #headerLogo #logoImg,
+			html body #wrap #header #logoImg,
+			html body #wrap #header .header_in > div > h1 img,
+			html body #wrap #header .header_in > div > h1 a img,
+			html body #header #headerLogo img,
+			html body #header #headerLogo #logoImg,
+			html body #header #logoImg,
 			html body #header .header_in > div > h1 img,
 			html body #header .header_in > div > h1 a img,
+			body #wrap #header #headerLogo img,
+			body #wrap #header #headerLogo #logoImg,
+			body #wrap #header #logoImg,
+			body #wrap #header .header_in > div > h1 img,
+			body #wrap #header .header_in > div > h1 a img,
+			body #header #headerLogo img,
+			body #header #headerLogo #logoImg,
+			body #header #logoImg,
 			body #header .header_in > div > h1 img,
 			body #header .header_in > div > h1 a img,
+			#wrap #header #headerLogo img,
+			#wrap #header #headerLogo #logoImg,
+			#wrap #header #logoImg,
+			#wrap #header .header_in > div > h1 img,
+			#wrap #header .header_in > div > h1 a img,
+			#header #headerLogo img,
+			#header #headerLogo #logoImg,
+			#header #logoImg,
 			#header .header_in > div > h1 img,
 			#header .header_in > div > h1 a img {
 				height: 35px !important;
@@ -775,6 +790,10 @@
 				display: block !important;
 				width: auto !important;
 				background-image: none !important;
+				background: none !important;
+				filter: none !important;
+				-webkit-filter: none !important;
+				-moz-filter: none !important;
 			}
 			html body #header .header_in > div > h1 a,
 			body #header .header_in > div > h1 a,
@@ -973,25 +992,16 @@
 			}
 		}
 	</style>
+	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="comm/js/main.js"></script>
 </head>
 <body>
 	<div id="wrap">
 		<div id="header">
 			<div class="header_in">
-				<!-- Language Selector for Mobile - Top Right -->
-				<div class="lang-selector lang-selector-mobile" style="position:absolute; top:10px; right:10px; z-index:1000; display:none; background:rgba(0,0,0,0.8); padding:6px 10px; border-radius:6px; backdrop-filter:blur(10px);">
-					<span style="font-size:14px; color:#fff; z-index:1;">文A</span>
-					<select id="langSelectMobile" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;">
-						<option value="en">English</option>
-						<option value="ko">한국어</option>
-						<option value="ja">日本語</option>
-						<option value="zh">中文</option>
-						<option value="fr">Français</option>
-					</select>
-				</div>
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
 				<h1 id="headerLogo" style="margin:0;">
-					<a href="#top"><img id="logoImg" src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
+					<a href="#top"><img id="logoImg" src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto; opacity:1 !important; visibility:visible !important; display:block !important;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
 					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px;">
@@ -1007,19 +1017,6 @@
 								<li class="swiper-slide"><a href="#demo">Free trial</a></li>
 								<li class="swiper-slide"><a href="#charge">Pricing</a></li>
 								<li class="swiper-slide"><a href="#contact">Contact</a></li>
-								<!-- Language Selector for Mobile Menu - After Contact -->
-								<li class="swiper-slide lang-menu-item" style="display:none;">
-									<div class="lang-selector lang-selector-mobile-menu" style="display:flex; position:relative; justify-content:flex-start; align-items:center; gap:3px;">
-										<span style="font-size:16px; color:#fff; z-index:1;">文A</span>
-										<select id="langSelectMobileMenu" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;">
-											<option value="en">English</option>
-											<option value="ko">한국어</option>
-											<option value="ja">日本語</option>
-											<option value="zh">中文</option>
-											<option value="fr">Français</option>
-										</select>
-									</div>
-								</li>
 						</ul>
 						</div>
 						<div class="lang-selector lang-selector-desktop" style="position:relative; display:flex; align-items:center; gap:3px;">
@@ -1962,11 +1959,7 @@
 				alert('This language is coming soon!');
 				selectedLang = 'en'; // Reset to English
 				const langSelectEl = document.getElementById('langSelect');
-				const langSelectMobileEl = document.getElementById('langSelectMobile');
-				const langSelectMobileMenuEl = document.getElementById('langSelectMobileMenu');
 				if (langSelectEl) langSelectEl.value = 'en';
-				if (langSelectMobileEl) langSelectMobileEl.value = 'en';
-				if (langSelectMobileMenuEl) langSelectMobileMenuEl.value = 'en';
 				applyTranslation('en');
 			}
 		}
@@ -1976,48 +1969,6 @@
 		if (langSelect) {
 			langSelect.addEventListener('change', function(e) {
 				const selectedLang = e.target.value;
-				const mobileSelect = document.getElementById('langSelectMobile');
-				const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
-				if (mobileSelect) {
-					mobileSelect.value = selectedLang;
-				}
-				if (mobileMenuSelect) {
-					mobileMenuSelect.value = selectedLang;
-				}
-				handleLanguageChange(selectedLang);
-			});
-		}
-		
-		// Mobile language selector (top right)
-		const langSelectMobile = document.getElementById('langSelectMobile');
-		if (langSelectMobile) {
-			langSelectMobile.addEventListener('change', function(e) {
-				const selectedLang = e.target.value;
-				const desktopSelect = document.getElementById('langSelect');
-				const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
-				if (desktopSelect) {
-					desktopSelect.value = selectedLang;
-				}
-				if (mobileMenuSelect) {
-					mobileMenuSelect.value = selectedLang;
-				}
-				handleLanguageChange(selectedLang);
-			});
-		}
-		
-		// Mobile menu language selector (bottom of menu)
-		const langSelectMobileMenu = document.getElementById('langSelectMobileMenu');
-		if (langSelectMobileMenu) {
-			langSelectMobileMenu.addEventListener('change', function(e) {
-				const selectedLang = e.target.value;
-				const desktopSelect = document.getElementById('langSelect');
-				const mobileSelect = document.getElementById('langSelectMobile');
-				if (desktopSelect) {
-					desktopSelect.value = selectedLang;
-				}
-				if (mobileSelect) {
-					mobileSelect.value = selectedLang;
-				}
 				handleLanguageChange(selectedLang);
 			});
 		}
@@ -2097,11 +2048,8 @@
 			currentLang = lang;
 			
 			const desktopSelect = document.getElementById('langSelect');
-			const mobileSelect = document.getElementById('langSelectMobile');
-			const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
 			if (desktopSelect) desktopSelect.value = lang;
-			if (mobileSelect) mobileSelect.value = lang;
-			if (mobileMenuSelect) mobileMenuSelect.value = lang;
+			
 			// Apply translation for all languages including English
 			applyTranslation(lang);
 			
