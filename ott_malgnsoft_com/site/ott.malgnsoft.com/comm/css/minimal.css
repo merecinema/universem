@@ -162,17 +162,18 @@ body #header.fixed, html body #header.fixed {background:#000 !important;}
 #header .menu_wrap .tab_swiper{margin-left:6.2cm;}
 
 /* Key Features subtitle box styling */
-#function .function_list > div > div:first-child {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 12px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    opacity: 0.9;
-    margin-bottom: 8px;
-    background: transparent;
+body #function .function_list > div > div:first-child,
+html body #function .function_list > div > div:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 12px !important;
+    border: 2px solid rgba(255,255,255,1) !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    opacity: 0.9 !important;
+    margin-bottom: 8px !important;
+    background: transparent !important;
 }
