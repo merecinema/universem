@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" type="image/png" sizes="12x12" href="img/favicon-12x12.png">
+	<link rel="shortcut icon" href="img/favicon-12x12.png">
+	<link rel="apple-touch-icon" href="img/UniverseM_white_logo_transparent_background.png">
+	<title>Admin Login - UniverseM</title>
+	<link rel="stylesheet" href="comm/css/main.css">
+	<link rel="stylesheet" href="comm/css/minimal.css">
+	<style>
+		body { 
+			background:#f5f5f5; 
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		}
+		.login-container { 
+			max-width:450px; 
+			margin:100px auto; 
+			padding:40px; 
+			background:#fff;
+			border-radius:8px;
+			box-shadow:0 4px 12px rgba(0,0,0,0.1);
+		}
+		.login-header {
+			text-align:center;
+			margin-bottom:40px;
+		}
+		.login-header h1 {
+			font-size:32px;
+			font-weight:700;
+			color:#000;
+			margin:0 0 10px 0;
+		}
+		.login-header img {
+			height:50px;
+			width:auto;
+			margin-bottom:20px;
+		}
+		.login-header p {
+			font-size:14px;
+			color:#666;
+			margin:0;
+		}
+		.login-form {
+			display:flex;
+			flex-direction:column;
+			gap:20px;
+		}
+		.form-group {
+			display:flex;
+			flex-direction:column;
+			gap:8px;
+		}
+		.form-group label {
+			font-size:14px;
+			font-weight:500;
+			color:#333;
+		}
+		.form-group input {
+			padding:12px 15px;
+			font-size:15px;
+			border:1px solid #ddd;
+			border-radius:4px;
+			background:#fff;
+			color:#000;
+			transition:border-color 0.3s;
+		}
+		.form-group input:focus {
+			outline:none;
+			border-color:#000;
+		}
+		.login-btn {
+			padding:14px 20px;
+			font-size:16px;
+			font-weight:600;
+			background:#000;
+			color:#fff;
+			border:none;
+			border-radius:4px;
+			cursor:pointer;
+			transition:background 0.3s;
+		}
+		.login-btn:hover {
+			background:#333;
+		}
+		.error-message {
+			display:none;
+			padding:12px;
+			background:#fee;
+			border:1px solid #fcc;
+			border-radius:4px;
+			color:#c33;
+			font-size:14px;
+			text-align:center;
+		}
+		.error-message.show {
+			display:block;
+		}
+		.back-link {
+			display:block;
+			text-align:center;
+			margin-top:30px;
+			color:#666;
+			text-decoration:none;
+			font-size:14px;
+		}
+		.back-link:hover {
+			color:#000;
+			text-decoration:underline;
+		}
+		@media screen and (max-width: 768px) {
+			.login-container {
+				margin:50px auto;
+				padding:30px 20px;
+			}
+			.login-header h1 {
+				font-size:28px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="login-container">
+		<div class="login-header">
+			<img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM">
+			<h1>Admin Login</h1>
+			<p>Please enter your credentials to access the admin panel</p>
+		</div>
+		
+		<div id="errorMessage" class="error-message"></div>
+		
+		<form id="loginForm" class="login-form">
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" required autocomplete="username">
+			</div>
+			
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" required autocomplete="current-password">
+			</div>
+			
+			<button type="submit" class="login-btn">Login</button>
+		</form>
+		
+		<a href="./index.html" class="back-link">← Back to Home</a>
+	</div>
+	
+	<script>
+		document.getElementById('loginForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			const username = document.getElementById('username').value.trim();
+			const password = document.getElementById('password').value;
+			const errorMessage = document.getElementById('errorMessage');
+			
+			// Clear previous error
+			errorMessage.classList.remove('show');
+			errorMessage.textContent = '';
+			
+			// Check credentials
+			if (username === 'merecinema' && password === 'merecine2!') {
+				// Successful login - redirect to messages page
+				window.location.href = './messages.html';
+			} else {
+				// Show error message
+				errorMessage.textContent = 'Invalid username or password. Please try again.';
+				errorMessage.classList.add('show');
+				
+				// Clear password field
+				document.getElementById('password').value = '';
+				document.getElementById('password').focus();
+			}
+		});
+		
+		// Focus on username field when page loads
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('username').focus();
+		});
+	</script>
+</body>
+</html>
+

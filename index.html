@@ -13,6 +13,30 @@
 	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="comm/js/main.js"></script>
 	<style>
+		/* Scroll offset for anchor links - prevent content from being hidden under fixed header */
+		html {
+			scroll-padding-top: 120px;
+			scroll-behavior: smooth;
+		}
+		#platform, #function, #demo, #charge, #contact {
+			scroll-margin-top: 120px;
+		}
+		
+		/* Hide visual section when scrolling to other sections */
+		#platform, #function, #demo, #charge, #contact {
+			position: relative;
+		}
+		
+		/* Mobile scroll offset */
+		@media screen and (max-width: 768px) {
+			html {
+				scroll-padding-top: 100px;
+			}
+			#platform, #function, #demo, #charge, #contact {
+				scroll-margin-top: 100px;
+			}
+		}
+		
 		/* Language Selector - Desktop */
 		#header .header_in .menu_wrap .lang-selector {
 			position: relative;
@@ -45,14 +69,14 @@
 		@media screen and (max-width: 768px) {
 			/* Header Menu - Mobile */
 			#header {
-				padding: 10px 0 !important;
+				padding: 5px 0 !important;
 			}
 			#header .header_in {
 				padding: 0 15px !important;
 				flex-direction: column !important;
 				align-items: center !important;
-				gap: 15px !important;
-				padding-top: 50px !important;
+				gap: 8px !important;
+				padding-top: 18px !important;
 				position: relative;
 			}
 			#header .header_in > div {
@@ -60,15 +84,41 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 15px;
+				gap: 8px;
 				position: relative;
 			}
 			#header .header_in > div > h1 {
-				position: static !important;
-				transform: none !important;
+				position: fixed !important;
+				top: 18px !important;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
 				margin: 0 !important;
 				order: 1;
-				z-index: 1;
+				z-index: 1000 !important;
+			}
+			#header .header_in > div > .menu_wrap.active ~ h1,
+			#header .header_in > div > h1 {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+			}
+			#header .header_in > div > h1 img {
+				height: 45px !important;
+			}
+			/* Remove underline below logo */
+			#header .header_in > div > h1 {
+				border-bottom: none !important;
+			}
+			#header .header_in > div > h1::after,
+			#header .header_in > div > h1::before {
+				display: none !important;
+			}
+			#header .header_in > div > h1 a::after,
+			#header .header_in > div > h1 a::before {
+				display: none !important;
+			}
+			#header .header_in > div > h1 a {
+				border-bottom: none !important;
 			}
 			
 			/* Hamburger Menu Button */
@@ -76,8 +126,8 @@
 				display: block !important;
 				order: 2;
 				position: absolute !important;
-				top: 10px !important;
-				right: 60px !important;
+				top: 8px !important;
+				right: 20px !important;
 			}
 			.mobile-menu-toggle.active span:nth-child(1) {
 				transform: rotate(45deg) translate(7px, 7px);
@@ -96,16 +146,36 @@
 				flex-direction: column !important;
 				gap: 0 !important;
 				width: 100%;
-				position: absolute;
-				top: 100%;
+				position: fixed;
+				top: 0;
 				left: 0;
-				background: rgba(0, 0, 0, 0.95);
-				padding: 20px 0;
+				right: 0;
+				bottom: 0;
+				background: #000 !important;
+				padding-top: 65px !important;
+				padding-bottom: 20px;
 				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-				z-index: 999;
+				z-index: 998;
+				overflow-y: auto;
+				backdrop-filter: blur(0);
+				justify-content: flex-start;
 			}
 			#header .header_in > div > .menu_wrap.active {
 				display: flex !important;
+			}
+			/* Hide desktop lang selector in mobile menu */
+			#header .header_in > div > .menu_wrap.active .lang-selector-desktop {
+				display: none !important;
+			}
+			/* Show mobile lang selector after Contact menu item */
+			#header .header_in > div > .menu_wrap.active .lang-menu-item {
+				display: block !important;
+			}
+			#header .header_in > div > .menu_wrap.active .lang-selector-mobile-menu {
+				display: flex !important;
+			}
+			#header .header_in > div > .menu_wrap.active .lang-selector-mobile-menu span {
+				font-size: 16px !important;
 			}
 			
 			#header .tab_swiper {
@@ -133,6 +203,10 @@
 				width: 100%;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 			}
+			#header .tab_swiper .menu li.lang-menu-item {
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 10px 0;
+			}
 			#header .tab_swiper .menu li:last-child {
 				border-bottom: none;
 			}
@@ -149,12 +223,30 @@
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
 			}
-			/* Mobile: Hide desktop language selector, show mobile version */
+			/* Mobile: Hide desktop language selector, hide mobile version from top */
 			.lang-selector-desktop {
 				display: none !important;
 			}
 			.lang-selector-mobile {
-				display: inline-block !important;
+				display: none !important;
+			}
+			
+			/* Language selector in mobile menu - show at bottom when menu is open */
+			#header .header_in > div > .menu_wrap.active .lang-selector-mobile {
+				display: inline-flex !important;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
+				width: auto !important;
+				margin: 20px auto 10px !important;
+				background: rgba(255, 255, 255, 0.1) !important;
+				padding: 10px 15px !important;
+				border-radius: 8px !important;
+				justify-content: center !important;
+				align-items: center !important;
+			}
+			#header .header_in > div > .menu_wrap.active .lang-selector-mobile span {
+				font-size: 14px !important;
 			}
 			
 			/* Key Features - Mobile Grid */
@@ -172,23 +264,26 @@
 			/* Visual Section - Mobile */
 			#visual {
 				height: auto !important;
-				min-height: 600px !important;
+				min-height: 500px !important;
 			}
 			#visual .visual_in .roll {
-				padding-top: 10vh !important;
+				padding-top: 5vh !important;
 			}
 			#visual .visual_in .roll .v_cont {
-				padding: 20px !important;
+				padding: 15px !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea h2 {
-				font-size: 2.5rem !important;
+				font-size: 2.2rem !important;
 				letter-spacing: -2px !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea h3 {
-				font-size: 1.2rem !important;
+				font-size: 1.1rem !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea .mTxt {
-				font-size: 1rem !important;
+				font-size: 0.95rem !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .btnArea {
+				padding: 40px 0 0 !important;
 			}
 			
 			/* Demo Section - Mobile */
@@ -229,40 +324,76 @@
 		}
 		
 		@media screen and (max-width: 480px) {
+			#header {
+				padding: 3px 0 !important;
+			}
 			#header .header_in {
 				padding: 0 10px !important;
-				gap: 12px !important;
-				padding-top: 45px !important;
+				gap: 6px !important;
+				padding-top: 14px !important;
+			}
+			#header .header_in > div > h1 {
+				top: 14px !important;
+			}
+			#header .header_in > div > .menu_wrap {
+				padding-top: 60px !important;
 			}
 			.mobile-menu-toggle {
-				right: 50px !important;
+				right: 15px !important;
+				top: 5px !important;
+				padding: 6px !important;
+				width: 28px !important;
+				height: 28px !important;
+			}
+			.mobile-menu-toggle span {
+				width: 20px !important;
+				height: 0.6px !important;
+				margin: 5px 0 !important;
 			}
 			#header .header_in .lang-selector {
-				top: 8px !important;
-				right: 8px !important;
-				padding: 5px 8px !important;
+				top: 5px !important;
+				right: 5px !important;
+				padding: 4px 6px !important;
 			}
 			#header .header_in .lang-selector span {
-				font-size: 12px !important;
+				font-size: 11px !important;
 			}
 			#header .header_in .lang-selector select {
-				font-size: 12px !important;
-				padding: 4px 20px 4px 4px !important;
+				font-size: 11px !important;
+				padding: 4px 18px 4px 4px !important;
 			}
 			#header .header_in > div {
-				gap: 12px;
+				gap: 6px;
 			}
 			#header .header_in > div > h1 {
 				position: static !important;
 				transform: none !important;
+				margin-bottom: 0 !important;
 			}
 			#header .header_in > div > h1 img {
-				height: 40px !important;
+				height: 35px !important;
+			}
+			#visual {
+				min-height: 450px !important;
+			}
+			#visual .visual_in .roll {
+				padding-top: 3vh !important;
+			}
+			#visual .visual_in .roll .v_cont {
+				padding: 12px !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea h2 {
-				font-size: 2rem !important;
+				font-size: 1.8rem !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea h3 {
+				font-size: 1rem !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .mTxt {
+				font-size: 0.9rem !important;
+				padding: 15px 0 0 !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea .btnArea {
+				padding: 30px 0 0 !important;
 				flex-direction: column !important;
 				gap: 10px !important;
 				width: 100%;
@@ -308,10 +439,10 @@
 					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
-					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="display:none; position:absolute; top:15px; right:60px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
-						<span style="display:block; width:24px; height:2px; background:#fff; margin:5px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:2px; background:#fff; margin:5px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:2px; background:#fff; margin:5px 0; transition:all 0.3s;"></span>
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="display:none; position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
@@ -321,6 +452,33 @@
 								<li class="swiper-slide"><a href="#demo">Free trial</a></li>
 								<li class="swiper-slide"><a href="#charge">Pricing</a></li>
 								<li class="swiper-slide"><a href="#contact">Contact</a></li>
+								<!-- Language Selector for Mobile Menu - After Contact -->
+								<li class="swiper-slide lang-menu-item" style="display:none;">
+									<div class="lang-selector lang-selector-mobile-menu" style="display:flex; position:relative; justify-content:flex-start; align-items:center; gap:3px; padding:15px 20px;">
+										<span style="font-size:16px; color:#fff; z-index:1;">文A</span>
+										<select id="langSelectMobileMenu" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;">
+											<option value="en">English</option>
+											<option value="ko">한국어</option>
+											<option value="ja">日本語</option>
+											<option value="zh">中文</option>
+											<option value="fr">Français</option>
+											<option value="es">Español (Coming soon)</option>
+											<option value="de">Deutsch (Coming soon)</option>
+											<option value="pt">Português (Coming soon)</option>
+											<option value="ru">Русский (Coming soon)</option>
+											<option value="it">Italiano (Coming soon)</option>
+											<option value="ar">العربية (Coming soon)</option>
+											<option value="hi">हिन्दी (Coming soon)</option>
+											<option value="th">ไทย (Coming soon)</option>
+											<option value="vi">Tiếng Việt (Coming soon)</option>
+											<option value="id">Bahasa Indonesia (Coming soon)</option>
+											<option value="nl">Nederlands (Coming soon)</option>
+											<option value="sv">Svenska (Coming soon)</option>
+											<option value="pl">Polski (Coming soon)</option>
+											<option value="tr">Türkçe (Coming soon)</option>
+										</select>
+									</div>
+								</li>
 						</ul>
 						</div>
 						<div class="lang-selector lang-selector-desktop" style="position:relative; display:flex; align-items:center; gap:3px;">
@@ -449,12 +607,12 @@
 				<div class="trial-card user" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px; min-height:200px; background:linear-gradient(180deg, #f5efe6 0%, #ffffff 100%);">
 					<div class="trial-title" style="font-size:22px; font-weight:600; color:#000; margin-bottom:10px;">User Free trial</div>
 					<div class="trial-desc" style="font-size:15px; color:#444; line-height:1.6; margin-bottom:20px;">Experience the user site on any device<br>and start streaming immediately.</div>
-					<a href="https://demo.ott.malgnsoft.com/main/index.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#000; color:#fff; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">User Free trial</a>
+					<a href="https://www.malgnsoft.com/cloud/demo_ott.jsp?type=user" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#000; color:#fff; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">User Free trial</a>
 				</div>
 				<div class="trial-card admin" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px; min-height:200px; background:linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);">
 					<div class="trial-title" style="font-size:22px; font-weight:600; color:#000; margin-bottom:10px;">Admin Free trial</div>
 					<div class="trial-desc" style="font-size:15px; color:#444; line-height:1.6; margin-bottom:20px;">Experience the admin system with extensive view<br>and real-time management.</div>
-					<a href="https://ottcloud.malgnsoft.com/sysop/main/index.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#fff; color:#000; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">Admin Free trial</a>
+					<a href="https://www.malgnsoft.com/cloud/demo_ott.jsp?type=admin" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#fff; color:#000; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">Admin Free trial</a>
 				</div>
 			</div>
 			</div>
@@ -647,7 +805,7 @@
 		<div id="footer">
 			<div class="w1350">
 				<div class="foot_bottom" style="display:flex; justify-content:center; align-items:baseline; gap:20px; flex-wrap:wrap; font-size:13px;">
-					<span style="color:#999;">© MERECINEMA, INC. ALL RIGHTS RESERVED.</span>
+					<span style="color:#999;"><a href="./admin-login.html" style="color:#999; text-decoration:none;">© MERECINEMA, INC. ALL RIGHTS RESERVED.</a></span>
 					<a href="./privacy-policy-en.html" style="color:#999;">Privacy Policy</a>
 					<a href="./terms-en.html" style="color:#999;">Terms of Use</a>
 					<a href="./sales-refunds-en.html" style="color:#999;">Sales and Refunds</a>
@@ -1196,8 +1354,12 @@
 				// For other languages, show coming soon message
 				alert('This language is coming soon!');
 				selectedLang = 'en'; // Reset to English
-				document.getElementById('langSelect').value = 'en';
-				document.getElementById('langSelectMobile').value = 'en';
+				const langSelectEl = document.getElementById('langSelect');
+				const langSelectMobileEl = document.getElementById('langSelectMobile');
+				const langSelectMobileMenuEl = document.getElementById('langSelectMobileMenu');
+				if (langSelectEl) langSelectEl.value = 'en';
+				if (langSelectMobileEl) langSelectMobileEl.value = 'en';
+				if (langSelectMobileMenuEl) langSelectMobileMenuEl.value = 'en';
 				applyTranslation('en');
 			}
 		}
@@ -1208,28 +1370,84 @@
 			langSelect.addEventListener('change', function(e) {
 				const selectedLang = e.target.value;
 				const mobileSelect = document.getElementById('langSelectMobile');
+				const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
+				if (mobileSelect) {
+					mobileSelect.value = selectedLang;
+				}
+				if (mobileMenuSelect) {
+					mobileMenuSelect.value = selectedLang;
+				}
+				handleLanguageChange(selectedLang);
+			});
+		}
+		
+		// Mobile language selector (top right)
+		const langSelectMobile = document.getElementById('langSelectMobile');
+		if (langSelectMobile) {
+			langSelectMobile.addEventListener('change', function(e) {
+				const selectedLang = e.target.value;
+				const desktopSelect = document.getElementById('langSelect');
+				const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
+				if (desktopSelect) {
+					desktopSelect.value = selectedLang;
+				}
+				if (mobileMenuSelect) {
+					mobileMenuSelect.value = selectedLang;
+				}
+				handleLanguageChange(selectedLang);
+			});
+		}
+		
+		// Mobile menu language selector (bottom of menu)
+		const langSelectMobileMenu = document.getElementById('langSelectMobileMenu');
+		if (langSelectMobileMenu) {
+			langSelectMobileMenu.addEventListener('change', function(e) {
+				const selectedLang = e.target.value;
+				const desktopSelect = document.getElementById('langSelect');
+				const mobileSelect = document.getElementById('langSelectMobile');
+				if (desktopSelect) {
+					desktopSelect.value = selectedLang;
+				}
 				if (mobileSelect) {
 					mobileSelect.value = selectedLang;
 				}
 				handleLanguageChange(selectedLang);
 			});
 		}
-		
-		// Mobile language selector
-		const langSelectMobile = document.getElementById('langSelectMobile');
-		if (langSelectMobile) {
-			langSelectMobile.addEventListener('change', function(e) {
-				const selectedLang = e.target.value;
-				const desktopSelect = document.getElementById('langSelect');
-				if (desktopSelect) {
-					desktopSelect.value = selectedLang;
-				}
-				handleLanguageChange(selectedLang);
-			});
-		}
 
-		// Mobile menu toggle functionality
+		// Smooth scroll to section with proper offset - hide visual section
+		function scrollToSection(targetId) {
+			const targetElement = document.querySelector(targetId);
+			
+			if (targetElement && targetId !== '#visual' && targetId !== '#top') {
+				const headerHeight = 100; // 헤더 높이
+				// 요소의 절대 위치 계산 (페이지 상단 기준)
+				const elementTop = targetElement.offsetTop;
+				// 헤더 높이만큼 여백 추가하여 해당 섹션 시작 부분이 헤더 바로 아래 보이도록
+				const targetPosition = elementTop - headerHeight;
+				
+				window.scrollTo({
+					top: targetPosition,
+					behavior: 'smooth'
+				});
+			}
+		}
+		
+		// Handle anchor link clicks for menu navigation
 		document.addEventListener('DOMContentLoaded', function() {
+			// 모든 앵커 링크에 클릭 이벤트 추가
+			const anchorLinks = document.querySelectorAll('a[href^="#"]');
+			anchorLinks.forEach(function(link) {
+				link.addEventListener('click', function(e) {
+					const href = this.getAttribute('href');
+					if (href && href !== '#' && href !== '#top') {
+						e.preventDefault();
+						scrollToSection(href);
+					}
+				});
+			});
+			
+			// Mobile menu toggle functionality
 			const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 			const menuWrap = document.querySelector('#header .menu_wrap');
 			
@@ -1263,8 +1481,10 @@
 			const lang = localStorage.getItem('preferredLanguage') || 'en';
 			const desktopSelect = document.getElementById('langSelect');
 			const mobileSelect = document.getElementById('langSelectMobile');
+			const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
 			if (desktopSelect) desktopSelect.value = lang;
 			if (mobileSelect) mobileSelect.value = lang;
+			if (mobileMenuSelect) mobileMenuSelect.value = lang;
 			if (['ko','ja','zh','fr'].includes(lang)) applyTranslation(lang);
 		});
 
