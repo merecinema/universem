@@ -180,6 +180,8 @@
 			}
 			#header .header_in > div > h1 img {
 				height: 45px !important;
+				opacity: 1 !important;
+				visibility: visible !important;
 			}
 			/* Remove underline below logo */
 			#header .header_in > div > h1 {
@@ -204,6 +206,9 @@
 				position: absolute !important;
 				top: 8px !important;
 				right: 20px !important;
+				z-index: 1001 !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			.mobile-menu-toggle.active span:nth-child(1) {
 				transform: rotate(45deg) translate(7px, 7px);
@@ -231,13 +236,15 @@
 				padding-top: 45px !important;
 				padding-bottom: 20px;
 				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-				z-index: 998;
+				z-index: 9999 !important;
 				overflow-y: auto;
 				backdrop-filter: blur(0);
 				justify-content: flex-start;
 			}
 			#header .header_in > div > .menu_wrap.active {
 				display: flex !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			/* Hide desktop lang selector in mobile menu */
 			#header .header_in > div > .menu_wrap.active .lang-selector-desktop {
@@ -292,6 +299,7 @@
 			#header .tab_swiper .menu li.lang-menu-item .lang-selector-mobile-menu span {
 				display: inline-block !important;
 				vertical-align: middle !important;
+				color: #fff !important;
 			}
 			#header .tab_swiper .menu li:last-child {
 				border-bottom: none;
@@ -300,11 +308,13 @@
 				font-size: 16px !important;
 				white-space: nowrap;
 				padding: 15px 20px !important;
-				display: block;
+				display: block !important;
 				line-height: 1.5;
 				width: 100%;
 				text-align: left;
 				color: #fff !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
@@ -560,11 +570,17 @@
 				padding: 6px !important;
 				width: 28px !important;
 				height: 28px !important;
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				z-index: 1001 !important;
 			}
 			.mobile-menu-toggle span {
 				width: 20px !important;
 				height: 0.6px !important;
 				margin: 5px 0 !important;
+				opacity: 1 !important;
+				visibility: visible !important;
 			}
 			#header .header_in .lang-selector {
 				top: 5px !important;
@@ -590,9 +606,12 @@
 				z-index: 1000 !important;
 				opacity: 1 !important;
 				visibility: visible !important;
+				display: block !important;
 			}
 			#header .header_in > div > h1 img {
 				height: 35px !important;
+				opacity: 1 !important;
+				visibility: visible !important;
 			}
 			#visual {
 				min-height: 450px !important;
@@ -805,10 +824,10 @@
 					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
-					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="display:none; position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
