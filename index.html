@@ -106,6 +106,36 @@
 				width: 100% !important;
 				max-width: 100% !important;
 			}
+			/* Center all containers on mobile */
+			.w1350 {
+				margin: 0 auto !important;
+				padding-left: 20px !important;
+				padding-right: 20px !important;
+				box-sizing: border-box !important;
+			}
+			#visual .visual_in,
+			#platform .w1350,
+			#function .w1350,
+			#demo .w1350,
+			#charge .w1350,
+			#contact .w1350,
+			#footer .w1350 {
+				margin-left: auto !important;
+				margin-right: auto !important;
+				padding-left: 20px !important;
+				padding-right: 20px !important;
+				box-sizing: border-box !important;
+			}
+			.com_pad {
+				display: block !important;
+				width: 100% !important;
+				margin: 0 auto !important;
+			}
+			.com_pad > * {
+				width: 100% !important;
+				max-width: 100% !important;
+				box-sizing: border-box !important;
+			}
 			/* Header Menu - Mobile */
 			#header {
 				padding: 5px 0 !important;
@@ -194,7 +224,7 @@
 				right: 0;
 				bottom: 0;
 				background: #000 !important;
-				padding-top: 55px !important;
+				padding-top: 45px !important;
 				padding-bottom: 20px;
 				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 				z-index: 998;
@@ -251,6 +281,13 @@
 			}
 			#header .tab_swiper .menu li.lang-menu-item .lang-selector-mobile-menu {
 				padding: 15px 20px !important;
+				width: 100% !important;
+				text-align: left !important;
+				margin: 0 !important;
+			}
+			#header .tab_swiper .menu li.lang-menu-item .lang-selector-mobile-menu span {
+				display: inline-block !important;
+				vertical-align: middle !important;
 			}
 			#header .tab_swiper .menu li:last-child {
 				border-bottom: none;
@@ -364,11 +401,40 @@
 			
 			/* Common padding adjustment */
 			.com_pad {
-				padding: 60px 0 !important;
+				padding: 60px 20px !important;
+				margin: 0 auto !important;
+				box-sizing: border-box !important;
+			}
+			/* Ensure text content is centered */
+			.com_pad h2,
+			.com_pad h3,
+			.com_pad p,
+			.com_pad .txtArea,
+			.com_pad .btnArea {
+				margin-left: auto !important;
+				margin-right: auto !important;
 			}
 		}
 		
 		@media screen and (max-width: 480px) {
+			/* Center all containers on small mobile */
+			.w1350 {
+				padding-left: 15px !important;
+				padding-right: 15px !important;
+			}
+			#visual .visual_in,
+			#platform .w1350,
+			#function .w1350,
+			#demo .w1350,
+			#charge .w1350,
+			#contact .w1350,
+			#footer .w1350 {
+				padding-left: 15px !important;
+				padding-right: 15px !important;
+			}
+			.com_pad {
+				padding: 60px 15px !important;
+			}
 			#header {
 				padding: 3px 0 !important;
 			}
@@ -381,7 +447,7 @@
 				top: 14px !important;
 			}
 			#header .header_in > div > .menu_wrap {
-				padding-top: 50px !important;
+				padding-top: 40px !important;
 			}
 			.mobile-menu-toggle {
 				right: 15px !important;
