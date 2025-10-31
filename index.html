@@ -10,6 +10,148 @@
 	<link rel="stylesheet" href="comm/css/minimal.css">
 	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="comm/js/main.js"></script>
+	<style>
+		/* Mobile Responsive Styles */
+		@media screen and (max-width: 768px) {
+			/* Header Menu - Mobile */
+			#header {
+				padding: 15px 0 !important;
+			}
+			#header .header_in {
+				padding: 0 20px !important;
+			}
+			#header .menu_wrap {
+				flex-direction: column !important;
+				gap: 15px !important;
+				width: 100%;
+			}
+			#header .tab_swiper {
+				margin-left: 0 !important;
+				width: 100%;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+				padding-bottom: 5px;
+				scrollbar-width: none; /* Firefox */
+				-ms-overflow-style: none; /* IE and Edge */
+			}
+			#header .tab_swiper::-webkit-scrollbar {
+				display: none; /* Chrome, Safari, Opera */
+			}
+			#header .tab_swiper .menu {
+				display: flex !important;
+				flex-wrap: nowrap;
+				white-space: nowrap;
+				padding: 10px 0;
+				gap: 0;
+			}
+			#header .tab_swiper .menu li {
+				flex-shrink: 0;
+				padding: 0 15px;
+			}
+			#header .tab_swiper .menu li a {
+				font-size: 14px;
+				white-space: nowrap;
+			}
+			#header .lang-selector {
+				width: 100%;
+				justify-content: center;
+			}
+			
+			/* Key Features - Mobile Grid */
+			#function .function_list {
+				grid-template-columns: 1fr !important;
+				column-gap: 30px !important;
+				row-gap: 40px !important;
+				margin-top: 40px !important;
+				padding: 0 20px;
+			}
+			#function .w1350 {
+				padding: 0 20px;
+			}
+			
+			/* Visual Section - Mobile */
+			#visual {
+				height: auto !important;
+				min-height: 600px !important;
+			}
+			#visual .visual_in .roll {
+				padding-top: 10vh !important;
+			}
+			#visual .visual_in .roll .v_cont {
+				padding: 20px !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea h2 {
+				font-size: 2.5rem !important;
+				letter-spacing: -2px !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea h3 {
+				font-size: 1.2rem !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .mTxt {
+				font-size: 1rem !important;
+			}
+			
+			/* Demo Section - Mobile */
+			#demo .trial-cards {
+				flex-direction: column !important;
+			}
+			#demo .trial-card {
+				width: 100% !important;
+			}
+			
+			/* Pricing Section - Mobile */
+			#charge .charge_style {
+				flex-direction: column !important;
+				flex-wrap: wrap !important;
+			}
+			#charge .charge_style .box {
+				width: 100% !important;
+				margin: 0 0 30px 0 !important;
+			}
+			
+			/* Contact Form - Mobile */
+			#contact .contact_input {
+				flex-direction: column !important;
+			}
+			#contact .w1350 {
+				padding: 0 20px;
+			}
+			
+			/* Platform Section - Mobile */
+			#platform .w1350 {
+				padding: 0 20px;
+			}
+			
+			/* Common padding adjustment */
+			.com_pad {
+				padding: 60px 0 !important;
+			}
+		}
+		
+		@media screen and (max-width: 480px) {
+			#header .header_in h1 img {
+				height: 45px !important;
+			}
+			#header .tab_swiper .menu li {
+				padding: 0 10px;
+			}
+			#header .tab_swiper .menu li a {
+				font-size: 13px;
+			}
+			#visual .visual_in .roll .v_cont .txtArea h2 {
+				font-size: 2rem !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .btnArea {
+				flex-direction: column !important;
+				gap: 10px !important;
+				width: 100%;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .btnArea .moreBtn {
+				width: 100%;
+				margin: 0 !important;
+			}
+		}
+	</style>
 </head>
 <body>
 	<div id="wrap">
@@ -19,8 +161,8 @@
 				<h1 style="margin:0;">
 					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniversM" style="height:60px; width:auto;"></a>
 			</h1>
-					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px;">
-					<div class="tab_swiper in_Layer" style="margin-left:4.2cm;">
+					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
+					<div class="tab_swiper in_Layer" style="margin-left:0;">
 						<ul class="menu swiper-wrapper">
 								<li class="swiper-slide active"><a href="#platform">Platform</a></li>
 								<li class="swiper-slide"><a href="#function">Features</a></li>
@@ -300,6 +442,7 @@
 				<div class="titleArea">
 					<h3 class="mTit">Contact</h3>
 					<p class="mTxt" style="color:#000;">We would love to hear from you.</p>
+					<p style="margin-top:15px;"><a href="messages.html" style="color:#000; text-decoration:underline; font-size:14px;">View Messages</a></p>
 				</div>
 				<div class="contact_form">
 					<form name="form1" method="post" action="../www.malgnsoft.com/cloud/inquiry_ifrm.jsp" target="ifrm">
@@ -337,6 +480,10 @@
 					</div>
 					<div class="contact_btn">
 						<button type="submit" class="moreBtn" style="background:#000 !important; color:#fff !important; border:1px solid #000 !important;"><font style="color:#fff !important;">Send</font></button>
+					</div>
+					<!-- Success message -->
+					<div id="successMessage" style="display:none; margin-top:20px; color:#000; font-size:15px; line-height:1.6; text-align:center;">
+						Thank you for your message. It has been sent.
 					</div>
 					</form>
 					<iframe src="about:blank" name="ifrm" width="0" height="0"></iframe>
@@ -953,17 +1100,43 @@
 				return false;
 			}
 
-			// If all validations pass, send email via mailto
-			const subject = encodeURIComponent('Cloud OTT Contact');
-			const body = encodeURIComponent(
-				`Company Name: ${company}\n` +
-				`Name: ${name}\n` +
-				`Phone: ${phone}\n` +
-				`Email: ${email}\n\n` +
-				`Message:\n${message}`
-			);
-			const mailtoLink = `mailto:minho.ha@merecinema.net?subject=${subject}&body=${body}`;
-			window.location.href = mailtoLink;
+			// If all validations pass, save message to localStorage
+			const messageData = {
+				id: Date.now(),
+				company: company,
+				name: name,
+				phone: phone,
+				email: email,
+				message: message,
+				timestamp: new Date().toISOString(),
+				date: new Date().toLocaleString()
+			};
+			
+			// Get existing messages from localStorage
+			let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+			messages.unshift(messageData); // Add new message to beginning
+			
+			// Save to localStorage (keep last 100 messages)
+			if (messages.length > 100) {
+				messages = messages.slice(0, 100);
+			}
+			localStorage.setItem('contactMessages', JSON.stringify(messages));
+			
+			// Show success message
+			const successMessage = document.getElementById('successMessage');
+			if (successMessage) {
+				successMessage.style.display = 'block';
+				// Scroll to success message
+				successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+				
+				// Hide message after 7 seconds
+				setTimeout(function() {
+					successMessage.style.display = 'none';
+				}, 7000);
+			}
+			
+			// Reset form
+			e.target.reset();
 		});
 	</script>
 </body>
