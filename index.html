@@ -103,6 +103,16 @@
 				visibility: hidden !important;
 				opacity: 0 !important;
 			}
+			/* PC 화면에서 언어선택 아이콘 원래 위치 유지 */
+			#header .header_in .menu_wrap .lang-selector,
+			#header .header_in .menu_wrap .lang-selector.lang-selector-desktop {
+				padding-left: 0 !important;
+				padding: 5px !important; /* PC 기본 패딩 */
+			}
+			#header .header_in .menu_wrap .lang-selector select {
+				left: 0 !important;
+				width: 100% !important;
+			}
 		}
 		
 		/* Mobile Responsive Styles - Galaxy Z Fold 6 and similar foldables */
@@ -175,7 +185,7 @@
 				flex-direction: column !important;
 				align-items: center !important;
 				gap: 8px !important;
-				padding-top: 18px !important;
+				padding-top: 9px !important; /* 18px의 50% = 9px */
 				position: relative;
 			}
 			#header .header_in > div {
@@ -188,7 +198,7 @@
 			}
 			#header .header_in > div > h1 {
 				position: fixed !important;
-				top: 18px !important;
+				top: 9px !important; /* 18px의 50% = 9px */
 				left: 50% !important;
 				transform: translateX(-50%) !important;
 				margin: 0 !important;
@@ -209,7 +219,7 @@
 				visibility: visible !important;
 				opacity: 1 !important;
 				position: fixed !important;
-				top: 18px !important;
+				top: 9px !important; /* 18px의 50% = 9px */
 				left: 50% !important;
 				transform: translateX(-50%) !important;
 				z-index: 10000 !important;
@@ -312,6 +322,36 @@
 				border-bottom: none !important;
 			}
 			
+			/* 모바일에서 햄버거 메뉴 버튼 강제 표시 */
+			html body #wrap #header .header_in > div > .mobile-menu-toggle,
+			html body #wrap #header .header_in > div > #mobileMenuToggle,
+			html body #header .header_in > div > .mobile-menu-toggle,
+			html body #header .header_in > div > #mobileMenuToggle,
+			body #wrap #header .header_in > div > .mobile-menu-toggle,
+			body #wrap #header .header_in > div > #mobileMenuToggle,
+			body #header .header_in > div > .mobile-menu-toggle,
+			body #header .header_in > div > #mobileMenuToggle,
+			#wrap #header .header_in > div > .mobile-menu-toggle,
+			#wrap #header .header_in > div > #mobileMenuToggle,
+			#header .header_in > div > .mobile-menu-toggle,
+			#header .header_in > div > #mobileMenuToggle,
+			#header .mobile-menu-toggle,
+			.mobile-menu-toggle,
+			#mobileMenuToggle {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				position: fixed !important;
+				top: 15px !important;
+				right: 20px !important;
+				z-index: 10001 !important;
+				background: transparent !important;
+				border: none !important;
+				cursor: pointer !important;
+				padding: 8px !important;
+				width: 32px !important;
+				height: 32px !important;
+			}
 			/* Hamburger Menu Button - Mobile Only - Override any external CSS with highest specificity */
 			html body #wrap #header #mobileMenuToggle,
 			html body #wrap #header .mobile-menu-toggle,
@@ -344,45 +384,94 @@
 				width: 32px !important;
 				height: 32px !important;
 			}
+			/* 햄버거 메뉴 라인 - 단일 규칙으로 통일 (중복 제거) */
+			html body #wrap #header .mobile-menu-toggle span,
+			html body #header .mobile-menu-toggle span,
+			html body .mobile-menu-toggle span,
+			body #wrap #header .mobile-menu-toggle span,
+			body #header .mobile-menu-toggle span,
+			body .mobile-menu-toggle span,
+			#wrap #header .mobile-menu-toggle span,
 			#header .mobile-menu-toggle span,
 			.mobile-menu-toggle span,
+			html body #wrap #header #mobileMenuToggle span,
+			html body #header #mobileMenuToggle span,
+			html body #mobileMenuToggle span,
+			body #wrap #header #mobileMenuToggle span,
+			body #header #mobileMenuToggle span,
+			body #mobileMenuToggle span,
+			#wrap #header #mobileMenuToggle span,
+			#header #mobileMenuToggle span,
 			#mobileMenuToggle span {
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
 				background: #fff !important;
 				width: 24px !important;
-				height: 1.5px !important; /* 모든 선을 SpaceX 스타일처럼 얇게 (3px → 1.5px) */
-				margin: 7px 0 !important; /* 간격 조정 (6px → 7px) */
+				height: 1.5px !important; /* 모든 선 통일: 1.5px */
+				margin: 7px 0 !important;
 				transition: all 0.3s !important;
 			}
-			/* 모든 span (1, 2, 3번째)에 동일한 높이 강제 적용 */
-			#header .mobile-menu-toggle span:nth-child(1),
-			#header .mobile-menu-toggle span:nth-child(2),
-			#header .mobile-menu-toggle span:nth-child(3),
-			.mobile-menu-toggle span:nth-child(1),
-			.mobile-menu-toggle span:nth-child(2),
-			.mobile-menu-toggle span:nth-child(3),
-			#mobileMenuToggle span:nth-child(1),
-			#mobileMenuToggle span:nth-child(2),
-			#mobileMenuToggle span:nth-child(3) {
-				height: 1.5px !important; /* 모든 선 동일하게 얇게 */
-			}
-			/* 햄버거 메뉴 active 상태에서 X로 변환 - 모든 선을 동일하게 얇게 유지 */
+			/* active 상태 (X로 변환) - 높이는 변경하지 않고 transform만 적용 */
+			html body #wrap #header .mobile-menu-toggle.active span:nth-child(1),
+			html body #header .mobile-menu-toggle.active span:nth-child(1),
+			html body .mobile-menu-toggle.active span:nth-child(1),
+			body #wrap #header .mobile-menu-toggle.active span:nth-child(1),
+			body #header .mobile-menu-toggle.active span:nth-child(1),
+			body .mobile-menu-toggle.active span:nth-child(1),
+			#wrap #header .mobile-menu-toggle.active span:nth-child(1),
+			#header .mobile-menu-toggle.active span:nth-child(1),
 			.mobile-menu-toggle.active span:nth-child(1),
+			html body #wrap #header #mobileMenuToggle.active span:nth-child(1),
+			html body #header #mobileMenuToggle.active span:nth-child(1),
+			html body #mobileMenuToggle.active span:nth-child(1),
+			body #wrap #header #mobileMenuToggle.active span:nth-child(1),
+			body #header #mobileMenuToggle.active span:nth-child(1),
+			body #mobileMenuToggle.active span:nth-child(1),
+			#wrap #header #mobileMenuToggle.active span:nth-child(1),
+			#header #mobileMenuToggle.active span:nth-child(1),
 			#mobileMenuToggle.active span:nth-child(1) {
 				transform: rotate(45deg) translate(5px, 5px) !important;
-				height: 1.5px !important; /* X 상태에서도 얇게 유지 */
 			}
+			html body #wrap #header .mobile-menu-toggle.active span:nth-child(2),
+			html body #header .mobile-menu-toggle.active span:nth-child(2),
+			html body .mobile-menu-toggle.active span:nth-child(2),
+			body #wrap #header .mobile-menu-toggle.active span:nth-child(2),
+			body #header .mobile-menu-toggle.active span:nth-child(2),
+			body .mobile-menu-toggle.active span:nth-child(2),
+			#wrap #header .mobile-menu-toggle.active span:nth-child(2),
+			#header .mobile-menu-toggle.active span:nth-child(2),
 			.mobile-menu-toggle.active span:nth-child(2),
+			html body #wrap #header #mobileMenuToggle.active span:nth-child(2),
+			html body #header #mobileMenuToggle.active span:nth-child(2),
+			html body #mobileMenuToggle.active span:nth-child(2),
+			body #wrap #header #mobileMenuToggle.active span:nth-child(2),
+			body #header #mobileMenuToggle.active span:nth-child(2),
+			body #mobileMenuToggle.active span:nth-child(2),
+			#wrap #header #mobileMenuToggle.active span:nth-child(2),
+			#header #mobileMenuToggle.active span:nth-child(2),
 			#mobileMenuToggle.active span:nth-child(2) {
 				opacity: 0 !important;
-				height: 1.5px !important; /* 가운데 선도 얇게 */
 			}
+			html body #wrap #header .mobile-menu-toggle.active span:nth-child(3),
+			html body #header .mobile-menu-toggle.active span:nth-child(3),
+			html body .mobile-menu-toggle.active span:nth-child(3),
+			body #wrap #header .mobile-menu-toggle.active span:nth-child(3),
+			body #header .mobile-menu-toggle.active span:nth-child(3),
+			body .mobile-menu-toggle.active span:nth-child(3),
+			#wrap #header .mobile-menu-toggle.active span:nth-child(3),
+			#header .mobile-menu-toggle.active span:nth-child(3),
 			.mobile-menu-toggle.active span:nth-child(3),
+			html body #wrap #header #mobileMenuToggle.active span:nth-child(3),
+			html body #header #mobileMenuToggle.active span:nth-child(3),
+			html body #mobileMenuToggle.active span:nth-child(3),
+			body #wrap #header #mobileMenuToggle.active span:nth-child(3),
+			body #header #mobileMenuToggle.active span:nth-child(3),
+			body #mobileMenuToggle.active span:nth-child(3),
+			#wrap #header #mobileMenuToggle.active span:nth-child(3),
+			#header #mobileMenuToggle.active span:nth-child(3),
 			#mobileMenuToggle.active span:nth-child(3) {
 				transform: rotate(-45deg) translate(5px, -5px) !important;
-				height: 1.5px !important; /* X 상태에서도 얇게 유지 */
 			}
 			
 			/* Hide desktop menu by default on mobile - show only hamburger */
@@ -425,34 +514,113 @@
 				padding-bottom: 20px !important;
 				margin-top: 0 !important; /* 상단 마진 제거 */
 			}
-			/* 메뉴 첫 번째 항목의 상단 마진/패딩 제거 */
+			/* 로고 아래 여백 50% 더 줄이기 - 로고 높이 60px 기준으로 로고 바로 아래 메뉴 시작 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a {
+				padding-top: 15px !important;
+				margin-top: 0 !important;
+			}
+			/* 메뉴 첫 번째 항목의 상단 마진/패딩 완전 제거 - 최고 특이성 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#header .header_in > div > .menu_wrap.active .tab_swiper {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
 			#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
 				margin-top: 0 !important;
 				padding-top: 0 !important;
 			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child,
 			#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child {
 				margin-top: 0 !important;
 				padding-top: 0 !important;
 			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a,
 			#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a {
-				padding-top: 0 !important; /* 첫 번째 메뉴 항목 상단 패딩 제거 */
+				padding-top: 10.5px !important; /* 15px의 70% = 10.5px (30% 감소) */
+				margin-top: 0 !important;
+				padding-bottom: 10.5px !important; /* 상하 동일하게 */
+			}
+			/* menu_wrap 자체의 상단 여백 완전 제거 */
+			html body #wrap #header .header_in > div > .menu_wrap.active {
+				padding-top: 0 !important;
 				margin-top: 0 !important;
 			}
 			/* Hide desktop menu on mobile - show only when hamburger is active */
-			#header .header_in > div > .menu_wrap .tab_swiper,
-			#header .header_in > div > .menu_wrap .tab_swiper .menu,
-			#header .header_in > div > .menu_wrap .menu {
+			html body #wrap #header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			html body #header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			body #wrap #header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			body #header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			#wrap #header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			#header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+			#header .header_in > div > .menu_wrap:not(.active) .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap:not(.active) .menu {
 				display: none !important;
 			}
-			/* Show menu only when hamburger menu is active */
-			#header .header_in > div > .menu_wrap.active .tab_swiper,
+			/* Show menu only when hamburger menu is active - 최고 특이성 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#header .header_in > div > .menu_wrap.active .tab_swiper {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				width: 100% !important;
+				margin-left: 0 !important;
+			}
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
 			#header .header_in > div > .menu_wrap.active .tab_swiper .menu,
 			#header .header_in > div > .menu_wrap.active .menu {
 				display: flex !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
+			/* minimal.css의 margin-left:6.2cm 오버라이드 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper,
+			#header .header_in > div > .menu_wrap.active .tab_swiper,
 			#header .tab_swiper {
 				margin-left: 0 !important;
-				width: 100%;
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+				width: 100% !important;
 				overflow: visible !important;
 				padding-bottom: 0;
 			}
@@ -481,7 +649,7 @@
 			#header .tab_swiper .menu li a {
 				font-size: 16px !important;
 				white-space: nowrap;
-				padding: 15px 20px !important;
+				padding: 10.5px 20px !important; /* 15px의 70% = 10.5px (30% 감소) */
 				display: block !important;
 				line-height: 1.5;
 				width: 100%;
@@ -493,24 +661,33 @@
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
 			}
-			/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 행 전체 터치 방지 */
+			/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 오른쪽으로 1.5cm 이동 */
 			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 			html body #header .header_in > div > .menu_wrap.active .lang-selector,
+			html body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 			body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+			body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 			body #header .header_in > div > .menu_wrap.active .lang-selector,
+			body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 			#wrap #header .header_in > div > .menu_wrap.active .lang-selector,
-			#header .header_in > div > .menu_wrap.active .lang-selector {
+			#wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+			#header .header_in > div > .menu_wrap.active .lang-selector,
+			#header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop {
+				position: static !important;
 				display: flex !important;
 				align-items: center !important;
-				justify-content: flex-start !important;
-				padding: 15px 20px !important; /* 메뉴 항목과 동일한 패딩 */
-				margin: 0 !important;
+				justify-content: flex-start !important; /* 왼쪽 정렬 */
+				padding: 10.5px 20px 10.5px calc(20px + 2cm) !important; /* 상하 10.5px (15px의 70%), 왼쪽 패딩에 2cm 추가 */
+				margin: 0 !important; /* 마진 제거 */
 				width: 100% !important;
-				position: relative !important;
+				order: 999 !important; /* 메뉴 항목들 아래에 배치 */
+				border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* 구분선 추가 */
 				height: auto !important;
 				min-height: auto !important;
 				z-index: 200 !important; /* tab_swiper보다 높게 */
 				pointer-events: auto !important; /* 클릭 가능 */
+				gap: 0 !important; /* 인라인 스타일의 gap:3px 오버라이드 */
 			}
 			#header .header_in > div > .menu_wrap.active .lang-selector span {
 				padding: 0 !important;
@@ -532,7 +709,7 @@
 			#header .header_in > div > .menu_wrap.active .lang-selector #langSelect {
 				position: absolute !important;
 				top: 15px !important; /* 패딩 시작점 */
-				left: 20px !important; /* 왼쪽 패딩 시작점 */
+				left: calc(20px + 2cm) !important; /* 왼쪽 패딩 시작점 + 2cm */
 				width: 32px !important; /* span 텍스트 "文A" 실제 크기에 맞춤 (약 30px) */
 				height: 24px !important; /* 텍스트 높이 (line-height 1.5 * 16px) */
 				margin: 0 !important;
@@ -1111,9 +1288,9 @@
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
 					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px;">
-						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
-						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:1.5px; background:#fff; margin:7px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:1.5px; background:#fff; margin:7px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:1.5px; background:#fff; margin:7px 0; transition:all 0.3s;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
@@ -1126,7 +1303,7 @@
 						</ul>
 						</div>
 						<div class="lang-selector lang-selector-desktop" style="position:relative; display:flex; align-items:center; gap:3px;">
-							<span style="font-size:16px; color:#fff; z-index:1;">文A</span>
+							<span style="font-size:16px; color:#fff; z-index:1; line-height:1.5;">文A</span>
 							<select id="langSelect" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;">
 								<option value="en">English</option>
 								<option value="ko">한국어</option>
