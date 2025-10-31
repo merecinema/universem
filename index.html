@@ -525,10 +525,7 @@
 				display: block !important;
 				word-break: keep-all !important;
 			}
-			/* Hide Legal link on Korean pages */
-			.legal-link {
-				display: inline-block !important;
-			}
+			/* Hide Legal link on Korean pages - will be controlled by JavaScript */
 		}
 		
 		@media screen and (max-width: 480px) {
@@ -1157,7 +1154,7 @@
 						<a href="./privacy-policy-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Privacy Policy</a>
 						<a href="./terms-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Terms of Use</a>
 						<a href="./sales-refunds-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Sales and Refunds</a>
-						<a href="./legal-en.html" class="legal-link" style="color:#999; text-decoration:none;">Legal</a>
+						<a href="./legal-en.html" class="legal-link" style="color:#999; text-decoration:none; display:none;">Legal</a>
 						<a href="./terms-ko.html" class="footer-link-ko" style="color:#999; text-decoration:none; display:none;">이용약관</a>
 						<a href="./privacy-policy-ko.html" class="footer-link-ko" style="color:#999; text-decoration:none; display:none;">개인정보처리방침</a>
 					</div>
@@ -1745,9 +1742,9 @@
 			const legalLink = document.querySelector('.legal-link');
 			if (legalLink) {
 				if (lang === 'ko') {
-					legalLink.style.display = 'none';
+					legalLink.style.setProperty('display', 'none', 'important');
 				} else {
-					legalLink.style.display = 'inline-block';
+					legalLink.style.setProperty('display', 'inline-block', 'important');
 				}
 			}
 			
@@ -1758,20 +1755,20 @@
 			if (lang === 'ko') {
 				// Hide English links
 				footerLinksEn.forEach(function(link) {
-					link.style.display = 'none';
+					link.style.setProperty('display', 'none', 'important');
 				});
 				// Show Korean links
 				footerLinksKo.forEach(function(link) {
-					link.style.display = 'inline-block';
+					link.style.setProperty('display', 'inline-block', 'important');
 				});
 			} else {
 				// Show English links
 				footerLinksEn.forEach(function(link) {
-					link.style.display = 'inline-block';
+					link.style.setProperty('display', 'inline-block', 'important');
 				});
 				// Hide Korean links
 				footerLinksKo.forEach(function(link) {
-					link.style.display = 'none';
+					link.style.setProperty('display', 'none', 'important');
 				});
 			}
 		}
@@ -1945,7 +1942,7 @@
 				// Show Legal link for non-Korean languages
 				const legalLink = document.querySelector('.legal-link');
 				if (legalLink) {
-					legalLink.style.display = 'inline-block';
+					legalLink.style.setProperty('display', 'inline-block', 'important');
 				}
 			}
 		});
