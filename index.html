@@ -4,13 +4,50 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<title>UniversM - Cloud Video Streaming Platform</title>
+	<link rel="icon" type="image/png" sizes="12x12" href="img/favicon-12x12.png">
+	<link rel="shortcut icon" href="img/favicon-12x12.png">
+	<link rel="apple-touch-icon" href="img/UniverseM_white_logo_transparent_background.png">
+	<title>UniverseM - Cloud Video Streaming Platform</title>
 	<link rel="stylesheet" href="comm/css/main.css">
 	<link rel="stylesheet" href="comm/css/minimal.css">
 	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="comm/js/main.js"></script>
 	<style>
+		/* Language Selector - Desktop */
+		#header .header_in .lang-selector {
+			transition: all 0.3s ease;
+		}
+		#header .header_in .lang-selector:hover {
+			background: rgba(255, 255, 255, 0.1);
+		}
+		#header .header_in .lang-selector select {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+		}
+		
+		/* Ensure language selector doesn't overlap logo */
+		/* Logo is positioned at top:20px, center, so language selector should be */
+		/* positioned at top edge and far right to avoid overlap */
+		@media screen and (min-width: 769px) {
+			#header .header_in {
+				position: relative;
+			}
+			#header .header_in .lang-selector {
+				top: 5px !important;
+				right: 20px !important;
+				/* Position above logo (logo starts at top:20px) */
+			}
+		}
+		
+		/* For medium screens, adjust to ensure no overlap */
+		@media screen and (min-width: 769px) and (max-width: 1400px) {
+			#header .header_in .lang-selector {
+				right: 15px !important;
+				top: 5px !important;
+			}
+		}
+		
 		/* Mobile Responsive Styles */
 		@media screen and (max-width: 768px) {
 			/* Header Menu - Mobile */
@@ -19,11 +56,33 @@
 			}
 			#header .header_in {
 				padding: 0 20px !important;
+				flex-direction: column !important;
+				align-items: center !important;
+				gap: 20px !important;
+				padding-top: 20px !important;
 			}
-			#header .menu_wrap {
+			#header .header_in > div {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 20px;
+				position: relative;
+			}
+			#header .header_in > div > h1 {
+				position: static !important;
+				transform: none !important;
+				margin: 0 !important;
+				order: 1;
+				z-index: 1;
+			}
+			#header .header_in > div > .menu_wrap {
+				order: 2;
 				flex-direction: column !important;
 				gap: 15px !important;
 				width: 100%;
+				position: static !important;
+				z-index: 2;
 			}
 			#header .tab_swiper {
 				margin-left: 0 !important;
@@ -52,9 +111,17 @@
 				font-size: 14px;
 				white-space: nowrap;
 			}
-			#header .lang-selector {
-				width: 100%;
-				justify-content: center;
+			#header .header_in .lang-selector {
+				position: fixed !important;
+				top: 15px !important;
+				right: 15px !important;
+				z-index: 10000 !important;
+				background: rgba(0, 0, 0, 0.7) !important;
+				padding: 8px 12px !important;
+				border-radius: 8px !important;
+				backdrop-filter: blur(10px) !important;
+				/* Ensure it's far from logo center area */
+				max-width: 120px;
 			}
 			
 			/* Key Features - Mobile Grid */
@@ -129,7 +196,31 @@
 		}
 		
 		@media screen and (max-width: 480px) {
-			#header .header_in h1 img {
+			#header .header_in {
+				padding: 0 15px !important;
+				gap: 15px !important;
+				padding-top: 50px !important;
+			}
+			#header .header_in .lang-selector {
+				top: 10px !important;
+				right: 10px !important;
+				padding: 6px 10px !important;
+			}
+			#header .header_in .lang-selector span {
+				font-size: 14px !important;
+			}
+			#header .header_in .lang-selector select {
+				font-size: 12px !important;
+				padding: 4px 20px 4px 4px !important;
+			}
+			#header .header_in > div {
+				gap: 15px;
+			}
+			#header .header_in > div > h1 {
+				position: static !important;
+				transform: none !important;
+			}
+			#header .header_in > div > h1 img {
 				height: 45px !important;
 			}
 			#header .tab_swiper .menu li {
@@ -157,9 +248,33 @@
 	<div id="wrap">
 		<div id="header">
 			<div class="header_in">
+				<div class="lang-selector" style="position:absolute; top:5px; right:20px; z-index:1000; display:inline-block; padding:5px;">
+					<span style="font-size:16px; color:#fff; display:block; position:relative; z-index:1;">文A</span>
+					<select id="langSelect" style="position:absolute; top:5px; left:5px; width:calc(100% - 10px); height:calc(100% - 10px); opacity:0; cursor:pointer; z-index:2;">
+						<option value="en">English</option>
+						<option value="ko">한국어</option>
+						<option value="ja">日本語</option>
+						<option value="zh">中文</option>
+						<option value="fr">Français</option>
+						<option value="es">Español (Coming soon)</option>
+						<option value="de">Deutsch (Coming soon)</option>
+						<option value="pt">Português (Coming soon)</option>
+						<option value="ru">Русский (Coming soon)</option>
+						<option value="it">Italiano (Coming soon)</option>
+						<option value="ar">العربية (Coming soon)</option>
+						<option value="hi">हिन्दी (Coming soon)</option>
+						<option value="th">ไทย (Coming soon)</option>
+						<option value="vi">Tiếng Việt (Coming soon)</option>
+						<option value="id">Bahasa Indonesia (Coming soon)</option>
+						<option value="nl">Nederlands (Coming soon)</option>
+						<option value="sv">Svenska (Coming soon)</option>
+						<option value="pl">Polski (Coming soon)</option>
+						<option value="tr">Türkçe (Coming soon)</option>
+					</select>
+				</div>
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
 				<h1 style="margin:0;">
-					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniversM" style="height:60px; width:auto;"></a>
+					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
 			</h1>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
@@ -170,30 +285,6 @@
 								<li class="swiper-slide"><a href="#charge">Pricing</a></li>
 								<li class="swiper-slide"><a href="#contact">Contact</a></li>
 						</ul>
-						</div>
-						<div class="lang-selector" style="position:relative; display:flex; align-items:center; gap:5px;">
-							<span style="font-size:16px; color:#fff;">文A</span>
-							<select id="langSelect" style="background:transparent; border:none; color:#fff; font-size:13px; font-weight:300; cursor:pointer; padding:5px 25px 5px 5px; outline:none;">
-								<option value="en">English</option>
-								<option value="ko">한국어</option>
-								<option value="ja">日本語</option>
-								<option value="zh">中文</option>
-								<option value="fr">Français</option>
-								<option value="es">Español (Coming soon)</option>
-								<option value="de">Deutsch (Coming soon)</option>
-								<option value="pt">Português (Coming soon)</option>
-								<option value="ru">Русский (Coming soon)</option>
-								<option value="it">Italiano (Coming soon)</option>
-								<option value="ar">العربية (Coming soon)</option>
-								<option value="hi">हिन्दी (Coming soon)</option>
-								<option value="th">ไทย (Coming soon)</option>
-								<option value="vi">Tiếng Việt (Coming soon)</option>
-								<option value="id">Bahasa Indonesia (Coming soon)</option>
-								<option value="nl">Nederlands (Coming soon)</option>
-								<option value="sv">Svenska (Coming soon)</option>
-								<option value="pl">Polski (Coming soon)</option>
-								<option value="tr">Türkçe (Coming soon)</option>
-						</select>
 						</div>
 					</div>
 				</div>
