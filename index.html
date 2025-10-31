@@ -204,6 +204,29 @@
 				margin: 0 !important;
 				order: 1;
 				z-index: 1000 !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+			}
+			/* h1 내부의 이미지가 확실히 보이도록 - 모바일 전용 추가 규칙 */
+			#header .header_in > div > h1,
+			#header .header_in > div > h1#headerLogo {
+				opacity: 1 !important;
+				visibility: visible !important;
+				display: block !important;
+			}
+			#header .header_in > div > h1 img,
+			#header .header_in > div > h1#headerLogo img,
+			#header .header_in > div > h1 #logoImg,
+			#header .header_in > div > h1#headerLogo #logoImg {
+				opacity: 1 !important;
+				visibility: visible !important;
+				display: block !important;
+				filter: none !important;
+				-webkit-filter: none !important;
+				-moz-filter: none !important;
+				transform: none !important;
+				-webkit-transform: none !important;
+				-moz-transform: none !important;
 			}
 			/* Override minimal.css for mobile - Force logo visibility */
 			/* minimal.css line 29: #header .header_in h1{position:absolute; top:20px; left:50%; transform:translateX(-50%);} */
@@ -294,6 +317,9 @@
 				filter: none !important;
 				-webkit-filter: none !important;
 				-moz-filter: none !important;
+				transform: none !important;
+				-webkit-transform: none !important;
+				-moz-transform: none !important;
 			}
 			#header .header_in h1 a,
 			#header .header_in > div > h1 a,
@@ -661,7 +687,7 @@
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
 			}
-			/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 오른쪽으로 1.5cm 이동 */
+			/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 왼쪽으로 0.1cm 이동하여 메뉴 텍스트 라인에 맞춤 */
 			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
 			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 			html body #header .header_in > div > .menu_wrap.active .lang-selector,
@@ -678,7 +704,7 @@
 				display: flex !important;
 				align-items: center !important;
 				justify-content: flex-start !important; /* 왼쪽 정렬 */
-				padding: 10.5px 20px 10.5px calc(20px + 2cm) !important; /* 상하 10.5px (15px의 70%), 왼쪽 패딩에 2cm 추가 */
+				padding: 10.5px 20px 10.5px calc(20px + 1.9cm) !important; /* 상하 10.5px (15px의 70%), 왼쪽 패딩에 2cm - 0.1cm = 1.9cm */
 				margin: 0 !important; /* 마진 제거 */
 				width: 100% !important;
 				order: 999 !important; /* 메뉴 항목들 아래에 배치 */
@@ -692,14 +718,17 @@
 			#header .header_in > div > .menu_wrap.active .lang-selector span {
 				padding: 0 !important;
 				margin: 0 !important;
+				margin-left: 0 !important;
+				padding-left: 0 !important;
 				line-height: 1.5 !important; /* 메뉴 항목과 동일한 line-height */
 				font-size: 16px !important; /* 메뉴 항목과 동일한 font-size */
 				vertical-align: baseline !important;
 				position: relative !important;
 				z-index: 1 !important;
 				pointer-events: none !important;
+				display: inline-block !important; /* 텍스트 정확한 위치 파악을 위해 */
 			}
-			/* select 요소의 크기를 span 텍스트 크기에 정확히 맞춤 - 행 전체 터치 방지 */
+			/* select 요소를 span 텍스트 "文A" 위에 정확히 정렬 - lang-selector padding-left 위치와 동일하게 조정 */
 			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
 			html body #header .header_in > div > .menu_wrap.active .lang-selector select,
 			body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
@@ -708,16 +737,21 @@
 			#header .header_in > div > .menu_wrap.active .lang-selector select,
 			#header .header_in > div > .menu_wrap.active .lang-selector #langSelect {
 				position: absolute !important;
-				top: 15px !important; /* 패딩 시작점 */
-				left: calc(20px + 2cm) !important; /* 왼쪽 패딩 시작점 + 2cm */
-				width: 32px !important; /* span 텍스트 "文A" 실제 크기에 맞춤 (약 30px) */
-				height: 24px !important; /* 텍스트 높이 (line-height 1.5 * 16px) */
+				top: 0 !important; /* lang-selector 컨테이너의 시작점부터 */
+				left: calc(20px + 1.9cm) !important; /* lang-selector의 padding-left 위치와 동일 - "文A" 텍스트 시작 지점 (2cm - 0.1cm = 1.9cm) */
+				width: 100px !important; /* "文A" 텍스트(약 32px) + 오른쪽 빈 공간까지 충분히 커버 */
+				height: 100% !important; /* lang-selector의 전체 높이 */
 				margin: 0 !important;
 				padding: 0 !important;
-				opacity: 0 !important;
+				opacity: 0.01 !important; /* 0에서 0.01로 변경하여 터치 가능하게 */
 				cursor: pointer !important;
-				z-index: 300 !important; /* 매우 높은 z-index로 다른 요소 위에 배치 */
+				z-index: 9999 !important; /* 최고 z-index로 다른 모든 요소 위에 배치 */
 				pointer-events: auto !important; /* 클릭 가능 */
+				-webkit-tap-highlight-color: rgba(255, 255, 255, 0.1) !important; /* 터치 피드백 */
+				-webkit-appearance: none !important;
+				-moz-appearance: none !important;
+				appearance: none !important;
+				background: transparent !important;
 			}
 			/* tab_swiper 내부 메뉴 항목은 클릭 가능 - 최고 우선순위 (하지만 언어선택보다는 낮게) */
 			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
@@ -734,6 +768,16 @@
 			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper {
 				position: relative !important;
 				z-index: 100 !important; /* 언어선택보다 낮게 */
+				pointer-events: auto !important;
+			}
+			/* lang-selector 컨테이너가 언어선택 select를 가로막지 않도록 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector {
+				position: relative !important;
+				pointer-events: auto !important; /* 컨테이너는 클릭 가능하지만 */
+			}
+			/* lang-selector의 span은 pointer-events: none이므로 select만 클릭 가능 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector span {
+				pointer-events: none !important; /* span은 클릭 불가 */
 			}
 			/* Key Features - Mobile Grid */
 			#function .function_list {
@@ -1283,8 +1327,8 @@
 		<div id="header">
 			<div class="header_in">
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
-				<h1 id="headerLogo" style="margin:0;">
-					<a href="#top"><img id="logoImg" src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto; opacity:1 !important; visibility:visible !important; display:block !important;"></a>
+				<h1 id="headerLogo" style="margin:0; opacity:1 !important; visibility:visible !important; display:block !important;">
+					<a href="#top" style="opacity:1 !important; visibility:visible !important; display:block !important;"><img id="logoImg" src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto; opacity:1 !important; visibility:visible !important; display:block !important; filter:none !important; -webkit-filter:none !important; transform:none !important; -webkit-transform:none !important;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
 					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px;">
@@ -1302,8 +1346,8 @@
 								<li class="swiper-slide"><a href="#contact">Contact</a></li>
 						</ul>
 						</div>
-						<div class="lang-selector lang-selector-desktop" style="position:relative; display:flex; align-items:center; gap:3px;">
-							<span style="font-size:16px; color:#fff; z-index:1; line-height:1.5;">文A</span>
+						<div class="lang-selector lang-selector-desktop" style="position:relative; display:flex; align-items:center; gap:0;">
+							<span style="font-size:16px; color:#fff; z-index:1; line-height:1.5; position:relative; margin:0; padding:0;">文A</span>
 							<select id="langSelect" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index:2;">
 								<option value="en">English</option>
 								<option value="ko">한국어</option>
@@ -2247,13 +2291,32 @@
 			}
 		}
 		
-		// Desktop language selector
-		const langSelect = document.getElementById('langSelect');
-		if (langSelect) {
-			langSelect.addEventListener('change', function(e) {
-				const selectedLang = e.target.value;
-				handleLanguageChange(selectedLang);
-			});
+		// Desktop and Mobile language selector - ensure it works in mobile menu too
+		function initLanguageSelector() {
+			const langSelect = document.getElementById('langSelect');
+			if (langSelect) {
+				// Remove existing event listeners by cloning
+				const newLangSelect = langSelect.cloneNode(true);
+				langSelect.parentNode.replaceChild(newLangSelect, langSelect);
+				
+				// Add new event listener
+				newLangSelect.addEventListener('change', function(e) {
+					const selectedLang = e.target.value;
+					handleLanguageChange(selectedLang);
+				});
+				
+				// Also add click event for mobile touch
+				newLangSelect.addEventListener('click', function(e) {
+					e.stopPropagation(); // 다른 요소의 클릭 이벤트 전파 방지
+				}, true); // capture phase에서 실행하여 먼저 처리
+			}
+		}
+		
+		// Initialize on DOM ready
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initLanguageSelector);
+		} else {
+			initLanguageSelector();
 		}
 
 		// Smooth scroll to section with proper offset - hide visual section
@@ -2298,17 +2361,33 @@
 					menuWrap.classList.toggle('active');
 				});
 				
-				// Close menu when clicking on a menu link
+				// Close menu when clicking on a menu link (but not language selector)
 				const menuLinks = menuWrap.querySelectorAll('a');
 				menuLinks.forEach(function(link) {
-					link.addEventListener('click', function() {
+					link.addEventListener('click', function(e) {
+						// 언어선택 영역이면 메뉴를 닫지 않음
+						const langSelect = document.getElementById('langSelect');
+						if (langSelect && langSelect.contains(e.target)) {
+							return;
+						}
 						mobileMenuToggle.classList.remove('active');
 						menuWrap.classList.remove('active');
 					});
 				});
 				
-				// Close menu when clicking outside
+				// Close menu when clicking outside (but not on language selector)
 				document.addEventListener('click', function(e) {
+					const langSelect = document.getElementById('langSelect');
+					const langSelector = e.target.closest('.lang-selector');
+					
+					// 언어선택 클릭 시에는 메뉴를 닫지 않음
+					if (langSelect && (e.target === langSelect || langSelect.contains(e.target) || e.target.closest('#langSelect'))) {
+						return; // 언어선택 이벤트는 처리하고 메뉴는 열어둠
+					}
+					if (langSelector && (e.target === langSelector || langSelector.contains(e.target))) {
+						return; // 언어선택 컨테이너 클릭도 무시
+					}
+					
 					if (!mobileMenuToggle.contains(e.target) && !menuWrap.contains(e.target)) {
 						mobileMenuToggle.classList.remove('active');
 						menuWrap.classList.remove('active');
