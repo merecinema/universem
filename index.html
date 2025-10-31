@@ -155,12 +155,12 @@
 				<div class="trial-card user" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px; min-height:200px; background:linear-gradient(180deg, #f5efe6 0%, #ffffff 100%);">
 					<div class="trial-title" style="font-size:22px; font-weight:600; color:#000; margin-bottom:10px;">User Free trial</div>
 					<div class="trial-desc" style="font-size:15px; color:#444; line-height:1.6; margin-bottom:20px;">Experience the user site on any device<br>and start streaming immediately.</div>
-					<a href="../www.malgnsoft.com/cloud/demo_ott_type_user.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#000; color:#fff; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">User Free trial</a>
+					<a href="https://demo.ott.malgnsoft.com/main/index.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#000; color:#fff; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">User Free trial</a>
 				</div>
 				<div class="trial-card admin" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px; min-height:200px; background:linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);">
 					<div class="trial-title" style="font-size:22px; font-weight:600; color:#000; margin-bottom:10px;">Admin Free trial</div>
 					<div class="trial-desc" style="font-size:15px; color:#444; line-height:1.6; margin-bottom:20px;">Experience the admin system with extensive view<br>and real-time management.</div>
-					<a href="../www.malgnsoft.com/cloud/demo_ott_type_admin.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#fff; color:#000; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">Admin Free trial</a>
+					<a href="https://ottcloud.malgnsoft.com/sysop/main/index.jsp" class="trial-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:12px 26px; border-radius:4px; background:#fff; color:#000; border:1px solid #000; font-weight:500; min-width:160px; white-space:nowrap; line-height:1; text-decoration:none;" target="_blank">Admin Free trial</a>
 				</div>
 			</div>
 			</div>
@@ -953,8 +953,17 @@
 				return false;
 			}
 
-			// If all validations pass, submit the form
-			e.target.submit();
+			// If all validations pass, send email via mailto
+			const subject = encodeURIComponent('Cloud OTT Contact');
+			const body = encodeURIComponent(
+				`Company Name: ${company}\n` +
+				`Name: ${name}\n` +
+				`Phone: ${phone}\n` +
+				`Email: ${email}\n\n` +
+				`Message:\n${message}`
+			);
+			const mailtoLink = `mailto:minho.ha@merecinema.net?subject=${subject}&body=${body}`;
+			window.location.href = mailtoLink;
 		});
 	</script>
 </body>
