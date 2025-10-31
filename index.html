@@ -345,20 +345,44 @@
 				height: 32px !important;
 			}
 			#header .mobile-menu-toggle span,
-			.mobile-menu-toggle span {
+			.mobile-menu-toggle span,
+			#mobileMenuToggle span {
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
 				background: #fff !important;
+				width: 24px !important;
+				height: 1.5px !important; /* 모든 선을 SpaceX 스타일처럼 얇게 (3px → 1.5px) */
+				margin: 7px 0 !important; /* 간격 조정 (6px → 7px) */
+				transition: all 0.3s !important;
 			}
-			.mobile-menu-toggle.active span:nth-child(1) {
-				transform: rotate(45deg) translate(7px, 7px);
+			/* 모든 span (1, 2, 3번째)에 동일한 높이 강제 적용 */
+			#header .mobile-menu-toggle span:nth-child(1),
+			#header .mobile-menu-toggle span:nth-child(2),
+			#header .mobile-menu-toggle span:nth-child(3),
+			.mobile-menu-toggle span:nth-child(1),
+			.mobile-menu-toggle span:nth-child(2),
+			.mobile-menu-toggle span:nth-child(3),
+			#mobileMenuToggle span:nth-child(1),
+			#mobileMenuToggle span:nth-child(2),
+			#mobileMenuToggle span:nth-child(3) {
+				height: 1.5px !important; /* 모든 선 동일하게 얇게 */
 			}
-			.mobile-menu-toggle.active span:nth-child(2) {
-				opacity: 0;
+			/* 햄버거 메뉴 active 상태에서 X로 변환 - 모든 선을 동일하게 얇게 유지 */
+			.mobile-menu-toggle.active span:nth-child(1),
+			#mobileMenuToggle.active span:nth-child(1) {
+				transform: rotate(45deg) translate(5px, 5px) !important;
+				height: 1.5px !important; /* X 상태에서도 얇게 유지 */
 			}
-			.mobile-menu-toggle.active span:nth-child(3) {
-				transform: rotate(-45deg) translate(7px, -7px);
+			.mobile-menu-toggle.active span:nth-child(2),
+			#mobileMenuToggle.active span:nth-child(2) {
+				opacity: 0 !important;
+				height: 1.5px !important; /* 가운데 선도 얇게 */
+			}
+			.mobile-menu-toggle.active span:nth-child(3),
+			#mobileMenuToggle.active span:nth-child(3) {
+				transform: rotate(-45deg) translate(5px, -5px) !important;
+				height: 1.5px !important; /* X 상태에서도 얇게 유지 */
 			}
 			
 			/* Hide desktop menu by default on mobile - show only hamburger */
@@ -379,13 +403,14 @@
 				gap: 0 !important;
 				width: 100%;
 				position: fixed;
-				top: 0;
+				top: 0 !important; /* 상단 고정 */
 				left: 0;
 				right: 0;
 				bottom: 0;
 				background: #000 !important;
-				padding-top: 45px !important;
-				padding-bottom: 20px;
+				padding: 0 !important; /* 모든 패딩 제거 */
+				padding-bottom: 20px !important; /* 하단만 */
+				margin: 0 !important; /* 마진 제거 */
 				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 				z-index: 9999 !important;
 				overflow-y: auto;
@@ -396,6 +421,22 @@
 				display: flex !important;
 				visibility: visible !important;
 				opacity: 1 !important;
+				padding-top: 0 !important; /* 상단 패딩 완전 제거 */
+				padding-bottom: 20px !important;
+				margin-top: 0 !important; /* 상단 마진 제거 */
+			}
+			/* 메뉴 첫 번째 항목의 상단 마진/패딩 제거 */
+			#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child {
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+			#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a {
+				padding-top: 0 !important; /* 첫 번째 메뉴 항목 상단 패딩 제거 */
+				margin-top: 0 !important;
 			}
 			/* Hide desktop menu on mobile - show only when hamburger is active */
 			#header .header_in > div > .menu_wrap .tab_swiper,
@@ -451,6 +492,71 @@
 			}
 			#header .tab_swiper .menu li a:hover {
 				background: rgba(255, 255, 255, 0.05);
+			}
+			/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 행 전체 터치 방지 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+			html body #header .header_in > div > .menu_wrap.active .lang-selector,
+			body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+			body #header .header_in > div > .menu_wrap.active .lang-selector,
+			#wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+			#header .header_in > div > .menu_wrap.active .lang-selector {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: flex-start !important;
+				padding: 15px 20px !important; /* 메뉴 항목과 동일한 패딩 */
+				margin: 0 !important;
+				width: 100% !important;
+				position: relative !important;
+				height: auto !important;
+				min-height: auto !important;
+				z-index: 200 !important; /* tab_swiper보다 높게 */
+				pointer-events: auto !important; /* 클릭 가능 */
+			}
+			#header .header_in > div > .menu_wrap.active .lang-selector span {
+				padding: 0 !important;
+				margin: 0 !important;
+				line-height: 1.5 !important; /* 메뉴 항목과 동일한 line-height */
+				font-size: 16px !important; /* 메뉴 항목과 동일한 font-size */
+				vertical-align: baseline !important;
+				position: relative !important;
+				z-index: 1 !important;
+				pointer-events: none !important;
+			}
+			/* select 요소의 크기를 span 텍스트 크기에 정확히 맞춤 - 행 전체 터치 방지 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+			html body #header .header_in > div > .menu_wrap.active .lang-selector select,
+			body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+			body #header .header_in > div > .menu_wrap.active .lang-selector select,
+			#wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+			#header .header_in > div > .menu_wrap.active .lang-selector select,
+			#header .header_in > div > .menu_wrap.active .lang-selector #langSelect {
+				position: absolute !important;
+				top: 15px !important; /* 패딩 시작점 */
+				left: 20px !important; /* 왼쪽 패딩 시작점 */
+				width: 32px !important; /* span 텍스트 "文A" 실제 크기에 맞춤 (약 30px) */
+				height: 24px !important; /* 텍스트 높이 (line-height 1.5 * 16px) */
+				margin: 0 !important;
+				padding: 0 !important;
+				opacity: 0 !important;
+				cursor: pointer !important;
+				z-index: 300 !important; /* 매우 높은 z-index로 다른 요소 위에 배치 */
+				pointer-events: auto !important; /* 클릭 가능 */
+			}
+			/* tab_swiper 내부 메뉴 항목은 클릭 가능 - 최고 우선순위 (하지만 언어선택보다는 낮게) */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+			#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+				position: relative !important;
+				z-index: 100 !important; /* 언어선택보다 낮게 */
+				pointer-events: auto !important;
+			}
+			/* tab_swiper 자체는 언어선택을 가로막지 않도록 */
+			html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper {
+				position: relative !important;
+				z-index: 100 !important; /* 언어선택보다 낮게 */
 			}
 			/* Key Features - Mobile Grid */
 			#function .function_list {
