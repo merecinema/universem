@@ -72,6 +72,22 @@
 			-moz-appearance: none;
 		}
 		
+		/* Hamburger Menu - Show by default (mobile-first approach) */
+		#mobileMenuToggle,
+		#header #mobileMenuToggle,
+		#header .mobile-menu-toggle,
+		.mobile-menu-toggle,
+		html body #header #mobileMenuToggle,
+		html body #header .mobile-menu-toggle,
+		html body .mobile-menu-toggle,
+		body #header #mobileMenuToggle,
+		body #header .mobile-menu-toggle,
+		body .mobile-menu-toggle {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+		}
+		
 		/* Desktop: Show language selector in menu, hide mobile version */
 		@media screen and (min-width: 769px) {
 			.lang-selector-mobile {
@@ -80,11 +96,20 @@
 			.lang-selector-desktop {
 				display: inline-flex !important;
 			}
+			/* Hide hamburger menu on desktop - highest specificity */
+			html body #header #mobileMenuToggle,
+			html body #header .mobile-menu-toggle,
+			html body .mobile-menu-toggle,
+			body #header #mobileMenuToggle,
+			body #header .mobile-menu-toggle,
+			body .mobile-menu-toggle,
 			#mobileMenuToggle,
+			#header #mobileMenuToggle,
 			#header .mobile-menu-toggle,
 			.mobile-menu-toggle {
 				display: none !important;
 				visibility: hidden !important;
+				opacity: 0 !important;
 			}
 		}
 		
@@ -178,13 +203,16 @@
 				order: 1;
 				z-index: 1000 !important;
 			}
-			/* Override minimal.css for mobile */
-			html body #header .header_in > div > .menu_wrap.active ~ h1,
-			html body #header .header_in > div > h1,
+			/* Override minimal.css for mobile - Force logo visibility */
+			/* minimal.css line 29: #header .header_in h1{position:absolute; top:20px; left:50%; transform:translateX(-50%);} */
+			/* We need to override this with position:fixed and ensure visibility */
 			html body #wrap #header .header_in > div > h1,
+			html body #header .header_in > div > h1,
+			html body #header .header_in h1,
 			body #header .header_in > div > h1,
-			#header .header_in > div > .menu_wrap.active ~ h1,
-			#header .header_in > div > h1 {
+			body #header .header_in h1,
+			#header .header_in > div > h1,
+			#header .header_in h1 {
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
@@ -194,11 +222,34 @@
 				transform: translateX(-50%) !important;
 				z-index: 10000 !important;
 				margin: 0 !important;
+				margin-right: 0 !important;
 			}
+			/* Override minimal.css - Disable .malgnsoft background image, show actual img tag */
+			/* minimal.css line 31 uses .malgnsoft class with background-image - completely disable it */
+			html body #header .header_in h1 .malgnsoft,
+			html body #header .header_in > div > h1 .malgnsoft,
+			body #header .header_in h1 .malgnsoft,
+			body #header .header_in > div > h1 .malgnsoft,
+			#header .header_in h1 .malgnsoft,
+			#header .header_in > div > h1 .malgnsoft {
+				display: none !important;
+				background-image: none !important;
+				background: none !important;
+				width: 0 !important;
+				height: 0 !important;
+				visibility: hidden !important;
+			}
+			/* Force actual img tag to be visible - override all possible selectors */
+			html body #header .header_in h1 img,
+			html body #header .header_in h1 a img,
 			html body #header .header_in > div > h1 img,
 			html body #header .header_in > div > h1 a img,
+			body #header .header_in h1 img,
+			body #header .header_in h1 a img,
 			body #header .header_in > div > h1 img,
 			body #header .header_in > div > h1 a img,
+			#header .header_in h1 img,
+			#header .header_in h1 a img,
 			#header .header_in > div > h1 img,
 			#header .header_in > div > h1 a img {
 				height: 45px !important;
@@ -207,13 +258,19 @@
 				display: block !important;
 				width: auto !important;
 				background-image: none !important;
+				background: none !important;
+				filter: none !important;
 			}
+			#header .header_in h1 a,
+			#header .header_in > div > h1 a,
+			html body #header .header_in h1 a,
 			html body #header .header_in > div > h1 a,
-			body #header .header_in > div > h1 a,
-			#header .header_in > div > h1 a {
+			body #header .header_in > div > h1 a {
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
+				background: none !important;
+				background-image: none !important;
 			}
 			/* Remove underline below logo */
 			#header .header_in > div > h1 {
@@ -231,16 +288,23 @@
 				border-bottom: none !important;
 			}
 			
-			/* Hamburger Menu Button - Mobile Only - Override any external CSS */
+			/* Hamburger Menu Button - Mobile Only - Override any external CSS with highest specificity */
+			html body #wrap #header #mobileMenuToggle,
+			html body #wrap #header .mobile-menu-toggle,
 			html body #header #mobileMenuToggle,
 			html body #header .mobile-menu-toggle,
 			html body .mobile-menu-toggle,
+			body #wrap #header #mobileMenuToggle,
+			body #wrap #header .mobile-menu-toggle,
 			body #header #mobileMenuToggle,
 			body #header .mobile-menu-toggle,
 			body .mobile-menu-toggle,
-			#mobileMenuToggle,
+			#wrap #header #mobileMenuToggle,
+			#wrap #header .mobile-menu-toggle,
+			#header #mobileMenuToggle,
 			#header .mobile-menu-toggle,
-			.mobile-menu-toggle {
+			.mobile-menu-toggle,
+			#mobileMenuToggle {
 				display: block !important;
 				order: 2 !important;
 				position: absolute !important;
@@ -250,6 +314,11 @@
 				visibility: visible !important;
 				opacity: 1 !important;
 				background: transparent !important;
+				border: none !important;
+				cursor: pointer !important;
+				padding: 8px !important;
+				width: 32px !important;
+				height: 32px !important;
 			}
 			#header .mobile-menu-toggle span,
 			.mobile-menu-toggle span {
@@ -409,15 +478,32 @@
 			#visual {
 				height: auto !important;
 				min-height: 500px !important;
+				width: 100% !important;
+				max-width: 100vw !important;
+				overflow-x: hidden !important;
+			}
+			#visual .visual_in {
+				width: 100% !important;
+				max-width: 100% !important;
+				padding: 0 !important;
 			}
 			#visual .visual_in .roll {
 				padding-top: 5vh !important;
+				width: 100% !important;
+				max-width: 100% !important;
 			}
 			#visual .visual_in .roll .v_cont {
 				padding: 15px !important;
+				width: 100% !important;
+				max-width: 100% !important;
+				box-sizing: border-box !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea {
+				width: 100% !important;
+				max-width: 100% !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea h2 {
-				font-size: 2.2rem !important;
+				font-size: clamp(1.5rem, 5vw, 3rem) !important;
 				letter-spacing: -2px !important;
 			}
 			#visual .visual_in .roll .v_cont .txtArea h3 {
@@ -428,6 +514,14 @@
 			}
 			#visual .visual_in .roll .v_cont .txtArea .btnArea {
 				padding: 40px 0 0 !important;
+				width: 100% !important;
+				flex-direction: column !important;
+				gap: 15px !important;
+			}
+			#visual .visual_in .roll .v_cont .txtArea .btnArea button {
+				width: 100% !important;
+				max-width: 100% !important;
+				box-sizing: border-box !important;
 			}
 			
 			/* Demo Section - Mobile */
@@ -896,14 +990,14 @@
 					</select>
 				</div>
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
-				<h1 style="margin:0 !important; display:block !important; visibility:visible !important; opacity:1 !important; position:fixed !important; top:18px !important; left:50% !important; transform:translateX(-50%) !important; z-index:10000 !important;">
-					<a href="#top" style="display:block !important; visibility:visible !important; opacity:1 !important;"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px !important; width:auto !important; opacity:1 !important; visibility:visible !important; display:block !important;"></a>
+				<h1 id="headerLogo" style="margin:0;">
+					<a href="#top"><img id="logoImg" src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
-					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px; visibility:visible; opacity:1;">
-						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
-						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
-						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px;">
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:3px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
@@ -1947,79 +2041,7 @@
 		}
 		
 		// Handle anchor link clicks for menu navigation
-		// Force mobile menu and logo visibility on mobile devices
-		function ensureMobileElementsVisible() {
-			if (window.innerWidth <= 768) {
-				// Force hamburger menu visibility
-				const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-				if (mobileMenuToggle) {
-					mobileMenuToggle.style.setProperty('display', 'block', 'important');
-					mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
-					mobileMenuToggle.style.setProperty('opacity', '1', 'important');
-					mobileMenuToggle.style.setProperty('z-index', '10001', 'important');
-					mobileMenuToggle.style.setProperty('position', 'absolute', 'important');
-				}
-				
-				// Force logo visibility
-				const logoH1 = document.querySelector('#header .header_in > div > h1');
-				if (logoH1) {
-					logoH1.style.setProperty('display', 'block', 'important');
-					logoH1.style.setProperty('visibility', 'visible', 'important');
-					logoH1.style.setProperty('opacity', '1', 'important');
-					logoH1.style.setProperty('position', 'fixed', 'important');
-					logoH1.style.setProperty('z-index', '10000', 'important');
-				}
-				
-				const logoImg = document.querySelector('#header .header_in > div > h1 img');
-				if (logoImg) {
-					logoImg.style.setProperty('display', 'block', 'important');
-					logoImg.style.setProperty('visibility', 'visible', 'important');
-					logoImg.style.setProperty('opacity', '1', 'important');
-					logoImg.style.setProperty('width', 'auto', 'important');
-					logoImg.style.setProperty('height', '45px', 'important');
-				}
-				
-				const logoLink = document.querySelector('#header .header_in > div > h1 a');
-				if (logoLink) {
-					logoLink.style.setProperty('display', 'block', 'important');
-					logoLink.style.setProperty('visibility', 'visible', 'important');
-					logoLink.style.setProperty('opacity', '1', 'important');
-				}
-			}
-		}
-		
-		// Run on load and resize
-		window.addEventListener('load', ensureMobileElementsVisible);
-		window.addEventListener('resize', ensureMobileElementsVisible);
-		
-		// Use MutationObserver to ensure styles are maintained
-		if (window.MutationObserver) {
-			const observer = new MutationObserver(function(mutations) {
-				if (window.innerWidth <= 768) {
-					ensureMobileElementsVisible();
-				}
-			});
-			
-			document.addEventListener('DOMContentLoaded', function() {
-				const targetNode = document.querySelector('#header');
-				if (targetNode) {
-					observer.observe(targetNode, {
-						attributes: true,
-						attributeFilter: ['style', 'class'],
-						subtree: true,
-						childList: false
-					});
-				}
-			});
-		}
-		
 		document.addEventListener('DOMContentLoaded', function() {
-			// Force mobile elements visible immediately
-			setTimeout(ensureMobileElementsVisible, 0);
-			setTimeout(ensureMobileElementsVisible, 100);
-			setTimeout(ensureMobileElementsVisible, 500);
-			setTimeout(ensureMobileElementsVisible, 1000);
-			
 			// 모든 앵커 링크에 클릭 이벤트 추가
 			const anchorLinks = document.querySelectorAll('a[href^="#"]');
 			anchorLinks.forEach(function(link) {
@@ -2096,6 +2118,28 @@
 					legalLink.style.setProperty('display', 'inline-block', 'important');
 				}
 			}
+			
+			// Force hamburger menu visibility on mobile - must run after all other scripts
+			// Check if screen is mobile size
+			function ensureMobileMenuVisible() {
+				if (window.innerWidth <= 768) {
+					const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+					if (mobileMenuToggle) {
+						// Force display with highest priority
+						mobileMenuToggle.style.setProperty('display', 'block', 'important');
+						mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+						mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+					}
+				}
+			}
+			
+			// Run immediately and after a short delay to override any conflicting styles
+			ensureMobileMenuVisible();
+			setTimeout(ensureMobileMenuVisible, 100);
+			setTimeout(ensureMobileMenuVisible, 500);
+			
+			// Also run on window resize
+			window.addEventListener('resize', ensureMobileMenuVisible);
 		});
 
 		// Form validation with multilingual error messages
