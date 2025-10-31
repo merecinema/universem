@@ -80,8 +80,11 @@
 			.lang-selector-desktop {
 				display: inline-flex !important;
 			}
+			#mobileMenuToggle,
+			#header .mobile-menu-toggle,
 			.mobile-menu-toggle {
 				display: none !important;
+				visibility: hidden !important;
 			}
 		}
 		
@@ -175,16 +178,42 @@
 				order: 1;
 				z-index: 1000 !important;
 			}
+			/* Override minimal.css for mobile */
+			html body #header .header_in > div > .menu_wrap.active ~ h1,
+			html body #header .header_in > div > h1,
+			html body #wrap #header .header_in > div > h1,
+			body #header .header_in > div > h1,
 			#header .header_in > div > .menu_wrap.active ~ h1,
 			#header .header_in > div > h1 {
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
+				position: fixed !important;
+				top: 18px !important;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
+				z-index: 10000 !important;
+				margin: 0 !important;
 			}
-			#header .header_in > div > h1 img {
+			html body #header .header_in > div > h1 img,
+			html body #header .header_in > div > h1 a img,
+			body #header .header_in > div > h1 img,
+			body #header .header_in > div > h1 a img,
+			#header .header_in > div > h1 img,
+			#header .header_in > div > h1 a img {
 				height: 45px !important;
 				opacity: 1 !important;
 				visibility: visible !important;
+				display: block !important;
+				width: auto !important;
+				background-image: none !important;
+			}
+			html body #header .header_in > div > h1 a,
+			body #header .header_in > div > h1 a,
+			#header .header_in > div > h1 a {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			/* Remove underline below logo */
 			#header .header_in > div > h1 {
@@ -202,16 +231,32 @@
 				border-bottom: none !important;
 			}
 			
-			/* Hamburger Menu Button */
+			/* Hamburger Menu Button - Mobile Only - Override any external CSS */
+			html body #header #mobileMenuToggle,
+			html body #header .mobile-menu-toggle,
+			html body .mobile-menu-toggle,
+			body #header #mobileMenuToggle,
+			body #header .mobile-menu-toggle,
+			body .mobile-menu-toggle,
+			#mobileMenuToggle,
+			#header .mobile-menu-toggle,
 			.mobile-menu-toggle {
 				display: block !important;
-				order: 2;
+				order: 2 !important;
 				position: absolute !important;
 				top: 8px !important;
 				right: 20px !important;
-				z-index: 1001 !important;
+				z-index: 10001 !important;
 				visibility: visible !important;
 				opacity: 1 !important;
+				background: transparent !important;
+			}
+			#header .mobile-menu-toggle span,
+			.mobile-menu-toggle span {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				background: #fff !important;
 			}
 			.mobile-menu-toggle.active span:nth-child(1) {
 				transform: rotate(45deg) translate(7px, 7px);
@@ -564,6 +609,14 @@
 			#header .header_in > div > .menu_wrap {
 				padding-top: 40px !important;
 			}
+			html body #header #mobileMenuToggle,
+			html body #header .mobile-menu-toggle,
+			html body .mobile-menu-toggle,
+			body #header #mobileMenuToggle,
+			body #header .mobile-menu-toggle,
+			body .mobile-menu-toggle,
+			#mobileMenuToggle,
+			#header .mobile-menu-toggle,
 			.mobile-menu-toggle {
 				right: 15px !important;
 				top: 5px !important;
@@ -573,14 +626,18 @@
 				display: block !important;
 				visibility: visible !important;
 				opacity: 1 !important;
-				z-index: 1001 !important;
+				z-index: 10001 !important;
+				background: transparent !important;
 			}
+			#header .mobile-menu-toggle span,
 			.mobile-menu-toggle span {
 				width: 20px !important;
 				height: 0.6px !important;
 				margin: 5px 0 !important;
 				opacity: 1 !important;
 				visibility: visible !important;
+				display: block !important;
+				background: #fff !important;
 			}
 			#header .header_in .lang-selector {
 				top: 5px !important;
@@ -597,21 +654,40 @@
 			#header .header_in > div {
 				gap: 6px;
 			}
+			/* Override minimal.css for small mobile - Higher specificity */
+			html body #header .header_in > div > h1,
+			html body #wrap #header .header_in > div > h1,
+			body #header .header_in > div > h1,
 			#header .header_in > div > h1 {
 				position: fixed !important;
 				top: 14px !important;
 				left: 50% !important;
 				transform: translateX(-50%) !important;
 				margin: 0 !important;
-				z-index: 1000 !important;
+				z-index: 10000 !important;
 				opacity: 1 !important;
 				visibility: visible !important;
 				display: block !important;
 			}
-			#header .header_in > div > h1 img {
+			html body #header .header_in > div > h1 img,
+			html body #header .header_in > div > h1 a img,
+			body #header .header_in > div > h1 img,
+			body #header .header_in > div > h1 a img,
+			#header .header_in > div > h1 img,
+			#header .header_in > div > h1 a img {
 				height: 35px !important;
 				opacity: 1 !important;
 				visibility: visible !important;
+				display: block !important;
+				width: auto !important;
+				background-image: none !important;
+			}
+			html body #header .header_in > div > h1 a,
+			body #header .header_in > div > h1 a,
+			#header .header_in > div > h1 a {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
 			}
 			#visual {
 				min-height: 450px !important;
@@ -820,14 +896,14 @@
 					</select>
 				</div>
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
-				<h1 style="margin:0;">
-					<a href="#top"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto; opacity:1; visibility:visible;"></a>
+				<h1 style="margin:0 !important; display:block !important; visibility:visible !important; opacity:1 !important; position:fixed !important; top:18px !important; left:50% !important; transform:translateX(-50%) !important; z-index:10000 !important;">
+					<a href="#top" style="display:block !important; visibility:visible !important; opacity:1 !important;"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px !important; width:auto !important; opacity:1 !important; visibility:visible !important; display:block !important;"></a>
 			</h1>
 					<!-- Hamburger Menu Button - Mobile Only -->
-					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
-						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s; opacity:1;"></span>
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:10001; padding:8px; width:32px; height:32px; visibility:visible; opacity:1;">
+						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
+						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
+						<span style="display:block !important; width:24px !important; height:3px !important; background:#fff !important; margin:6px 0 !important; transition:all 0.3s !important; opacity:1 !important; visibility:visible !important;"></span>
 					</button>
 					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
 					<div class="tab_swiper in_Layer" style="margin-left:0;">
@@ -1871,7 +1947,79 @@
 		}
 		
 		// Handle anchor link clicks for menu navigation
+		// Force mobile menu and logo visibility on mobile devices
+		function ensureMobileElementsVisible() {
+			if (window.innerWidth <= 768) {
+				// Force hamburger menu visibility
+				const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+				if (mobileMenuToggle) {
+					mobileMenuToggle.style.setProperty('display', 'block', 'important');
+					mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+					mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+					mobileMenuToggle.style.setProperty('z-index', '10001', 'important');
+					mobileMenuToggle.style.setProperty('position', 'absolute', 'important');
+				}
+				
+				// Force logo visibility
+				const logoH1 = document.querySelector('#header .header_in > div > h1');
+				if (logoH1) {
+					logoH1.style.setProperty('display', 'block', 'important');
+					logoH1.style.setProperty('visibility', 'visible', 'important');
+					logoH1.style.setProperty('opacity', '1', 'important');
+					logoH1.style.setProperty('position', 'fixed', 'important');
+					logoH1.style.setProperty('z-index', '10000', 'important');
+				}
+				
+				const logoImg = document.querySelector('#header .header_in > div > h1 img');
+				if (logoImg) {
+					logoImg.style.setProperty('display', 'block', 'important');
+					logoImg.style.setProperty('visibility', 'visible', 'important');
+					logoImg.style.setProperty('opacity', '1', 'important');
+					logoImg.style.setProperty('width', 'auto', 'important');
+					logoImg.style.setProperty('height', '45px', 'important');
+				}
+				
+				const logoLink = document.querySelector('#header .header_in > div > h1 a');
+				if (logoLink) {
+					logoLink.style.setProperty('display', 'block', 'important');
+					logoLink.style.setProperty('visibility', 'visible', 'important');
+					logoLink.style.setProperty('opacity', '1', 'important');
+				}
+			}
+		}
+		
+		// Run on load and resize
+		window.addEventListener('load', ensureMobileElementsVisible);
+		window.addEventListener('resize', ensureMobileElementsVisible);
+		
+		// Use MutationObserver to ensure styles are maintained
+		if (window.MutationObserver) {
+			const observer = new MutationObserver(function(mutations) {
+				if (window.innerWidth <= 768) {
+					ensureMobileElementsVisible();
+				}
+			});
+			
+			document.addEventListener('DOMContentLoaded', function() {
+				const targetNode = document.querySelector('#header');
+				if (targetNode) {
+					observer.observe(targetNode, {
+						attributes: true,
+						attributeFilter: ['style', 'class'],
+						subtree: true,
+						childList: false
+					});
+				}
+			});
+		}
+		
 		document.addEventListener('DOMContentLoaded', function() {
+			// Force mobile elements visible immediately
+			setTimeout(ensureMobileElementsVisible, 0);
+			setTimeout(ensureMobileElementsVisible, 100);
+			setTimeout(ensureMobileElementsVisible, 500);
+			setTimeout(ensureMobileElementsVisible, 1000);
+			
 			// 모든 앵커 링크에 클릭 이벤트 추가
 			const anchorLinks = document.querySelectorAll('a[href^="#"]');
 			anchorLinks.forEach(function(link) {
