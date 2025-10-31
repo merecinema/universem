@@ -12,7 +12,11 @@
 	<link rel="stylesheet" href="comm/css/minimal.css">
 	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="comm/js/main.js"></script>
-	<style>
+		<style>
+		/* Pricing Box - Remove button space */
+		#charge .charge_style .box {
+			justify-content: flex-start !important;
+		}
 		/* Prevent horizontal scroll on mobile */
 		html, body {
 			overflow-x: hidden !important;
@@ -369,11 +373,48 @@
 			}
 			
 			/* Demo Section - Mobile */
+			#demo .titleArea {
+				text-align: center !important;
+			}
+			#demo .titleArea .mTit,
+			#demo .titleArea .mTxt {
+				text-align: center !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
 			#demo .trial-cards {
 				flex-direction: column !important;
+				align-items: center !important;
+				width: 100% !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
 			}
 			#demo .trial-card {
 				width: 100% !important;
+				max-width: 100% !important;
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: center !important;
+				align-items: center !important;
+				text-align: center !important;
+				margin: 0 auto !important;
+				box-sizing: border-box !important;
+			}
+			#demo .trial-card .trial-title,
+			#demo .trial-card .trial-desc {
+				text-align: center !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+			#demo .trial-card .trial-btn {
+				text-align: center !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+				display: inline-flex !important;
+				justify-content: center !important;
+				align-items: center !important;
 			}
 			
 			/* Pricing Section - Mobile */
@@ -384,6 +425,8 @@
 			#charge .charge_style .box {
 				width: 100% !important;
 				margin: 0 0 30px 0 !important;
+				justify-content: flex-start !important;
+				padding-bottom: 40px !important;
 			}
 			
 			/* Contact Form - Mobile */
@@ -392,6 +435,20 @@
 			}
 			#contact .w1350 {
 				padding: 0 20px;
+			}
+			#contact .contact_agree {
+				display: flex !important;
+				align-items: center !important;
+				gap: 8px !important;
+				flex-wrap: nowrap !important;
+			}
+			#contact .contact_agree .agree_checkbox {
+				flex-shrink: 0 !important;
+				margin: 0 !important;
+			}
+			#contact .contact_agree .agree_txt {
+				margin: 0 !important;
+				white-space: nowrap !important;
 			}
 			
 			/* Platform Section - Mobile */
@@ -413,6 +470,54 @@
 			.com_pad .btnArea {
 				margin-left: auto !important;
 				margin-right: auto !important;
+			}
+			
+			/* Footer - Mobile */
+			#footer {
+				padding: 40px 0 !important;
+			}
+			#footer .foot_bottom {
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: center !important;
+				justify-content: center !important;
+				gap: 12px !important;
+				text-align: center !important;
+				max-width: 100% !important;
+			}
+			#footer .foot_bottom > div:first-child {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				justify-content: center !important;
+				align-items: baseline !important;
+				gap: 12px 8px !important;
+			}
+			#footer .foot_bottom > div:first-child > span {
+				flex-basis: 100% !important;
+				text-align: center !important;
+				margin-bottom: 4px !important;
+			}
+			#footer .foot_bottom > div:first-child > a {
+				flex: 0 0 calc(50% - 8px) !important;
+				text-align: center !important;
+				padding: 4px 0 !important;
+				margin: 0 !important;
+			}
+			/* Company Info - Mobile */
+			#footer #companyInfo {
+				font-size: 11px !important;
+				line-height: 2 !important;
+				padding-left: 20px !important;
+				padding-right: 20px !important;
+			}
+			#footer #companyInfo .company-info-text {
+				white-space: normal !important;
+				display: block !important;
+				word-break: keep-all !important;
+			}
+			/* Hide Legal link on Korean pages */
+			.legal-link {
+				display: inline-block !important;
 			}
 		}
 		
@@ -477,9 +582,14 @@
 				gap: 6px;
 			}
 			#header .header_in > div > h1 {
-				position: static !important;
-				transform: none !important;
-				margin-bottom: 0 !important;
+				position: fixed !important;
+				top: 14px !important;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
+				margin: 0 !important;
+				z-index: 1000 !important;
+				opacity: 1 !important;
+				visibility: visible !important;
 			}
 			#header .header_in > div > h1 img {
 				height: 35px !important;
@@ -513,6 +623,165 @@
 				width: 100%;
 				margin: 0 !important;
 			}
+			/* Demo Section - Small Mobile */
+			#demo .trial-cards {
+				margin-top: 20px !important;
+				gap: 16px !important;
+			}
+			#demo .trial-card {
+				padding: 30px 15px !important;
+			}
+			#demo .trial-card .trial-title {
+				font-size: 20px !important;
+			}
+			#demo .trial-card .trial-desc {
+				font-size: 14px !important;
+			}
+			/* Footer - Small Mobile */
+			#footer {
+				padding: 30px 0 !important;
+			}
+			#footer .foot_bottom {
+				gap: 10px !important;
+			}
+			#footer .foot_bottom > div:first-child {
+				gap: 10px 6px !important;
+			}
+			#footer .foot_bottom > div:first-child > span {
+				font-size: 11px !important;
+			}
+			#footer .foot_bottom > div:first-child > a {
+				flex: 0 0 calc(50% - 6px) !important;
+				font-size: 12px !important;
+			}
+			#footer #companyInfo {
+				font-size: 11px !important;
+				line-height: 2 !important;
+			}
+			#footer #companyInfo .company-info-text {
+				font-size: 10px !important;
+			}
+		}
+		
+		/* Privacy Consent Popup Modal */
+		#privacyConsentModal {
+			display: none;
+			position: fixed;
+			z-index: 10000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		#privacyConsentModal.active {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.privacy-modal-content {
+			background-color: #fff;
+			margin: auto;
+			padding: 30px;
+			border: none;
+			width: 90%;
+			max-width: 600px;
+			max-height: 90vh;
+			overflow-y: auto;
+			border-radius: 8px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			position: relative;
+		}
+		.privacy-modal-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 25px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid #e0e0e0;
+		}
+		.privacy-modal-header h2 {
+			margin: 0;
+			font-size: 22px;
+			font-weight: 600;
+			color: #000;
+		}
+		.privacy-modal-close {
+			background: none;
+			border: none;
+			font-size: 28px;
+			font-weight: 300;
+			color: #999;
+			cursor: pointer;
+			padding: 0;
+			width: 30px;
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+		}
+		.privacy-modal-close:hover {
+			color: #000;
+		}
+		.privacy-modal-body {
+			color: #333;
+			line-height: 1.8;
+		}
+		.privacy-modal-body p {
+			margin-bottom: 20px;
+			font-size: 14px;
+		}
+		.privacy-modal-body h3 {
+			font-size: 16px;
+			font-weight: 600;
+			margin-top: 25px;
+			margin-bottom: 12px;
+			color: #000;
+		}
+		.privacy-modal-body table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 15px 0;
+			font-size: 14px;
+		}
+		.privacy-modal-body table th,
+		.privacy-modal-body table td {
+			border: 1px solid #ddd;
+			padding: 12px;
+			text-align: left;
+		}
+		.privacy-modal-body table th {
+			background-color: #f5f5f5;
+			font-weight: 600;
+		}
+		.privacy-consent-link {
+			color: #0066cc;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		.privacy-consent-link:hover {
+			text-decoration: none;
+		}
+		@media screen and (max-width: 768px) {
+			.privacy-modal-content {
+				padding: 20px;
+				margin: 20px;
+			}
+			.privacy-modal-header h2 {
+				font-size: 18px;
+			}
+			.privacy-modal-body h3 {
+				font-size: 15px;
+			}
+			.privacy-modal-body table {
+				font-size: 12px;
+			}
+			.privacy-modal-body table th,
+			.privacy-modal-body table td {
+				padding: 8px;
+			}
 		}
 	</style>
 </head>
@@ -529,20 +798,6 @@
 						<option value="ja">日本語</option>
 						<option value="zh">中文</option>
 						<option value="fr">Français</option>
-						<option value="es">Español (Coming soon)</option>
-						<option value="de">Deutsch (Coming soon)</option>
-						<option value="pt">Português (Coming soon)</option>
-						<option value="ru">Русский (Coming soon)</option>
-						<option value="it">Italiano (Coming soon)</option>
-						<option value="ar">العربية (Coming soon)</option>
-						<option value="hi">हिन्दी (Coming soon)</option>
-						<option value="th">ไทย (Coming soon)</option>
-						<option value="vi">Tiếng Việt (Coming soon)</option>
-						<option value="id">Bahasa Indonesia (Coming soon)</option>
-						<option value="nl">Nederlands (Coming soon)</option>
-						<option value="sv">Svenska (Coming soon)</option>
-						<option value="pl">Polski (Coming soon)</option>
-						<option value="tr">Türkçe (Coming soon)</option>
 					</select>
 				</div>
 				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
@@ -573,20 +828,6 @@
 											<option value="ja">日本語</option>
 											<option value="zh">中文</option>
 											<option value="fr">Français</option>
-											<option value="es">Español (Coming soon)</option>
-											<option value="de">Deutsch (Coming soon)</option>
-											<option value="pt">Português (Coming soon)</option>
-											<option value="ru">Русский (Coming soon)</option>
-											<option value="it">Italiano (Coming soon)</option>
-											<option value="ar">العربية (Coming soon)</option>
-											<option value="hi">हिन्दी (Coming soon)</option>
-											<option value="th">ไทย (Coming soon)</option>
-											<option value="vi">Tiếng Việt (Coming soon)</option>
-											<option value="id">Bahasa Indonesia (Coming soon)</option>
-											<option value="nl">Nederlands (Coming soon)</option>
-											<option value="sv">Svenska (Coming soon)</option>
-											<option value="pl">Polski (Coming soon)</option>
-											<option value="tr">Türkçe (Coming soon)</option>
 										</select>
 									</div>
 								</li>
@@ -600,20 +841,6 @@
 								<option value="ja">日本語</option>
 								<option value="zh">中文</option>
 								<option value="fr">Français</option>
-								<option value="es">Español (Coming soon)</option>
-								<option value="de">Deutsch (Coming soon)</option>
-								<option value="pt">Português (Coming soon)</option>
-								<option value="ru">Русский (Coming soon)</option>
-								<option value="it">Italiano (Coming soon)</option>
-								<option value="ar">العربية (Coming soon)</option>
-								<option value="hi">हिन्दी (Coming soon)</option>
-								<option value="th">ไทย (Coming soon)</option>
-								<option value="vi">Tiếng Việt (Coming soon)</option>
-								<option value="id">Bahasa Indonesia (Coming soon)</option>
-								<option value="nl">Nederlands (Coming soon)</option>
-								<option value="sv">Svenska (Coming soon)</option>
-								<option value="pl">Polski (Coming soon)</option>
-								<option value="tr">Türkçe (Coming soon)</option>
 							</select>
 						</div>
 					</div>
@@ -772,9 +999,6 @@
 									</ul>
 								</dd>
 							</dl>
-							<div style="margin-top:30px; text-align:center;">
-								<a href="checkout-en.html?plan=starter" class="moreBtn whiteBtn"><font>Get started</font></a>
-							</div>
 						</div>
 						<div class="box standard">
 							<div class="box_in">
@@ -810,9 +1034,6 @@
 									</ul>
 								</dd>
 							</dl>
-							<div style="margin-top:30px; text-align:center;">
-								<a href="checkout-en.html?plan=standard" class="moreBtn whiteBtn"><font>Get started</font></a>
-							</div>
 						</div>
 						<div class="box professional">
 							<div class="box_in">
@@ -848,9 +1069,6 @@
 									</ul>
 								</dd>
 							</dl>
-							<div style="margin-top:30px; text-align:center;">
-								<a href="checkout-en.html?plan=professional" class="moreBtn whiteBtn"><font>Get started</font></a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -863,7 +1081,6 @@
 				<div class="titleArea">
 					<h3 class="mTit">Contact</h3>
 					<p class="mTxt" style="color:#000;">We would love to hear from you.</p>
-					<p style="margin-top:15px;"><a href="messages.html" style="color:#000; text-decoration:underline; font-size:14px;">View Messages</a></p>
 				</div>
 				<div class="contact_form">
 					<form name="form1" method="post" action="../www.malgnsoft.com/cloud/inquiry_ifrm.jsp" target="ifrm">
@@ -915,12 +1132,21 @@
 		<!-- FOOTER -->
 		<div id="footer">
 			<div class="w1350">
-				<div class="foot_bottom" style="display:flex; justify-content:center; align-items:baseline; gap:20px; flex-wrap:wrap; font-size:13px;">
-					<span style="color:#999;"><a href="./admin-login.html" style="color:#999; text-decoration:none;">© MERECINEMA, INC. ALL RIGHTS RESERVED.</a></span>
-					<a href="./privacy-policy-en.html" style="color:#999;">Privacy Policy</a>
-					<a href="./terms-en.html" style="color:#999;">Terms of Use</a>
-					<a href="./sales-refunds-en.html" style="color:#999;">Sales and Refunds</a>
-					<a href="./legal-en.html" style="color:#999;">Legal</a>
+				<div class="foot_bottom" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px; font-size:13px;">
+					<div style="display:flex; justify-content:center; align-items:baseline; gap:20px; flex-wrap:wrap;">
+						<span style="color:#999;"><a href="./admin-login.html" style="color:#999; text-decoration:none;">© MereCinema, Inc. All rights reserved.</a></span>
+						<a href="./privacy-policy-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Privacy Policy</a>
+						<a href="./terms-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Terms of Use</a>
+						<a href="./sales-refunds-en.html" class="footer-link-en" style="color:#999; text-decoration:none;">Sales and Refunds</a>
+						<a href="./legal-en.html" class="legal-link" style="color:#999; text-decoration:none;">Legal</a>
+						<a href="./terms-ko.html" class="footer-link-ko" style="color:#999; text-decoration:none; display:none;">이용약관</a>
+						<a href="./privacy-policy-ko.html" class="footer-link-ko" style="color:#999; text-decoration:none; display:none;">개인정보처리방침</a>
+					</div>
+					<div id="companyInfo" style="display:none; text-align:center; font-size:12px; line-height:1.8; color:#999;">
+						<div class="company-info-text" style="display:inline-block; white-space:nowrap;">
+							(주)맑은시네마 &nbsp;&nbsp; 대표: 하민호 &nbsp;&nbsp; 이메일: <a href="mailto:oui@merecinema.net" style="color:#999; text-decoration:none;">oui@merecinema.net</a> &nbsp;&nbsp; 주소: 서울특별시 구로구 디지털로 288 대륭포스트타워1차 1701호 &nbsp;&nbsp; 사업자등록번호: 230-81-07466
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1066,7 +1292,7 @@
 					company: '회사명',
 					phone: '전화번호',
 					message: '메시지',
-					agree: '개인정보 처리방침에 동의합니다.',
+					agree: '개인정보 수집이용에 동의합니다.',
 					sendBtn: '전송',
 					placeholders: {
 						company: '회사명을 입력해 주세요.',
@@ -1321,8 +1547,37 @@
 			}
 		};
 
+		// Detect browser language and set default
+		function getDefaultLanguage() {
+			// Check if user has previously selected a language
+			const savedLang = localStorage.getItem('preferredLanguage');
+			if (savedLang) {
+				return savedLang;
+			}
+			
+			// Detect browser language
+			const browserLang = navigator.language || navigator.userLanguage || 'en';
+			const langCode = browserLang.toLowerCase().split('-')[0];
+			
+			// Available languages
+			const availableLangs = ['en', 'ko', 'ja', 'zh', 'fr'];
+			
+			// If browser language is Korean, default to Korean
+			if (langCode === 'ko') {
+				return 'ko';
+			}
+			
+			// Check if browser language matches any available language
+			if (availableLangs.includes(langCode)) {
+				return langCode;
+			}
+			
+			// Default to English
+			return 'en';
+		}
+
 		// Current language
-		let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+		let currentLang = getDefaultLanguage();
 
 		// Function to apply translations
 		function applyTranslation(lang) {
@@ -1439,7 +1694,15 @@
 			document.querySelector('input[name="phone"]').placeholder = t.contact.placeholders.phone;
 			document.querySelector('input[name="email"]').placeholder = t.contact.placeholders.email;
 			document.querySelector('textarea[name="content"]').placeholder = t.contact.placeholders.message;
-			document.querySelector('.contact_agree .agree_txt').textContent = t.contact.agree;
+			
+			// Apply agree text - with link for Korean
+			const agreeTxt = document.querySelector('.contact_agree .agree_txt');
+			if (lang === 'ko') {
+				agreeTxt.innerHTML = '<span class="privacy-consent-link" onclick="openPrivacyModal(); event.stopPropagation();">개인정보 수집이용에 동의</span>합니다.';
+			} else {
+				agreeTxt.textContent = t.contact.agree;
+			}
+			
 			document.querySelector('.contact_btn .moreBtn font').textContent = t.contact.sendBtn;
 			
 			// Apply label translations
@@ -1448,6 +1711,50 @@
 			document.querySelector('dt[data-label="phone"]').innerHTML = t.contact.phone + ' <span>*</span>';
 			document.querySelector('dt[data-label="email"]').innerHTML = t.contact.email + ' <span>*</span>';
 			document.querySelector('dt[data-label="message"]').innerHTML = t.contact.message + ' <span>*</span>';
+			
+			// Show/hide company info based on language
+			const companyInfo = document.getElementById('companyInfo');
+			if (companyInfo) {
+				if (lang === 'ko') {
+					companyInfo.style.display = 'block';
+				} else {
+					companyInfo.style.display = 'none';
+				}
+			}
+			
+			// Show/hide Legal link based on language
+			const legalLink = document.querySelector('.legal-link');
+			if (legalLink) {
+				if (lang === 'ko') {
+					legalLink.style.display = 'none';
+				} else {
+					legalLink.style.display = 'inline-block';
+				}
+			}
+			
+			// Show/hide footer links based on language
+			const footerLinksEn = document.querySelectorAll('.footer-link-en');
+			const footerLinksKo = document.querySelectorAll('.footer-link-ko');
+			
+			if (lang === 'ko') {
+				// Hide English links
+				footerLinksEn.forEach(function(link) {
+					link.style.display = 'none';
+				});
+				// Show Korean links
+				footerLinksKo.forEach(function(link) {
+					link.style.display = 'inline-block';
+				});
+			} else {
+				// Show English links
+				footerLinksEn.forEach(function(link) {
+					link.style.display = 'inline-block';
+				});
+				// Hide Korean links
+				footerLinksKo.forEach(function(link) {
+					link.style.display = 'none';
+				});
+			}
 		}
 
 		// Language selector functionality
@@ -1589,14 +1896,39 @@
 		
 		// Apply initial language on page load
 		document.addEventListener('DOMContentLoaded', function() {
-			const lang = localStorage.getItem('preferredLanguage') || 'en';
+			// Get default language (detects browser language for first-time visitors)
+			const lang = getDefaultLanguage();
+			
+			// Save detected language to localStorage if not already set
+			if (!localStorage.getItem('preferredLanguage')) {
+				localStorage.setItem('preferredLanguage', lang);
+			}
+			
+			// Update currentLang to match
+			currentLang = lang;
+			
 			const desktopSelect = document.getElementById('langSelect');
 			const mobileSelect = document.getElementById('langSelectMobile');
 			const mobileMenuSelect = document.getElementById('langSelectMobileMenu');
 			if (desktopSelect) desktopSelect.value = lang;
 			if (mobileSelect) mobileSelect.value = lang;
 			if (mobileMenuSelect) mobileMenuSelect.value = lang;
-			if (['ko','ja','zh','fr'].includes(lang)) applyTranslation(lang);
+			// Apply translation for all languages including English
+			applyTranslation(lang);
+			
+			// Additional setup based on language
+			if (lang !== 'ko') {
+				// Hide company info for non-Korean languages
+				const companyInfo = document.getElementById('companyInfo');
+				if (companyInfo) {
+					companyInfo.style.display = 'none';
+				}
+				// Show Legal link for non-Korean languages
+				const legalLink = document.querySelector('.legal-link');
+				if (legalLink) {
+					legalLink.style.display = 'inline-block';
+				}
+			}
 		});
 
 		// Form validation with multilingual error messages
@@ -1679,6 +2011,67 @@
 			
 			// Reset form
 			e.target.reset();
+		});
+	</script>
+
+	<!-- Privacy Consent Modal -->
+	<div id="privacyConsentModal">
+		<div class="privacy-modal-content">
+			<div class="privacy-modal-header">
+				<h2>개인정보 수집·이용 동의</h2>
+				<button class="privacy-modal-close" onclick="closePrivacyModal()">&times;</button>
+			</div>
+			<div class="privacy-modal-body">
+				<p>(주)맑은시네마(이하 '회사')는 개인정보보호법 시행에 따라 개인정보 수집과 관련된 고객님의 동의를 받고 있습니다.</p>
+				
+				<h3>1. 수집하는 개인정보 항목</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>수집항목</th>
+							<th>개인정보 수집방법</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>회사명, 연락처, 성함, 이메일</td>
+							<td>홈페이지(온라인 문의)</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3>2. 개인정보의 수집 및 이용목적</h3>
+				<p><strong>수집 목적:</strong> 문의하기 접수 및 답변 회신</p>
+				
+				<h3>3. 개인정보 보유 및 이용기간</h3>
+				<p>회사는 개인정보 수집 및 이용 목적이 달성된 후에는 예외 없이 해당 정보를 지체없이 파기합니다. 단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령이 정한 일정한 기간 동안 개인정보를 보관할 수 있습니다.</p>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function openPrivacyModal() {
+			document.getElementById('privacyConsentModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+		
+		function closePrivacyModal() {
+			document.getElementById('privacyConsentModal').classList.remove('active');
+			document.body.style.overflow = '';
+		}
+		
+		// Close modal when clicking outside
+		document.getElementById('privacyConsentModal').addEventListener('click', function(e) {
+			if (e.target === this) {
+				closePrivacyModal();
+			}
+		});
+		
+		// Close modal with Escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') {
+				closePrivacyModal();
+			}
 		});
 	</script>
 </body>

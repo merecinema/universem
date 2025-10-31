@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<title>이용약관 - UniverseM</title>
+	<link rel="stylesheet" href="comm/css/main.css">
+	<link rel="stylesheet" href="comm/css/minimal.css">
+	<script src="../code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="comm/js/main.js"></script>
+	<style>
+		/* Prevent horizontal scroll on mobile */
+		html, body {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			position: relative;
+		}
+		#wrap {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+		
+		/* Scroll offset for anchor links */
+		html {
+			scroll-padding-top: 120px;
+			scroll-behavior: smooth;
+		}
+		
+		/* Mobile scroll offset */
+		@media screen and (max-width: 768px) {
+			html {
+				scroll-padding-top: 100px;
+			}
+		}
+		
+		/* Desktop: Show language selector in menu, hide mobile version */
+		@media screen and (min-width: 769px) {
+			.lang-selector-mobile {
+				display: none !important;
+			}
+			.lang-selector-desktop {
+				display: inline-flex !important;
+			}
+		}
+		
+		/* Mobile Responsive Styles */
+		@media screen and (max-width: 768px) {
+			/* Prevent horizontal scroll on mobile */
+			html, body {
+				overflow-x: hidden !important;
+				width: 100% !important;
+				max-width: 100vw !important;
+				position: relative;
+			}
+			#wrap {
+				overflow-x: hidden !important;
+				width: 100% !important;
+				max-width: 100vw !important;
+			}
+			#wrap > * {
+				max-width: 100% !important;
+				overflow-x: hidden !important;
+			}
+			/* Header Menu - Mobile */
+			#header {
+				padding: 5px 0 !important;
+				overflow-x: hidden !important;
+				width: 100% !important;
+				max-width: 100vw !important;
+			}
+			#header .header_in {
+				padding: 0 15px !important;
+				flex-direction: column !important;
+				align-items: center !important;
+				gap: 8px !important;
+				padding-top: 18px !important;
+				position: relative;
+			}
+			#header .header_in > div {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+				position: relative;
+			}
+			#header .header_in > div > h1 {
+				position: fixed !important;
+				top: 18px !important;
+				left: 50% !important;
+				transform: translateX(-50%) !important;
+				margin: 0 !important;
+				order: 1;
+				z-index: 1000 !important;
+			}
+			#header .header_in > div > h1 img {
+				height: 45px !important;
+			}
+			/* Remove underline below logo */
+			#header .header_in > div > h1 {
+				border-bottom: none !important;
+			}
+			#header .header_in > div > h1::after,
+			#header .header_in > div > h1::before {
+				display: none !important;
+			}
+			#header .header_in > div > h1 a::after,
+			#header .header_in > div > h1 a::before {
+				display: none !important;
+			}
+			#header .header_in > div > h1 a {
+				border-bottom: none !important;
+			}
+			
+			/* Hamburger Menu Button */
+			.mobile-menu-toggle {
+				display: block !important;
+				order: 2;
+				position: absolute !important;
+				top: 8px !important;
+				right: 20px !important;
+			}
+			.mobile-menu-toggle.active span:nth-child(1) {
+				transform: rotate(45deg) translate(7px, 7px);
+			}
+			.mobile-menu-toggle.active span:nth-child(2) {
+				opacity: 0;
+			}
+			.mobile-menu-toggle.active span:nth-child(3) {
+				transform: rotate(-45deg) translate(7px, -7px);
+			}
+			
+			/* Hide menu by default on mobile */
+			#header .header_in > div > .menu_wrap {
+				order: 3;
+				display: none !important;
+				flex-direction: column !important;
+				gap: 0 !important;
+				width: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: #000 !important;
+				padding-top: 45px !important;
+				padding-bottom: 20px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+				z-index: 998;
+				overflow-y: auto;
+				backdrop-filter: blur(0);
+				justify-content: flex-start;
+			}
+			#header .header_in > div > .menu_wrap.active {
+				display: flex !important;
+			}
+			
+			#header .tab_swiper {
+				margin-left: 0 !important;
+				width: 100%;
+				overflow: visible !important;
+				padding-bottom: 0;
+			}
+			#header .tab_swiper .menu {
+				display: flex !important;
+				flex-direction: column !important;
+				flex-wrap: nowrap !important;
+				justify-content: flex-start !important;
+				align-items: stretch !important;
+				gap: 0 !important;
+				padding: 0;
+				white-space: normal !important;
+				width: 100%;
+			}
+			#header .tab_swiper .menu li {
+				flex-shrink: 0;
+				flex-grow: 0;
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			#header .tab_swiper .menu li:last-child {
+				border-bottom: none;
+			}
+			#header .tab_swiper .menu li a {
+				font-size: 16px !important;
+				white-space: nowrap;
+				padding: 15px 20px !important;
+				display: block;
+				line-height: 1.5;
+				width: 100%;
+				text-align: left;
+				color: #fff !important;
+			}
+			#header .tab_swiper .menu li a:hover {
+				background: rgba(255, 255, 255, 0.05);
+			}
+			
+			/* Mobile: Hide desktop language selector */
+			.lang-selector-desktop {
+				display: none !important;
+			}
+		}
+		
+		@media screen and (max-width: 480px) {
+			#header {
+				padding: 3px 0 !important;
+			}
+			#header .header_in {
+				padding: 0 10px !important;
+				gap: 6px !important;
+				padding-top: 14px !important;
+			}
+			#header .header_in > div > h1 {
+				top: 14px !important;
+			}
+			#header .header_in > div > .menu_wrap {
+				padding-top: 40px !important;
+			}
+			.mobile-menu-toggle {
+				right: 15px !important;
+				top: 5px !important;
+				padding: 6px !important;
+				width: 28px !important;
+				height: 28px !important;
+			}
+			.mobile-menu-toggle span {
+				width: 20px !important;
+				height: 0.6px !important;
+				margin: 5px 0 !important;
+			}
+			#header .header_in > div > h1 {
+				position: static !important;
+				transform: none !important;
+				margin-bottom: 0 !important;
+			}
+			#header .header_in > div > h1 img {
+				height: 35px !important;
+			}
+		}
+		
+		.policy_wrapper {
+			padding: 180px 20px 80px;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+		@media screen and (max-width: 768px) {
+			.policy_wrapper {
+				padding: 120px 20px 60px;
+			}
+		}
+		.policy_wrapper h1 {
+			font-size: 36px;
+			font-weight: 600;
+			margin-bottom: 20px;
+			color: #000;
+		}
+		.policy_wrapper p, .policy_wrapper li {
+			line-height: 1.8;
+			color: #333;
+			margin-bottom: 12px;
+		}
+		.policy_wrapper h2 {
+			font-size: 24px;
+			font-weight: 600;
+			margin-top: 30px;
+			margin-bottom: 15px;
+			color: #000;
+		}
+		.policy_wrapper ul {
+			margin-left: 20px;
+			margin-bottom: 20px;
+			list-style-type: decimal;
+		}
+		.policy_wrapper a {
+			color: #0066cc;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<div class="header_in">
+				<div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
+				<h1 style="margin:0;">
+					<a href="./index.html"><img src="img/UniverseM_white_logo_transparent_background.png" alt="UniverseM" style="height:60px; width:auto;"></a>
+			</h1>
+					<!-- Hamburger Menu Button - Mobile Only -->
+					<button class="mobile-menu-toggle" id="mobileMenuToggle" style="display:none; position:absolute; top:15px; right:20px; background:transparent; border:none; cursor:pointer; z-index:1001; padding:8px; width:32px; height:32px;">
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+						<span style="display:block; width:24px; height:0.6px; background:#fff; margin:6px 0; transition:all 0.3s;"></span>
+					</button>
+					<div class="menu_wrap" style="display:flex; align-items:center; gap:40px; width:100%; justify-content:center;">
+					<div class="tab_swiper in_Layer" style="margin-left:0;">
+						<ul class="menu swiper-wrapper">
+								<li class="swiper-slide active"><a href="./index.html#platform">플랫폼</a></li>
+								<li class="swiper-slide"><a href="./index.html#function">핵심기능</a></li>
+								<li class="swiper-slide"><a href="./index.html#demo">체험하기</a></li>
+								<li class="swiper-slide"><a href="./index.html#charge">요금제</a></li>
+								<li class="swiper-slide"><a href="./index.html#contact">문의하기</a></li>
+						</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="policy_wrapper">
+			<h1>이용약관</h1>
+			<p><strong>최종 수정일: 2025년 1월</strong></p>
+
+			<h2>제1조 (목적)</h2>
+			<p>이 약관은 주식회사 맑은시네마(이하 "회사"라 합니다)가 제공하는 UniverseM 클라우드 기반 OTT 플랫폼 서비스(이하 "서비스"라 합니다)의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+
+			<h2>제2조 (정의)</h2>
+			<p>이 약관에서 사용하는 용어의 정의는 다음과 같습니다:</p>
+			<ul>
+				<li>"서비스"란 회사가 제공하는 클라우드 기반 OTT 플랫폼 서비스 및 이와 관련된 모든 서비스를 의미합니다.</li>
+				<li>"이용자"란 이 약관에 따라 회사가 제공하는 서비스를 받는 자를 말합니다.</li>
+				<li>"콘텐츠"란 서비스를 통해 제공되는 모든 정보, 자료, 영상, 음성, 텍스트, 이미지 등을 의미합니다.</li>
+			</ul>
+
+			<h2>제3조 (약관의 게시와 개정)</h2>
+			<p>1. 회사는 이 약관의 내용을 이용자가 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.</p>
+			<p>2. 회사는 필요한 경우 관련 법령을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.</p>
+			<p>3. 회사가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 서비스의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 이용자에게 불리하게 약관내용을 변경하는 경우에는 최소한 30일 이상의 사전 유예기간을 두고 공지합니다.</p>
+			<p>4. 회사가 전항에 따라 개정약관을 공지하면서 "개정약관의 적용일자까지 동의를 하지 않는 경우 개정약관의 적용에 대한 동의를 거부한 것으로 간주됩니다"라는 취지를 명확히 공지하였음에도 이용자가 명시적으로 거부의 의사표시를 하지 아니한 경우에는 변경된 약관에 동의한 것으로 봅니다.</p>
+			<p>5. 이용자가 개정약관에 동의하지 않을 경우 이용자는 이용계약을 해지할 수 있습니다.</p>
+
+			<h2>제4조 (약관의 해석)</h2>
+			<p>1. 회사는 이 약관에서 정하지 아니한 사항에 대해서는 관련법령 또는 상관례에 따릅니다.</p>
+			<p>2. 이 약관의 해석에 관하여는 당사자 간의 합의를 최우선으로 하되, 합의가 이루어지지 아니하는 경우 관련법령 및 상관례에 따릅니다.</p>
+
+			<h2>제5조 (이용계약의 체결)</h2>
+			<p>1. 이용계약은 이용자의 약관 동의, 이용신청에 대한 회사의 승낙, 이용자에 대한 서비스 이용 승인으로 성립합니다.</p>
+			<p>2. 이용자는 회사가 정한 양식에 따라 이용신청을 하고, 회사는 이에 승낙함으로써 이용계약이 체결됩니다.</p>
+			<p>3. 회사는 다음 각 호에 해당하는 경우 이용신청에 대하여 승낙을 하지 않거나 사후에 이용계약을 해지할 수 있습니다:</p>
+			<ul>
+				<li>신청 내용에 허위, 기재누락, 오기가 있는 경우</li>
+				<li>만 14세 미만의 아동이 법정대리인의 동의를 얻지 아니한 경우</li>
+				<li>이용자가 회사나 기타 타인의 권리나 명예, 신용 기타 정당한 이익을 침해하는 행위를 한 경우</li>
+				<li>기타 서비스 이용에 현저히 지장이 있다고 판단되는 경우</li>
+			</ul>
+			<p>4. 회사는 이용자에 대해 회사정책에 따라 등급별로 구분하여 이용시간, 이용횟수, 서비스 메뉴 등을 세분하여 이용에 차등을 둘 수 있습니다.</p>
+
+			<h2>제6조 (서비스의 제공 및 변경)</h2>
+			<p>1. 회사는 다음과 같은 서비스를 제공합니다:</p>
+			<ul>
+				<li>클라우드 기반 OTT 플랫폼 서비스</li>
+				<li>콘텐츠 업로드, 관리 및 스트리밍 서비스</li>
+				<li>결제 및 구독 관리 서비스</li>
+				<li>통계 서비스</li>
+				<li>기타 회사가 추가 개발하거나 제휴계약 등을 통해 제공하는 일체의 서비스</li>
+			</ul>
+			<p>2. 회사는 필요한 경우 서비스의 내용을 변경할 수 있으며, 변경 시에는 변경사항을 사전에 공지합니다. 다만, 회사가 사전에 공지할 수 없는 부득이한 사유가 있는 경우 사후에 통지할 수 있습니다.</p>
+			<p>3. 회사는 무료로 제공되는 서비스의 일부 또는 전부를 회사의 정책 및 운영의 필요상 수정, 중단, 변경할 수 있으며, 이에 대하여 관련법에 특별한 규정이 없는 한 이용자에게 별도의 보상을 하지 않습니다.</p>
+
+			<h2>제7조 (서비스의 중단)</h2>
+			<p>1. 회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</p>
+			<p>2. 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 이용자 또는 제3자가 입은 손해에 대하여 배상합니다. 단, 회사가 고의 또는 과실이 없음을 입증하는 경우에는 그러하지 아니합니다.</p>
+			<p>3. 사업종목의 전환, 사업의 포기, 업체 간의 통합 등의 이유로 서비스를 제공할 수 없게 되는 경우에는 회사는 제8조에 정한 방법으로 이용자에게 통지하고 당초 회사에서 제시한 조건에 따라 이용자에게 보상합니다. 다만, 회사가 보상기준 등을 고지하지 아니한 경우에는 이용자들의 마일리지 또는 적립금 등을 회사에서 통용되는 통화가치에 상응하는 현물 또는 현금으로 이용자에게 지급합니다.</p>
+
+			<h2>제8조 (개인정보보호)</h2>
+			<p>1. 회사는 이용자의 개인정보 수집시 서비스제공을 위하여 필요한 범위에서 최소한의 개인정보를 수집합니다.</p>
+			<p>2. 회사는 서비스 이용을 위해 구매계약이행에 필요한 정보를 미리 수집하지 않습니다. 다만, 관련 법령상 의무이행을 위하여 구매계약 이전에 본인확인이 필요한 경우로서 최소한의 특정 개인정보를 수집하는 경우에는 그러하지 아니합니다.</p>
+			<p>3. 회사는 이용자의 개인정보를 수집·이용하는 때에는 당해 이용자에게 그 목적을 고지하고 동의를 받습니다.</p>
+			<p>4. 회사는 수집된 개인정보를 목적외의 용도로 이용할 수 없으며, 새로운 이용목적이 발생한 경우 또는 제3자에게 제공하는 경우에는 이용·제공단계에서 당해 이용자에게 그 목적을 고지하고 동의를 받습니다. 다만, 관련 법령에 달리 정함이 있는 경우에는 예외로 합니다.</p>
+			<p>5. 회사의 개인정보보호에 관해서는 관련법령 및 회사가 정하는 "개인정보처리방침"에 따릅니다.</p>
+
+			<h2>제9조 (이용자의 의무)</h2>
+			<p>이용자는 다음 행위를 하여서는 안 됩니다:</p>
+			<ul>
+				<li>신청 또는 변경 시 허위내용의 기재</li>
+				<li>타인의 정보 도용</li>
+				<li>회사가 게시한 정보의 변경</li>
+				<li>회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
+				<li>회사와 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
+				<li>회사와 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
+				<li>외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 공개 또는 게시하는 행위</li>
+				<li>회사의 동의 없이 영리를 목적으로 서비스를 사용하는 행위</li>
+				<li>기타 불법적이거나 부당한 행위</li>
+			</ul>
+
+			<h2>제10조 (저작권의 귀속 및 이용제한)</h2>
+			<p>1. 회사가 작성한 저작물에 대한 저작권 기타 지적재산권은 회사에 귀속합니다.</p>
+			<p>2. 이용자는 회사를 이용함으로써 얻은 정보 중 회사에 지적재산권이 귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</p>
+			<p>3. 회사는 약정에 따라 이용자에게 귀속된 저작권을 사용하는 경우 당해 이용자에게 통보하여야 합니다.</p>
+
+			<h2>제11조 (요금 및 결제)</h2>
+			<p>1. 서비스 이용 요금은 회사가 정한 요금표에 따릅니다.</p>
+			<p>2. 요금 결제는 신용카드, 계좌이체 등 회사가 제공하는 결제수단을 통해 할 수 있습니다.</p>
+			<p>3. 이용자는 요금을 미납할 경우 서비스 이용이 제한될 수 있습니다.</p>
+			<p>4. 정기 결제 서비스의 경우, 이용자는 언제든지 해지할 수 있으며, 해지 시 다음 결제 주기부터 서비스가 중단됩니다.</p>
+			<p>5. 환불에 관한 사항은 별도의 환불 정책에 따릅니다.</p>
+
+			<h2>제12조 (계약해제, 해지 등)</h2>
+			<p>1. 이용자는 언제든지 회사에 이용계약 해지 신청을 할 수 있으며, 회사는 관련법 등이 정하는 바에 따라 이를 즉시 처리하여야 합니다.</p>
+			<p>2. 이용자가 계약을 해지할 때에는 관련법 및 개인정보처리방침에 따라 회사가 이용자정보를 보유하는 경우를 제외하고는 해지 즉시 이용자의 모든 데이터는 소멸됩니다.</p>
+			<p>3. 이용자가 계약해지 의사를 통지한 후, 회사에서 해지 처리하는 기간 동안에는 계약이 해지되지 않으므로 해당 기간 동안은 서비스를 이용할 수 없습니다.</p>
+
+			<h2>제13조 (면책조항)</h2>
+			<p>1. 회사는 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.</p>
+			<p>2. 회사는 이용자의 귀책사유로 인한 서비스 이용의 장애에 대하여는 책임을 지지 않습니다.</p>
+			<p>3. 회사는 이용자가 서비스를 이용하여 기대하는 수익을 상실한 것에 대하여 책임을 지지 않으며, 그 밖의 서비스를 통하여 얻은 자료로 인한 손해에 관하여 책임을 지지 않습니다.</p>
+			<p>4. 회사는 이용자가 게시 또는 전송한 자료의 내용에 대하여는 책임을 지지 않습니다.</p>
+
+			<h2>제14조 (분쟁해결)</h2>
+			<p>1. 회사는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상처리기구를 설치·운영합니다.</p>
+			<p>2. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의 이용자의 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는 지방법원의 전속관할로 합니다. 다만, 제소 당시 이용자의 주소 또는 거소가 분명하지 않거나 외국 거주자의 경우에는 민사소송법상의 관할법원에 제기합니다.</p>
+			<p>3. 회사와 이용자 간에 발생한 분쟁에 관한 소송은 서울중앙지방법원을 관할법원으로 합니다.</p>
+
+			<h2>제15조 (재판권 및 준거법)</h2>
+			<p>1. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의 이용자의 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는 지방법원의 전속관할로 합니다. 다만, 제소 당시 이용자의 주소 또는 거소가 분명하지 않거나 외국 거주자의 경우에는 민사소송법상의 관할법원에 제기합니다.</p>
+			<p>2. 회사와 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.</p>
+
+			<h2>부칙</h2>
+			<p>이 약관은 2025년 1월 1일부터 시행합니다.</p>
+
+			<h2>문의처</h2>
+			<p>이 약관과 관련하여 문의사항이 있으시면 <a href="./index.html#contact">문의하기</a> 페이지를 통해 연락해 주시기 바랍니다.</p>
+			<p><strong>회사 정보</strong></p>
+			<ul>
+				<li>회사명: 주식회사 맑은시네마</li>
+				<li>대표: 하민호</li>
+				<li>이메일: <a href="mailto:oui@merecinema.net">oui@merecinema.net</a></li>
+				<li>주소: 서울특별시 구로구 디지털로 288 대륭포스트타워1차 1701호</li>
+				<li>사업자등록번호: 230-81-07466</li>
+			</ul>
+		</div>
+
+		<!-- FOOTER -->
+		<div id="footer">
+			<div class="w1350">
+				<div class="foot_bottom" style="display:flex; justify-content:center; align-items:baseline; gap:20px; flex-wrap:wrap; font-size:13px;">
+					<span style="color:#999;">© MereCinema, Inc. All rights reserved.</span>
+					<a href="./privacy-consent-ko.html" style="color:#999;">개인정보 수집이용동의</a>
+					<a href="./terms-ko.html" style="color:#999;">이용약관</a>
+					<a href="./privacy-policy-ko.html" style="color:#999;">개인정보처리방침</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Mobile menu toggle functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+			const menuWrap = document.querySelector('#header .menu_wrap');
+			
+			if (mobileMenuToggle && menuWrap) {
+				mobileMenuToggle.addEventListener('click', function() {
+					this.classList.toggle('active');
+					menuWrap.classList.toggle('active');
+				});
+				
+				const menuLinks = menuWrap.querySelectorAll('a');
+				menuLinks.forEach(function(link) {
+					link.addEventListener('click', function() {
+						mobileMenuToggle.classList.remove('active');
+						menuWrap.classList.remove('active');
+					});
+				});
+				
+				document.addEventListener('click', function(e) {
+					if (!mobileMenuToggle.contains(e.target) && !menuWrap.contains(e.target)) {
+						mobileMenuToggle.classList.remove('active');
+						menuWrap.classList.remove('active');
+					}
+				});
+			}
+		});
+	</script>
+
+</body>
+</html>
+
