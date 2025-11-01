@@ -451,9 +451,9 @@
 			font-size: 16px !important;
 			white-space: nowrap;
 			padding: 10.5px 20px !important; /* 15px의 70% = 10.5px (30% 감소) */
-			display: block !important;
+			display: inline-block !important;
 			line-height: 1.5;
-			width: 100%;
+			width: fit-content !important;
 			text-align: left;
 			color: #fff !important;
 			visibility: visible !important;
@@ -463,96 +463,64 @@
 			background: rgba(255, 255, 255, 0.05);
 		}
 		/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 왼쪽으로 0.2cm 이동하여 메뉴 텍스트 라인에 맞춤 */
-		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
-		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
-		html body #header .header_in > div > .menu_wrap.active .lang-selector,
-		html body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
-		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
-		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
-		body #header .header_in > div > .menu_wrap.active .lang-selector,
-		body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
-		#wrap #header .header_in > div > .menu_wrap.active .lang-selector,
-		#wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
 		#header .header_in > div > .menu_wrap.active .lang-selector,
 		#header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop {
-			position: static !important;
+			position: relative !important;
 			display: flex !important;
 			align-items: center !important;
-			justify-content: flex-start !important; /* 왼쪽 정렬 */
-			padding: 10.5px 20px 10.5px calc(20px + 1.8cm) !important; /* 상하 10.5px (15px의 70%), 왼쪽 패딩에 2cm - 0.2cm = 1.8cm */
-			margin: 0 !important; /* 마진 제거 */
+			justify-content: flex-start !important;
+			padding: 10.5px 20px 10.5px calc(20px + 1.8cm) !important;
+			margin: 0 !important;
 			width: 100% !important;
-			order: 999 !important; /* 메뉴 항목들 아래에 배치 */
-			border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* 구분선 추가 */
+			order: 999 !important;
+			border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 			height: auto !important;
-			min-height: auto !important;
-			z-index: 200 !important; /* tab_swiper보다 높게 */
-			pointer-events: auto !important; /* 클릭 가능 */
-			gap: 0 !important; /* 인라인 스타일의 gap:3px 오버라이드 */
+			z-index: 200 !important;
+			pointer-events: auto !important;
+			gap: 0 !important;
 		}
 		#header .header_in > div > .menu_wrap.active .lang-selector span {
 			padding: 0 !important;
 			margin: 0 !important;
-			margin-left: 0 !important;
-			padding-left: 0 !important;
-			line-height: 1.5 !important; /* 메뉴 항목과 동일한 line-height */
-			font-size: 16px !important; /* 메뉴 항목과 동일한 font-size */
+			line-height: 1.5 !important;
+			font-size: 16px !important;
 			vertical-align: baseline !important;
 			position: relative !important;
 			z-index: 1 !important;
 			pointer-events: none !important;
-			display: inline-block !important; /* 텍스트 정확한 위치 파악을 위해 */
+			display: inline-block !important;
 		}
-		/* select 요소를 span 텍스트 "文A" 위에 정확히 정렬 - lang-selector padding-left 위치와 동일하게 조정 */
-		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
-		html body #header .header_in > div > .menu_wrap.active .lang-selector select,
-		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
-		body #header .header_in > div > .menu_wrap.active .lang-selector select,
-		#wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+		/* select 요소를 span 텍스트 "文A" 위에 정확히 정렬 */
 		#header .header_in > div > .menu_wrap.active .lang-selector select,
 		#header .header_in > div > .menu_wrap.active .lang-selector #langSelect {
 			position: absolute !important;
-			top: 0 !important; /* lang-selector 컨테이너의 시작점부터 */
-			left: calc(20px + 1.8cm) !important; /* lang-selector의 padding-left 위치와 동일 - "文A" 텍스트 시작 지점 (2cm - 0.2cm = 1.8cm) */
-			width: 100px !important; /* "文A" 텍스트(약 32px) + 오른쪽 빈 공간까지 충분히 커버 */
-			height: 100% !important; /* lang-selector의 전체 높이 */
+			top: 50% !important;
+			transform: translateY(-50%) !important;
+			left: calc(20px + 1.8cm) !important;
+			width: 40px !important;
+			height: 24px !important;
 			margin: 0 !important;
 			padding: 0 !important;
-			opacity: 0.01 !important; /* 0에서 0.01로 변경하여 터치 가능하게 */
+			opacity: 0.01 !important;
 			cursor: pointer !important;
-			z-index: 9999 !important; /* 최고 z-index로 다른 모든 요소 위에 배치 */
-			pointer-events: auto !important; /* 클릭 가능 */
-			-webkit-tap-highlight-color: rgba(255, 255, 255, 0.1) !important; /* 터치 피드백 */
+			z-index: 9999 !important;
+			pointer-events: auto !important;
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0.1) !important;
 			-webkit-appearance: none !important;
 			-moz-appearance: none !important;
 			appearance: none !important;
 			background: transparent !important;
 		}
-		/* tab_swiper 내부 메뉴 항목은 클릭 가능 - 최고 우선순위 (하지만 언어선택보다는 낮게) */
-		html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
-		html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
-		body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
-		body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
-		#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
-		#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+		/* tab_swiper 내부 메뉴 항목은 클릭 가능 - 언어선택보다 낮게 */
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		#header .header_in > div > .menu_wrap.active .tab_swiper {
 			position: relative !important;
-			z-index: 100 !important; /* 언어선택보다 낮게 */
-			pointer-events: auto !important;
-		}
-		/* tab_swiper 자체는 언어선택을 가로막지 않도록 */
-		html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper {
-			position: relative !important;
-			z-index: 100 !important; /* 언어선택보다 낮게 */
+			z-index: 100 !important;
 			pointer-events: auto !important;
 		}
 		/* lang-selector 컨테이너가 언어선택 select를 가로막지 않도록 */
-		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector {
+		#header .header_in > div > .menu_wrap.active .lang-selector {
 			position: relative !important;
-			pointer-events: auto !important; /* 컨테이너는 클릭 가능하지만 */
-		}
-		/* lang-selector의 span은 pointer-events: none이므로 select만 클릭 가능 */
-		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector span {
-			pointer-events: none !important; /* span은 클릭 불가 */
 		}
 		/* Key Features - Mobile Grid */
 		#function .function_list {
