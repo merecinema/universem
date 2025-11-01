@@ -216,17 +216,6 @@
 			z-index: 10000 !important;
 			margin: 0 !important;
 		}
-		/* Override minimal.css - Disable .malgnsoft background image, show actual img tag */
-		/* minimal.css line 31 uses .malgnsoft class with background-image - completely disable it */
-		#header .header_in h1 .malgnsoft,
-		#header .header_in > div > h1 .malgnsoft {
-			display: none !important;
-			background-image: none !important;
-			background: none !important;
-			width: 0 !important;
-			height: 0 !important;
-			visibility: hidden !important;
-		}
 		/* Force actual img tag to be visible - override all possible selectors with ID selectors */
 		#headerLogo img,
 		#headerLogo #logoImg,

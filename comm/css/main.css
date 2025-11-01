@@ -81,35 +81,6 @@
 
 
 
-/* 맑은 OTT 클라우드 */
-#ott{padding:170px 0 90px; overflow: hidden;}
-#ott .ott_style{position: relative; top:-120px; width: 100%; max-width:1200px; margin:0 auto;}
-#ott .ott_style .ott_platform{position:relative; text-align:center;}
-#ott .ott_style .ott_platform .img{position: absolute; left: 51%; bottom: 70px; transform:translateX(-50%);}
-#ott .ott_style .ott_platform .img img{max-width:100%;}
-#ott .ott_style .ott_platform .img.mobile{display: none;}
-#ott .ott_style .ott_platform .bg{}
-#ott .ott_style .ott_platform .bg img{max-width:80%;}
-#ott .ott_style dl{text-align:center; position: absolute; width: 100%; max-width:250px;}
-#ott .ott_style dl.one{left: 0; bottom: 304px;}
-#ott .ott_style dl.two{left: 0; bottom: 92px;}
-#ott .ott_style dl.three{right: 0; bottom: 304px;}
-#ott .ott_style dl.four{right: 0; bottom: 92px;}
-#ott .ott_style dl dt{margin:0 auto 17px; width:80px; height:80px; border-radius:50%; box-shadow: 0px 10px 15px rgba(21, 46, 146, 0.20); position:relative;}
-#ott .ott_style dl dt:before{content:''; display:block; width:96px; height:96px; border-radius:50%; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
-#ott .ott_style dl.one dt{background: linear-gradient(135deg, #2BACEB 0%, #0F91D0 100%);}
-#ott .ott_style dl.one dt:before{background: var(--main); opacity: 0.1;}
-#ott .ott_style dl.two dt{background: linear-gradient(130deg, #7359FF 0%, #1954DB 100%);}
-#ott .ott_style dl.two dt:before{background: var(--sub); opacity: 0.1;}
-#ott .ott_style dl.three dt{background: linear-gradient(130deg, #7359FF 0%, #1954DB 100%);}
-#ott .ott_style dl.three dt:before{background: var(--sub); opacity: 0.1;}
-#ott .ott_style dl.four dt{background: linear-gradient(135deg, #2BACEB 0%, #0F91D0 100%);}
-#ott .ott_style dl.four dt:before{background: var(--main); opacity: 0.1;}
-#ott .ott_style dl dt img{width:100%;}
-#ott .ott_style dl dd{}
-#ott .ott_style dl dd .txt{padding:5px 0 0;}
-
-
 
 /* 주요 기능 */
 #function{overflow: hidden;}
@@ -444,13 +415,6 @@ opacity: 0;
 
 
 
-/* 맑은 OTT 클라우드 */
-#ott{padding:140px 0 90px;}
-#ott .ott_style{top:-80px;}
-#ott .ott_style dl.one{bottom: 280px;}
-#ott .ott_style dl.two{bottom: 60px;}
-#ott .ott_style dl.three{bottom: 280px;}
-#ott .ott_style dl.four{bottom: 60px;}
 
 
 /* 주요 기능 */
@@ -529,20 +493,6 @@ opacity: 0;
 
 
 
-/* 맑은 OTT 클라우드 */
-#ott{padding:100px 0 70px;}
-#ott .ott_style{top:0; display: flex; flex-wrap:wrap;}
-#ott .ott_style .ott_platform{width: 100%; margin: 0 0 30px;}
-#ott .ott_style .ott_platform .img{position: relative; left: auto; bottom: auto; transform:translateX(0);}
-#ott .ott_style .ott_platform .img.mobile{display: block;}
-#ott .ott_style .ott_platform .img.mobile img{max-width:80%;}
-#ott .ott_style .ott_platform .img.pc{display: none;}
-#ott .ott_style .ott_platform .bg{display: none;}
-#ott .ott_style dl{max-width:50%; margin: 0 auto 30px; display: flex; position: relative; left: auto !important; right: auto !important; top:auto !important; bottom: auto !important;}
-#ott .ott_style dl:last-child{margin: 0 auto;}
-#ott .ott_style dl dt{margin:0;}
-#ott .ott_style dl dd{width: calc(100% - 80px); padding: 0 30px; display: flex; flex-direction:column; justify-content:center; box-sizing:border-box; text-align:left;}
-#ott .ott_style dl dd .txt{padding:5px 0 0;}
 
 
 /* 주요 기능 */
@@ -673,17 +623,6 @@ opacity: 0;
 
 
 
-/* 맑은 OTT 클라우드 */
-#ott{padding:60px 0 40px;}
-#ott .ott_style{padding:0 20px; box-sizing:border-box; display: block;}
-#ott .ott_style .ott_platform{margin: 0 0 20px;}
-#ott .ott_style dl{max-width:350px; margin: 0 auto 25px;}
-#ott .ott_style dl:last-child{margin: 0 auto;}
-#ott .ott_style dl dd{padding: 0 0 0 20px;}
-#ott .ott_style dl.three dt{background: linear-gradient(135deg, #2BACEB 0%, #0F91D0 100%);}
-#ott .ott_style dl.three dt:before{background: var(--main); opacity: 0.1;}
-#ott .ott_style dl.four dt{background: linear-gradient(130deg, #7359FF 0%, #1954DB 100%);}
-#ott .ott_style dl.four dt:before{background: var(--sub); opacity: 0.1;}
 
 
 /* 주요 기능 */

@@ -28,9 +28,7 @@ body #header,
 #header .header_in{display:flex; align-items:center; justify-content:center; gap:30px; background:transparent !important; flex-wrap:nowrap; padding-top:80px; position:relative;}
 #header .header_in h1{margin:0; position:absolute; top:20px; left:50%; transform:translateX(-50%);} 
 #header .header_in .menu_wrap{margin:0;}
-#header .header_in h1 .malgnsoft {filter: grayscale(0%); width:auto; height:60px; background-image:url('../../img/UniverseM_white_logo_transparent_background.png') !important; background-repeat:no-repeat !important; background-position:center !important; background-size:contain !important; display:inline-block;} /* logo larger above menu */
 #header .header_in h1{margin-right:0;}
-#header .header_in h1 .ottcloud {display:none !important;}
 #header .menu {justify-content: center; gap:36px; background:transparent !important;}
 #header .menu_wrap{position:relative; display:flex; justify-content:center !important; align-items:center;}
 #header .menu_wrap .lang-selector{position:absolute; right:0; top:0; bottom:0; transform:none; display:flex; align-items:center;}
@@ -41,7 +39,6 @@ body #header,
 #header .menu > li a:after {background: #fff !important; display:none !important;}
 #header.fixed {box-shadow: none !important; background:#000 !important;}
 body #header.fixed, html body #header.fixed {background:#000 !important;}
-#header.fixed .header_in h1 .ottcloud{color:#fff !important;}
 #header.fixed .menu > li a{color:#fff !important;}
 #header.fixed .menu > li a:after{background:#fff !important;}
 
@@ -54,9 +51,9 @@ body #header.fixed, html body #header.fixed {background:#000 !important;}
 
 /* Sections */
 .snap-container { scroll-snap-type: y proximity; }
-#visual, #platform, #ott, #function, #charge, #demo, #contact { scroll-snap-align: start; }
-#platform, #ott, #function, #charge, #demo, #contact { min-height: 80vh; }
-.snap-container, #platform, #ott, #function, #charge, #demo, #contact, #portfolio, #case { overflow: visible !important; }
+#visual, #platform, #function, #charge, #demo, #contact { scroll-snap-align: start; }
+#platform, #function, #charge, #demo, #contact { min-height: 80vh; }
+.snap-container, #platform, #function, #charge, #demo, #contact, #portfolio, #case { overflow: visible !important; }
 .grayBg {background: var(--white) !important;}
 .com_pad {padding-top: 130px; padding-bottom: 130px;}
 
