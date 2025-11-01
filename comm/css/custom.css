@@ -148,6 +148,8 @@
 			box-sizing: border-box !important;
 		}
 		/* Header Menu - Mobile */
+		html body #header,
+		body #header,
 		#header {
 			padding: 40px 0 !important;
 			overflow-x: hidden !important;
