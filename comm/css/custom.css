@@ -1,0 +1,1133 @@
+	/* Pricing Box - Remove button space */
+	#charge .charge_style .box {
+		justify-content: flex-start !important;
+	}
+	/* Prevent horizontal scroll on mobile */
+	html, body {
+		overflow-x: hidden !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		position: relative;
+	}
+	#wrap {
+		overflow-x: hidden !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+	
+	/* Scroll offset for anchor links - prevent content from being hidden under fixed header */
+	html {
+		scroll-padding-top: 120px;
+		scroll-behavior: smooth;
+	}
+	#platform, #function, #demo, #charge, #contact {
+		scroll-margin-top: 120px;
+	}
+	
+	/* Hide visual section when scrolling to other sections */
+	#platform, #function, #demo, #charge, #contact {
+		position: relative;
+	}
+	
+	/* Mobile scroll offset */
+	@media screen and (max-width: 768px) {
+		html {
+			scroll-padding-top: 100px;
+		}
+		#platform, #function, #demo, #charge, #contact {
+			scroll-margin-top: 100px;
+		}
+	}
+	
+	/* Language Selector - Desktop */
+	#header .header_in .menu_wrap .lang-selector {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		padding: 5px;
+		transition: all 0.3s ease;
+	}
+	#header .header_in .menu_wrap .lang-selector:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+	#header .header_in .menu_wrap .lang-selector select {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+	
+	/* Hamburger Menu - Show by default (mobile-first approach) */
+	#mobileMenuToggle,
+	#header #mobileMenuToggle,
+	#header .mobile-menu-toggle,
+	.mobile-menu-toggle {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
+	
+	/* Desktop: Hide hamburger menu on desktop */
+	@media screen and (min-width: 769px) {
+		#mobileMenuToggle,
+		#header #mobileMenuToggle,
+		#header .mobile-menu-toggle,
+		.mobile-menu-toggle {
+			display: none !important;
+			visibility: hidden !important;
+			opacity: 0 !important;
+		}
+		/* PC 화면에서 언어선택 아이콘 원래 위치 유지 */
+		#header .header_in .menu_wrap .lang-selector,
+		#header .header_in .menu_wrap .lang-selector.lang-selector-desktop {
+			padding-left: 0 !important;
+			padding: 5px !important; /* PC 기본 패딩 */
+		}
+		#header .header_in .menu_wrap .lang-selector select {
+			left: 0 !important;
+			width: 100% !important;
+		}
+	}
+	
+	/* Mobile Responsive Styles - Galaxy Z Fold 6 and similar foldables */
+	@media screen and (max-width: 768px) {
+		/* Prevent horizontal scroll on mobile */
+		html, body {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+			position: relative;
+		}
+		#wrap {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+		}
+		#wrap > * {
+			max-width: 100% !important;
+			overflow-x: hidden !important;
+		}
+		#visual, #platform, #function, #demo, #charge, #contact, #footer {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+		}
+		#visual .visual_in, #platform .com_pad, #function .com_pad, #demo .com_pad, #charge .com_pad, #contact .com_pad {
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+		/* Center all containers on mobile */
+		.w1350 {
+			margin: 0 auto !important;
+			padding-left: 20px !important;
+			padding-right: 20px !important;
+			box-sizing: border-box !important;
+		}
+		#visual .visual_in,
+		#platform .w1350,
+		#function .w1350,
+		#demo .w1350,
+		#charge .w1350,
+		#contact .w1350,
+		#footer .w1350 {
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding-left: 20px !important;
+			padding-right: 20px !important;
+			box-sizing: border-box !important;
+		}
+		.com_pad {
+			display: block !important;
+			width: 100% !important;
+			margin: 0 auto !important;
+		}
+		.com_pad > * {
+			width: 100% !important;
+			max-width: 100% !important;
+			box-sizing: border-box !important;
+		}
+		/* Header Menu - Mobile */
+		#header {
+			padding: 5px 0 !important;
+			overflow-x: hidden !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+		}
+		#header .header_in {
+			padding: 0 15px !important;
+			flex-direction: column !important;
+			align-items: center !important;
+			gap: 8px !important;
+			padding-top: 9px !important; /* 18px의 50% = 9px */
+			position: relative;
+		}
+		#header .header_in > div {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			position: relative;
+		}
+		#header .header_in > div > h1 {
+			position: fixed !important;
+			top: 9px !important; /* 18px의 50% = 9px */
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+			margin: 0 !important;
+			order: 1;
+			z-index: 1000 !important;
+			opacity: 1 !important;
+			visibility: visible !important;
+		}
+		/* h1 내부의 이미지가 확실히 보이도록 - 모바일 전용 추가 규칙 */
+		#header .header_in > div > h1,
+		#header .header_in > div > h1#headerLogo {
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+		}
+		#header .header_in > div > h1 img,
+		#header .header_in > div > h1#headerLogo img,
+		#header .header_in > div > h1 #logoImg,
+		#header .header_in > div > h1#headerLogo #logoImg {
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			filter: none !important;
+			-webkit-filter: none !important;
+			-moz-filter: none !important;
+			transform: none !important;
+			-webkit-transform: none !important;
+			-moz-transform: none !important;
+		}
+		/* Override minimal.css for mobile - Force logo visibility */
+		/* minimal.css line 29: #header .header_in h1{position:absolute; top:20px; left:50%; transform:translateX(-50%);} */
+		#header .header_in > div > h1,
+		#header .header_in h1 {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			position: fixed !important;
+			top: 9px !important;
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+			z-index: 10000 !important;
+			margin: 0 !important;
+		}
+		/* Override minimal.css - Disable .malgnsoft background image, show actual img tag */
+		/* minimal.css line 31 uses .malgnsoft class with background-image - completely disable it */
+		#header .header_in h1 .malgnsoft,
+		#header .header_in > div > h1 .malgnsoft {
+			display: none !important;
+			background-image: none !important;
+			background: none !important;
+			width: 0 !important;
+			height: 0 !important;
+			visibility: hidden !important;
+		}
+		/* Force actual img tag to be visible - override all possible selectors with ID selectors */
+		#headerLogo img,
+		#headerLogo #logoImg,
+		#logoImg,
+		#header .header_in h1 img,
+		#header .header_in h1 a img,
+		#header .header_in > div > h1 img,
+		#header .header_in > div > h1 a img {
+			height: 45px !important;
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			width: auto !important;
+			background-image: none !important;
+			background: none !important;
+			filter: none !important;
+			-webkit-filter: none !important;
+			-moz-filter: none !important;
+			transform: none !important;
+			-webkit-transform: none !important;
+			-moz-transform: none !important;
+		}
+		#header .header_in h1 a,
+		#header .header_in > div > h1 a {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			background: none !important;
+			background-image: none !important;
+		}
+		/* Remove underline below logo */
+		#header .header_in > div > h1 {
+			border-bottom: none !important;
+		}
+		#header .header_in > div > h1::after,
+		#header .header_in > div > h1::before {
+			display: none !important;
+		}
+		#header .header_in > div > h1 a::after,
+		#header .header_in > div > h1 a::before {
+			display: none !important;
+		}
+		#header .header_in > div > h1 a {
+			border-bottom: none !important;
+		}
+		
+		/* 모바일에서 햄버거 메뉴 버튼 강제 표시 */
+		#header .header_in > div > .mobile-menu-toggle,
+		#header .header_in > div > #mobileMenuToggle,
+		#header .mobile-menu-toggle,
+		.mobile-menu-toggle,
+		#mobileMenuToggle {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			position: fixed !important;
+			top: 15px !important;
+			right: 20px !important;
+			z-index: 10001 !important;
+			background: transparent !important;
+			border: none !important;
+			cursor: pointer !important;
+			padding: 8px !important;
+			width: 32px !important;
+			height: 32px !important;
+		}
+		/* Hamburger Menu Button - Mobile Only */
+		#header #mobileMenuToggle,
+		#header .mobile-menu-toggle,
+		#mobileMenuToggle {
+			display: block !important;
+			order: 2 !important;
+			position: absolute !important;
+			top: 8px !important;
+			right: 20px !important;
+			z-index: 10001 !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			background: transparent !important;
+			border: none !important;
+			cursor: pointer !important;
+			padding: 8px !important;
+			width: 32px !important;
+			height: 32px !important;
+		}
+		/* 햄버거 메뉴 라인 - 단일 규칙으로 통일 */
+		#header .mobile-menu-toggle span,
+		.mobile-menu-toggle span,
+		#mobileMenuToggle span {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			background: #fff !important;
+			width: 24px !important;
+			height: 1.5px !important;
+			margin: 7px 0 !important;
+			transition: all 0.3s !important;
+		}
+		/* active 상태 (X로 변환) */
+		#header .mobile-menu-toggle.active span:nth-child(1),
+		.mobile-menu-toggle.active span:nth-child(1),
+		#mobileMenuToggle.active span:nth-child(1) {
+			transform: rotate(45deg) translate(5px, 5px) !important;
+		}
+		#header .mobile-menu-toggle.active span:nth-child(2),
+		.mobile-menu-toggle.active span:nth-child(2),
+		#mobileMenuToggle.active span:nth-child(2) {
+			opacity: 0 !important;
+		}
+		#header .mobile-menu-toggle.active span:nth-child(3),
+		.mobile-menu-toggle.active span:nth-child(3),
+		#mobileMenuToggle.active span:nth-child(3) {
+			transform: rotate(-45deg) translate(5px, -5px) !important;
+		}
+		
+		/* Hide desktop menu by default on mobile - show only hamburger */
+		#header .header_in > div > .menu_wrap .tab_swiper .menu,
+		#header .header_in > div > .menu_wrap .menu {
+			display: none !important;
+		}
+		#header .header_in > div > .menu_wrap {
+			order: 3;
+			display: none !important;
+			flex-direction: column !important;
+			gap: 0 !important;
+			width: 100%;
+			position: fixed;
+			top: 0 !important; /* 상단 고정 */
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #000 !important;
+			padding: 0 !important; /* 모든 패딩 제거 */
+			padding-bottom: 20px !important; /* 하단만 */
+			margin: 0 !important; /* 마진 제거 */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+			z-index: 9999 !important;
+			overflow-y: auto;
+			backdrop-filter: blur(0);
+			justify-content: flex-start;
+		}
+		#header .header_in > div > .menu_wrap.active {
+			display: flex !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			padding-top: 0 !important; /* 상단 패딩 완전 제거 */
+			padding-bottom: 20px !important;
+			margin-top: 0 !important; /* 상단 마진 제거 */
+		}
+		/* 로고 아래 여백 제거 - 메뉴 첫 번째 항목의 상단 마진/패딩 제거 */
+		#header .header_in > div > .menu_wrap.active .tab_swiper {
+			margin-top: 0 !important;
+			padding-top: 0 !important;
+		}
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+			margin-top: 0 !important;
+			padding-top: 0 !important;
+		}
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child {
+			margin-top: 0 !important;
+			padding-top: 0 !important;
+		}
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu li:first-child a {
+			padding-top: 10.5px !important;
+			margin-top: 0 !important;
+			padding-bottom: 10.5px !important;
+		}
+		#header .header_in > div > .menu_wrap.active {
+			padding-top: 0 !important;
+			margin-top: 0 !important;
+		}
+		/* Hide desktop menu on mobile - show only when hamburger is active */
+		#header .header_in > div > .menu_wrap:not(.active) .tab_swiper,
+		#header .header_in > div > .menu_wrap:not(.active) .menu {
+			display: none !important;
+		}
+		/* Show menu only when hamburger menu is active */
+		#header .header_in > div > .menu_wrap.active .tab_swiper {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			width: 100% !important;
+			margin-left: 0 !important;
+			margin-top: 0 !important;
+			padding-top: 0 !important;
+			padding-bottom: 0;
+			overflow: visible !important;
+		}
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		#header .header_in > div > .menu_wrap.active .menu {
+			display: flex !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+		}
+		/* minimal.css의 margin-left:6.2cm 오버라이드 */
+		#header .tab_swiper {
+			margin-left: 0 !important;
+		}
+		#header .tab_swiper .menu {
+			display: flex !important;
+			flex-direction: column !important;
+			flex-wrap: nowrap !important;
+			justify-content: flex-start !important;
+			align-items: stretch !important;
+			gap: 0 !important;
+			padding: 0;
+			white-space: normal !important;
+			width: 100%;
+		}
+		#header .tab_swiper .menu li {
+			flex-shrink: 0;
+			flex-grow: 0;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		#header .tab_swiper .menu li:last-child {
+			border-bottom: none;
+		}
+		#header .tab_swiper .menu li a {
+			font-size: 16px !important;
+			white-space: nowrap;
+			padding: 10.5px 20px !important; /* 15px의 70% = 10.5px (30% 감소) */
+			display: block !important;
+			line-height: 1.5;
+			width: 100%;
+			text-align: left;
+			color: #fff !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+		}
+		#header .tab_swiper .menu li a:hover {
+			background: rgba(255, 255, 255, 0.05);
+		}
+		/* 언어선택 아이콘을 메뉴 항목과 동일한 라인에 정렬 - 왼쪽으로 0.2cm 이동하여 메뉴 텍스트 라인에 맞춤 */
+		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+		html body #header .header_in > div > .menu_wrap.active .lang-selector,
+		html body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+		body #header .header_in > div > .menu_wrap.active .lang-selector,
+		body #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+		#wrap #header .header_in > div > .menu_wrap.active .lang-selector,
+		#wrap #header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop,
+		#header .header_in > div > .menu_wrap.active .lang-selector,
+		#header .header_in > div > .menu_wrap.active .lang-selector.lang-selector-desktop {
+			position: static !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: flex-start !important; /* 왼쪽 정렬 */
+			padding: 10.5px 20px 10.5px calc(20px + 1.8cm) !important; /* 상하 10.5px (15px의 70%), 왼쪽 패딩에 2cm - 0.2cm = 1.8cm */
+			margin: 0 !important; /* 마진 제거 */
+			width: 100% !important;
+			order: 999 !important; /* 메뉴 항목들 아래에 배치 */
+			border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* 구분선 추가 */
+			height: auto !important;
+			min-height: auto !important;
+			z-index: 200 !important; /* tab_swiper보다 높게 */
+			pointer-events: auto !important; /* 클릭 가능 */
+			gap: 0 !important; /* 인라인 스타일의 gap:3px 오버라이드 */
+		}
+		#header .header_in > div > .menu_wrap.active .lang-selector span {
+			padding: 0 !important;
+			margin: 0 !important;
+			margin-left: 0 !important;
+			padding-left: 0 !important;
+			line-height: 1.5 !important; /* 메뉴 항목과 동일한 line-height */
+			font-size: 16px !important; /* 메뉴 항목과 동일한 font-size */
+			vertical-align: baseline !important;
+			position: relative !important;
+			z-index: 1 !important;
+			pointer-events: none !important;
+			display: inline-block !important; /* 텍스트 정확한 위치 파악을 위해 */
+		}
+		/* select 요소를 span 텍스트 "文A" 위에 정확히 정렬 - lang-selector padding-left 위치와 동일하게 조정 */
+		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+		html body #header .header_in > div > .menu_wrap.active .lang-selector select,
+		body #wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+		body #header .header_in > div > .menu_wrap.active .lang-selector select,
+		#wrap #header .header_in > div > .menu_wrap.active .lang-selector select,
+		#header .header_in > div > .menu_wrap.active .lang-selector select,
+		#header .header_in > div > .menu_wrap.active .lang-selector #langSelect {
+			position: absolute !important;
+			top: 0 !important; /* lang-selector 컨테이너의 시작점부터 */
+			left: calc(20px + 1.8cm) !important; /* lang-selector의 padding-left 위치와 동일 - "文A" 텍스트 시작 지점 (2cm - 0.2cm = 1.8cm) */
+			width: 100px !important; /* "文A" 텍스트(약 32px) + 오른쪽 빈 공간까지 충분히 커버 */
+			height: 100% !important; /* lang-selector의 전체 높이 */
+			margin: 0 !important;
+			padding: 0 !important;
+			opacity: 0.01 !important; /* 0에서 0.01로 변경하여 터치 가능하게 */
+			cursor: pointer !important;
+			z-index: 9999 !important; /* 최고 z-index로 다른 모든 요소 위에 배치 */
+			pointer-events: auto !important; /* 클릭 가능 */
+			-webkit-tap-highlight-color: rgba(255, 255, 255, 0.1) !important; /* 터치 피드백 */
+			-webkit-appearance: none !important;
+			-moz-appearance: none !important;
+			appearance: none !important;
+			background: transparent !important;
+		}
+		/* tab_swiper 내부 메뉴 항목은 클릭 가능 - 최고 우선순위 (하지만 언어선택보다는 낮게) */
+		html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		html body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		body #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		#wrap #header .header_in > div > .menu_wrap.active .tab_swiper .menu,
+		#header .header_in > div > .menu_wrap.active .tab_swiper .menu {
+			position: relative !important;
+			z-index: 100 !important; /* 언어선택보다 낮게 */
+			pointer-events: auto !important;
+		}
+		/* tab_swiper 자체는 언어선택을 가로막지 않도록 */
+		html body #wrap #header .header_in > div > .menu_wrap.active .tab_swiper {
+			position: relative !important;
+			z-index: 100 !important; /* 언어선택보다 낮게 */
+			pointer-events: auto !important;
+		}
+		/* lang-selector 컨테이너가 언어선택 select를 가로막지 않도록 */
+		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector {
+			position: relative !important;
+			pointer-events: auto !important; /* 컨테이너는 클릭 가능하지만 */
+		}
+		/* lang-selector의 span은 pointer-events: none이므로 select만 클릭 가능 */
+		html body #wrap #header .header_in > div > .menu_wrap.active .lang-selector span {
+			pointer-events: none !important; /* span은 클릭 불가 */
+		}
+		/* Key Features - Mobile Grid */
+		#function .function_list {
+			grid-template-columns: 1fr !important;
+			column-gap: 30px !important;
+			row-gap: 40px !important;
+			margin-top: 40px !important;
+			padding: 0 20px;
+		}
+		#function .w1350 {
+			padding: 0 20px;
+		}
+		
+		/* Visual Section - Mobile */
+		#visual {
+			height: auto !important;
+			min-height: 500px !important;
+			width: 100% !important;
+			max-width: 100vw !important;
+			overflow-x: hidden !important;
+		}
+		#visual .visual_in {
+			width: 100% !important;
+			max-width: 100% !important;
+			padding: 0 !important;
+		}
+		#visual .visual_in .roll {
+			padding-top: 5vh !important;
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+		#visual .visual_in .roll .v_cont {
+			padding: 15px !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			box-sizing: border-box !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea {
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea h2 {
+			font-size: clamp(1.5rem, 5vw, 3rem) !important;
+			letter-spacing: -2px !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea h3 {
+			font-size: 1.1rem !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .mTxt {
+			font-size: 0.95rem !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .btnArea {
+			padding: 40px 0 0 !important;
+			width: 100% !important;
+			flex-direction: column !important;
+			gap: 15px !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .btnArea button {
+			width: 100% !important;
+			max-width: 100% !important;
+			box-sizing: border-box !important;
+		}
+		
+		/* Demo Section - Mobile */
+		#demo .titleArea {
+			text-align: center !important;
+		}
+		#demo .titleArea .mTit,
+		#demo .titleArea .mTxt {
+			text-align: center !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+		#demo .trial-cards {
+			flex-direction: column !important;
+			align-items: center !important;
+			width: 100% !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+		#demo .trial-card {
+			width: 100% !important;
+			max-width: 100% !important;
+			display: flex !important;
+			flex-direction: column !important;
+			justify-content: center !important;
+			align-items: center !important;
+			text-align: center !important;
+			margin: 0 auto !important;
+			box-sizing: border-box !important;
+		}
+		#demo .trial-card .trial-title,
+		#demo .trial-card .trial-desc {
+			text-align: center !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+		#demo .trial-card .trial-btn {
+			text-align: center !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			display: inline-flex !important;
+			justify-content: center !important;
+			align-items: center !important;
+		}
+		
+		/* Pricing Section - Mobile */
+		#charge .charge_style {
+			flex-direction: column !important;
+			flex-wrap: wrap !important;
+		}
+		#charge .charge_style .box {
+			width: 100% !important;
+			margin: 0 0 30px 0 !important;
+			justify-content: flex-start !important;
+			padding-bottom: 40px !important;
+		}
+		/* Fix alignment for pricing values on mobile */
+		#charge .charge_style .box .charge_data li {
+			display: flex !important;
+			justify-content: space-between !important;
+			align-items: flex-start !important;
+		}
+		#charge .charge_style .box .charge_data li strong {
+			flex: 1 1 auto !important;
+			min-width: 0 !important;
+			text-align: left !important;
+			padding-right: 10px !important;
+		}
+		#charge .charge_style .box .charge_data li p {
+			flex: 0 0 auto !important;
+			min-width: 80px !important;
+			text-align: right !important;
+			white-space: nowrap !important;
+		}
+		/* Fix alignment for excess cost values on mobile */
+		#charge .charge_style .box .excess_cost dd ul li {
+			display: flex !important;
+			justify-content: space-between !important;
+			align-items: flex-start !important;
+		}
+		#charge .charge_style .box .excess_cost dd ul li strong {
+			flex: 1 1 auto !important;
+			min-width: 0 !important;
+			text-align: left !important;
+			padding-right: 10px !important;
+		}
+		#charge .charge_style .box .excess_cost dd ul li p {
+			flex: 0 0 auto !important;
+			min-width: 60px !important;
+			text-align: right !important;
+			white-space: nowrap !important;
+		}
+		
+		/* Contact Form - Mobile */
+		#contact .contact_input {
+			flex-direction: column !important;
+		}
+		#contact .w1350 {
+			padding: 0 20px;
+		}
+		#contact .contact_agree {
+			display: flex !important;
+			align-items: center !important;
+			gap: 8px !important;
+			flex-wrap: nowrap !important;
+		}
+		#contact .contact_agree .agree_checkbox {
+			flex-shrink: 0 !important;
+			margin: 0 !important;
+		}
+		#contact .contact_agree .agree_txt {
+			margin: 0 !important;
+			white-space: nowrap !important;
+		}
+		
+		/* Platform Section - Mobile */
+		#platform .w1350 {
+			padding: 0 20px;
+		}
+		
+		/* Common padding adjustment */
+		.com_pad {
+			padding: 60px 20px !important;
+			margin: 0 auto !important;
+			box-sizing: border-box !important;
+		}
+		/* Ensure text content is centered */
+		.com_pad h2,
+		.com_pad h3,
+		.com_pad p,
+		.com_pad .txtArea,
+		.com_pad .btnArea {
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+		
+		/* Footer - Mobile */
+		#footer {
+			padding: 40px 0 !important;
+		}
+		#footer .foot_bottom {
+			display: flex !important;
+			flex-direction: column !important;
+			align-items: center !important;
+			justify-content: center !important;
+			gap: 12px !important;
+			text-align: center !important;
+			max-width: 100% !important;
+		}
+		#footer .foot_bottom > div:first-child {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			justify-content: center !important;
+			align-items: baseline !important;
+			gap: 12px 8px !important;
+		}
+		#footer .foot_bottom > div:first-child > span {
+			flex-basis: 100% !important;
+			text-align: center !important;
+			margin-bottom: 4px !important;
+		}
+		#footer .foot_bottom > div:first-child > a {
+			flex: 0 0 calc(50% - 8px) !important;
+			text-align: center !important;
+			padding: 4px 0 !important;
+			margin: 0 !important;
+		}
+		/* Company Info - Mobile */
+		#footer #companyInfo {
+			font-size: 11px !important;
+			line-height: 2 !important;
+			padding-left: 20px !important;
+			padding-right: 20px !important;
+		}
+		#footer #companyInfo .company-info-text {
+			white-space: normal !important;
+			display: block !important;
+			word-break: keep-all !important;
+		}
+		/* Hide Legal link on Korean pages - will be controlled by JavaScript */
+	}
+	
+	@media screen and (max-width: 480px) {
+		/* Center all containers on small mobile */
+		.w1350 {
+			padding-left: 15px !important;
+			padding-right: 15px !important;
+		}
+		#visual .visual_in,
+		#platform .w1350,
+		#function .w1350,
+		#demo .w1350,
+		#charge .w1350,
+		#contact .w1350,
+		#footer .w1350 {
+			padding-left: 15px !important;
+			padding-right: 15px !important;
+		}
+		.com_pad {
+			padding: 60px 15px !important;
+		}
+		#header {
+			padding: 3px 0 !important;
+		}
+		#header .header_in {
+			padding: 0 10px !important;
+			gap: 6px !important;
+			padding-top: 14px !important;
+		}
+		#header .header_in > div > h1 {
+			top: 14px !important;
+		}
+		#header .header_in > div > .menu_wrap {
+			padding-top: 40px !important;
+		}
+		html body #header #mobileMenuToggle,
+		html body #header .mobile-menu-toggle,
+		html body .mobile-menu-toggle,
+		body #header #mobileMenuToggle,
+		body #header .mobile-menu-toggle,
+		body .mobile-menu-toggle,
+		#mobileMenuToggle,
+		#header .mobile-menu-toggle,
+		.mobile-menu-toggle {
+			right: 15px !important;
+			top: 5px !important;
+			padding: 6px !important;
+			width: 28px !important;
+			height: 28px !important;
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			z-index: 10001 !important;
+			background: transparent !important;
+		}
+		#header .mobile-menu-toggle span,
+		.mobile-menu-toggle span {
+			width: 20px !important;
+			height: 0.6px !important;
+			margin: 5px 0 !important;
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			background: #fff !important;
+		}
+		#header .header_in .lang-selector {
+			top: 5px !important;
+			right: 5px !important;
+			padding: 4px 6px !important;
+		}
+		#header .header_in .lang-selector span {
+			font-size: 11px !important;
+		}
+		#header .header_in .lang-selector select {
+			font-size: 11px !important;
+			padding: 4px 18px 4px 4px !important;
+		}
+		#header .header_in > div {
+			gap: 6px;
+		}
+		/* Override minimal.css for small mobile - Higher specificity */
+		html body #header .header_in > div > h1,
+		html body #wrap #header .header_in > div > h1,
+		body #header .header_in > div > h1,
+		#header .header_in > div > h1 {
+			position: fixed !important;
+			top: 14px !important;
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+			margin: 0 !important;
+			z-index: 10000 !important;
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+		}
+		/* Force logo visibility on small mobile with ID selectors */
+		html body #wrap #header #headerLogo img,
+		html body #wrap #header #headerLogo #logoImg,
+		html body #wrap #header #logoImg,
+		html body #wrap #header .header_in > div > h1 img,
+		html body #wrap #header .header_in > div > h1 a img,
+		html body #header #headerLogo img,
+		html body #header #headerLogo #logoImg,
+		html body #header #logoImg,
+		html body #header .header_in > div > h1 img,
+		html body #header .header_in > div > h1 a img,
+		body #wrap #header #headerLogo img,
+		body #wrap #header #headerLogo #logoImg,
+		body #wrap #header #logoImg,
+		body #wrap #header .header_in > div > h1 img,
+		body #wrap #header .header_in > div > h1 a img,
+		body #header #headerLogo img,
+		body #header #headerLogo #logoImg,
+		body #header #logoImg,
+		body #header .header_in > div > h1 img,
+		body #header .header_in > div > h1 a img,
+		#wrap #header #headerLogo img,
+		#wrap #header #headerLogo #logoImg,
+		#wrap #header #logoImg,
+		#wrap #header .header_in > div > h1 img,
+		#wrap #header .header_in > div > h1 a img,
+		#header #headerLogo img,
+		#header #headerLogo #logoImg,
+		#header #logoImg,
+		#header .header_in > div > h1 img,
+		#header .header_in > div > h1 a img {
+			height: 35px !important;
+			opacity: 1 !important;
+			visibility: visible !important;
+			display: block !important;
+			width: auto !important;
+			background-image: none !important;
+			background: none !important;
+			filter: none !important;
+			-webkit-filter: none !important;
+			-moz-filter: none !important;
+		}
+		html body #header .header_in > div > h1 a,
+		body #header .header_in > div > h1 a,
+		#header .header_in > div > h1 a {
+			display: block !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+		}
+		#visual {
+			min-height: 450px !important;
+		}
+		#visual .visual_in .roll {
+			padding-top: 3vh !important;
+		}
+		#visual .visual_in .roll .v_cont {
+			padding: 12px !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea h2 {
+			font-size: 1.8rem !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea h3 {
+			font-size: 1rem !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .mTxt {
+			font-size: 0.9rem !important;
+			padding: 15px 0 0 !important;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .btnArea {
+			padding: 30px 0 0 !important;
+			flex-direction: column !important;
+			gap: 10px !important;
+			width: 100%;
+		}
+		#visual .visual_in .roll .v_cont .txtArea .btnArea .moreBtn {
+			width: 100%;
+			margin: 0 !important;
+		}
+		/* Demo Section - Small Mobile */
+		#demo .trial-cards {
+			margin-top: 20px !important;
+			gap: 16px !important;
+		}
+		#demo .trial-card {
+			padding: 30px 15px !important;
+		}
+		#demo .trial-card .trial-title {
+			font-size: 20px !important;
+		}
+		#demo .trial-card .trial-desc {
+			font-size: 14px !important;
+		}
+		/* Pricing alignment already handled by parent mobile styles above */
+		
+		/* Footer - Small Mobile */
+		#footer {
+			padding: 30px 0 !important;
+		}
+		#footer .foot_bottom {
+			gap: 10px !important;
+		}
+		#footer .foot_bottom > div:first-child {
+			gap: 10px 6px !important;
+		}
+		#footer .foot_bottom > div:first-child > span {
+			font-size: 11px !important;
+		}
+		#footer .foot_bottom > div:first-child > a {
+			flex: 0 0 calc(50% - 6px) !important;
+			font-size: 12px !important;
+		}
+		#footer #companyInfo {
+			font-size: 11px !important;
+			line-height: 2 !important;
+		}
+		#footer #companyInfo .company-info-text {
+			font-size: 10px !important;
+		}
+	}
+	
+	/* Privacy Consent Popup Modal */
+	#privacyConsentModal {
+		display: none;
+		position: fixed;
+		z-index: 10000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	#privacyConsentModal.active {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.privacy-modal-content {
+		background-color: #fff;
+		margin: auto;
+		padding: 30px;
+		border: none;
+		width: 90%;
+		max-width: 600px;
+		max-height: 90vh;
+		overflow-y: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		position: relative;
+	}
+	.privacy-modal-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 25px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.privacy-modal-header h2 {
+		margin: 0;
+		font-size: 22px;
+		font-weight: 600;
+		color: #000;
+	}
+	.privacy-modal-close {
+		background: none;
+		border: none;
+		font-size: 28px;
+		font-weight: 300;
+		color: #999;
+		cursor: pointer;
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+	}
+	.privacy-modal-close:hover {
+		color: #000;
+	}
+	.privacy-modal-body {
+		color: #333;
+		line-height: 1.8;
+	}
+	.privacy-modal-body p {
+		margin-bottom: 20px;
+		font-size: 14px;
+	}
+	.privacy-modal-body h3 {
+		font-size: 16px;
+		font-weight: 600;
+		margin-top: 25px;
+		margin-bottom: 12px;
+		color: #000;
+	}
+	.privacy-modal-body table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 15px 0;
+		font-size: 14px;
+	}
+	.privacy-modal-body table th,
+	.privacy-modal-body table td {
+		border: 1px solid #ddd;
+		padding: 12px;
+		text-align: left;
+	}
+	.privacy-modal-body table th {
+		background-color: #f5f5f5;
+		font-weight: 600;
+	}
+	.privacy-consent-link {
+		color: #0066cc;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.privacy-consent-link:hover {
+		text-decoration: none;
+	}
+	@media screen and (max-width: 768px) {
+		.privacy-modal-content {
+			padding: 20px;
+			margin: 20px;
+		}
+		.privacy-modal-header h2 {
+			font-size: 18px;
+		}
+		.privacy-modal-body h3 {
+			font-size: 15px;
+		}
+		.privacy-modal-body table {
+			font-size: 12px;
+		}
+		.privacy-modal-body table th,
+		.privacy-modal-body table td {
+			padding: 8px;
+		}
+	}
