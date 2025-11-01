@@ -182,13 +182,6 @@
 			opacity: 1 !important;
 			visibility: visible !important;
 		}
-		/* h1 내부의 이미지가 확실히 보이도록 - 모바일 전용 추가 규칙 */
-		#header .header_in > div > h1,
-		#header .header_in > div > h1#headerLogo {
-			opacity: 1 !important;
-			visibility: visible !important;
-			display: block !important;
-		}
 		#header .header_in > div > h1 img,
 		#header .header_in > div > h1#headerLogo img,
 		#header .header_in > div > h1 #logoImg,
@@ -202,20 +195,6 @@
 			transform: none !important;
 			-webkit-transform: none !important;
 			-moz-transform: none !important;
-		}
-		/* Override minimal.css for mobile - Force logo visibility */
-		/* minimal.css line 29: #header .header_in h1{position:absolute; top:20px; left:50%; transform:translateX(-50%);} */
-		#header .header_in > div > h1,
-		#header .header_in h1 {
-			display: block !important;
-			visibility: visible !important;
-			opacity: 1 !important;
-			position: fixed !important;
-			top: 9px !important;
-			left: 50% !important;
-			transform: translateX(-50%) !important;
-			z-index: 10000 !important;
-			margin: 0 !important;
 		}
 		/* Force actual img tag to be visible - override all possible selectors with ID selectors */
 		#headerLogo img,
@@ -848,48 +827,6 @@
 			opacity: 1 !important;
 			visibility: visible !important;
 			display: block !important;
-		}
-		/* Force logo visibility on small mobile with ID selectors */
-		html body #wrap #header #headerLogo img,
-		html body #wrap #header #headerLogo #logoImg,
-		html body #wrap #header #logoImg,
-		html body #wrap #header .header_in > div > h1 img,
-		html body #wrap #header .header_in > div > h1 a img,
-		html body #header #headerLogo img,
-		html body #header #headerLogo #logoImg,
-		html body #header #logoImg,
-		html body #header .header_in > div > h1 img,
-		html body #header .header_in > div > h1 a img,
-		body #wrap #header #headerLogo img,
-		body #wrap #header #headerLogo #logoImg,
-		body #wrap #header #logoImg,
-		body #wrap #header .header_in > div > h1 img,
-		body #wrap #header .header_in > div > h1 a img,
-		body #header #headerLogo img,
-		body #header #headerLogo #logoImg,
-		body #header #logoImg,
-		body #header .header_in > div > h1 img,
-		body #header .header_in > div > h1 a img,
-		#wrap #header #headerLogo img,
-		#wrap #header #headerLogo #logoImg,
-		#wrap #header #logoImg,
-		#wrap #header .header_in > div > h1 img,
-		#wrap #header .header_in > div > h1 a img,
-		#header #headerLogo img,
-		#header #headerLogo #logoImg,
-		#header #logoImg,
-		#header .header_in > div > h1 img,
-		#header .header_in > div > h1 a img {
-			height: 35px !important;
-			opacity: 1 !important;
-			visibility: visible !important;
-			display: block !important;
-			width: auto !important;
-			background-image: none !important;
-			background: none !important;
-			filter: none !important;
-			-webkit-filter: none !important;
-			-moz-filter: none !important;
 		}
 		html body #header .header_in > div > h1 a,
 		body #header .header_in > div > h1 a,
