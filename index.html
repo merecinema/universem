@@ -897,6 +897,42 @@
 				justify-content: flex-start !important;
 				padding-bottom: 40px !important;
 			}
+			/* Fix alignment for pricing values on mobile */
+			#charge .charge_style .box .charge_data li {
+				display: flex !important;
+				justify-content: space-between !important;
+				align-items: flex-start !important;
+			}
+			#charge .charge_style .box .charge_data li strong {
+				flex: 1 1 auto !important;
+				min-width: 0 !important;
+				text-align: left !important;
+				padding-right: 10px !important;
+			}
+			#charge .charge_style .box .charge_data li p {
+				flex: 0 0 auto !important;
+				min-width: 80px !important;
+				text-align: right !important;
+				white-space: nowrap !important;
+			}
+			/* Fix alignment for excess cost values on mobile */
+			#charge .charge_style .box .excess_cost dd ul li {
+				display: flex !important;
+				justify-content: space-between !important;
+				align-items: flex-start !important;
+			}
+			#charge .charge_style .box .excess_cost dd ul li strong {
+				flex: 1 1 auto !important;
+				min-width: 0 !important;
+				text-align: left !important;
+				padding-right: 10px !important;
+			}
+			#charge .charge_style .box .excess_cost dd ul li p {
+				flex: 0 0 auto !important;
+				min-width: 60px !important;
+				text-align: right !important;
+				white-space: nowrap !important;
+			}
 			
 			/* Contact Form - Mobile */
 			#contact .contact_input {
@@ -1172,6 +1208,8 @@
 			#demo .trial-card .trial-desc {
 				font-size: 14px !important;
 			}
+			/* Pricing alignment already handled by parent mobile styles above */
+			
 			/* Footer - Small Mobile */
 			#footer {
 				padding: 30px 0 !important;
@@ -1354,6 +1392,7 @@
 								<option value="ja">日本語</option>
 								<option value="zh">中文</option>
 								<option value="fr">Français</option>
+								<option value="vi">Tiếng Việt</option>
 							</select>
 						</div>
 					</div>
@@ -2057,6 +2096,84 @@
 						agree: "Veuillez accepter la Politique de confidentialité."
 					}
 				}
+			},
+			vi: {
+				menu: { platform: 'Nền tảng', features: 'Tính năng', trial: 'Dùng thử', pricing: 'Giá', contact: 'Liên hệ' },
+				hero: { 
+					subtitle: 'Nền tảng phát trực tuyến video dựa trên đám mây',
+					title: 'UniverseM',
+					description: 'Bắt đầu kinh doanh phát trực tuyến dễ dàng và tiết kiệm chi phí.',
+					contactBtn: 'Liên hệ',
+					demoBtn: 'Dùng thử'
+				},
+				platform: {
+					title: 'UniverseM là gì?',
+					description: 'UniverseM là nền tảng OTT dựa trên đám mây cung cấp dịch vụ phát trực tuyến video cho khách hàng thông qua thanh toán tự động<br>như đăng ký, hoặc thanh toán từng lần.'
+				},
+				features: {
+					title: 'Tính năng chính',
+					description: 'Bạn có thể vận hành hiệu quả với các chức năng cốt lõi khác biệt.',
+					features: [
+						{ num: '01', subtitle: 'Giao diện/Trải nghiệm hiện đại', title: 'Giao diện/Trải nghiệm đơn giản', desc: 'Bạn có thể sử dụng giao diện người dùng và thiết kế định dạng tiện lợi phản ánh xu hướng hiện đại để dễ sử dụng hơn.' },
+						{ num: '02', subtitle: 'Hệ thống quản lý nội dung', title: 'Hệ thống quản lý thời gian thực', desc: 'Bạn có thể đăng ký nội dung bằng cách tích hợp với các nền tảng thời gian thực và API, đồng thời quản lý các nhiệm vụ vận hành nội dung bằng các chế độ xem toàn diện.' },
+						{ num: '03', subtitle: 'Cấu hình trang chủ linh hoạt', title: 'Dịch vụ thành viên', desc: 'Các nhà vận hành có thể tự do thiết kế trang chủ bằng cách sử dụng nhiều mô-đun khác nhau, bao gồm xếp hạng, từ khóa, chủ đề, banner quảng cáo, yêu thích và nhiều hơn nữa.' },
+						{ num: '04', subtitle: 'Nhiều phương thức thanh toán', title: 'Hệ thống thanh toán toàn diện', desc: 'Bạn có thể quản lý dựa trên các phương thức thanh toán phù hợp với nhiều mô hình vận hành, bao gồm thanh toán tự động, thanh toán từng lần và thanh toán từng lần theo chương trình.' },
+						{ num: '05', subtitle: 'Chính sách đăng ký linh hoạt', title: 'Quản lý nội dung toàn diện', desc: 'Bạn có thể vận hành dịch vụ của mình theo nhiều cách khác nhau theo chính sách đăng ký cho các nhóm gói khác nhau, chẳng hạn như Basic, Standard, Premium và Free.' },
+						{ num: '06', subtitle: 'Bảo mật mạnh mẽ và hệ thống ổn định', title: 'Hệ thống xem và thanh toán đáng tin cậy', desc: 'Với khả năng bảo vệ chống lại hacker và ransomware, sao lưu dữ liệu nhiều lớp và hỗ trợ đội ngũ hạ tầng chuyên nghiệp để quản lý sự cố máy chủ, hệ thống có thể xử lý hàng trăm nghìn kết nối đồng thời.' }
+					]
+				},
+				demo: {
+					title: 'Trải nghiệm dùng thử',
+					description: 'Bắt đầu dịch vụ phát trực tuyến của bạn với <span class="medium">UniverseM</span>. Hãy thử ngay bây giờ.',
+					userTitle: 'Dùng thử người dùng',
+					userDesc: 'Trải nghiệm trang web người dùng trên bất kỳ thiết bị nào<br>và bắt đầu phát trực tuyến ngay lập tức.',
+					userBtn: 'Dùng thử người dùng',
+					adminTitle: 'Dùng thử quản trị viên',
+					adminDesc: 'Trải nghiệm hệ thống quản trị với chế độ xem mở rộng<br>và quản lý thời gian thực.',
+					adminBtn: 'Dùng thử quản trị viên'
+				},
+				pricing: {
+					title: 'Giá',
+					description: 'Chúng tôi giúp giảm chi phí vận hành của bạn với mức giá hợp lý.',
+					starter: 'Bắt đầu',
+					standard: 'Tiêu chuẩn',
+					professional: 'Chuyên nghiệp',
+					perMonth: 'mỗi tháng',
+					videoStorage: 'Dung lượng lưu trữ video',
+					monthlyTransfer: 'Lượng truyền video hàng tháng',
+					channelTraffic: 'Lưu lượng kênh',
+					unlimited: 'Không giới hạn',
+					excessCharges: 'Phí vượt mức',
+					storage: 'Lưu trữ (cho mỗi 1GB)',
+					transfer: 'Truyền (cho mỗi 1GB)',
+					getStarted: 'Bắt đầu'
+				},
+				contact: {
+					title: 'Liên hệ',
+					description: 'Chúng tôi rất muốn nghe từ bạn.',
+					name: 'Tên',
+					email: 'Email',
+					company: 'Công ty',
+					phone: 'Điện thoại',
+					message: 'Tin nhắn',
+					agree: 'Tôi đồng ý với Chính sách Bảo mật.',
+					sendBtn: 'Gửi',
+					placeholders: {
+						company: 'Vui lòng nhập tên công ty của bạn.',
+						name: 'Vui lòng nhập tên của bạn.',
+						phone: 'Vui lòng nhập số điện thoại của bạn.',
+						email: 'Vui lòng nhập email của bạn.',
+						message: 'Vui lòng nhập tin nhắn của bạn.'
+					},
+					errors: {
+						company: 'Vui lòng nhập tên công ty của bạn.',
+						name: 'Vui lòng nhập tên của bạn.',
+						phone: 'Vui lòng nhập số điện thoại của bạn.',
+						email: 'Vui lòng nhập địa chỉ email của bạn.',
+						message: 'Vui lòng nhập tin nhắn của bạn.',
+						agree: 'Vui lòng đồng ý với Chính sách Bảo mật.'
+					}
+				}
 			}
 		};
 
@@ -2073,12 +2190,7 @@
 			const langCode = browserLang.toLowerCase().split('-')[0];
 			
 			// Available languages
-			const availableLangs = ['en', 'ko', 'ja', 'zh', 'fr'];
-			
-			// If browser language is Korean, default to Korean
-			if (langCode === 'ko') {
-				return 'ko';
-			}
+			const availableLangs = ['en', 'ko', 'ja', 'zh', 'fr', 'vi'];
 			
 			// Check if browser language matches any available language
 			if (availableLangs.includes(langCode)) {
@@ -2155,7 +2267,7 @@
 					const dataP = box.querySelectorAll('.charge_data li p');
 					dataP.forEach(function(p) {
 						const text = p.textContent.trim();
-						if (text.toLowerCase() === 'unlimited' || text === 'Unlimited' || text === t.pricing.unlimited) {
+						if (text.toLowerCase() === 'unlimited' || text === 'Unlimited' || text === '무제한' || text === t.pricing.unlimited) {
 							p.textContent = t.pricing.unlimited;
 						}
 					});
@@ -2277,7 +2389,7 @@
 			currentLang = selectedLang;
 
 			// Available languages with full translations now in-page
-			const availableLangs = ['en','ko','ja','zh','fr'];
+			const availableLangs = ['en','ko','ja','zh','fr','vi'];
 			
 			if (availableLangs.includes(selectedLang)) {
 				applyTranslation(selectedLang);
