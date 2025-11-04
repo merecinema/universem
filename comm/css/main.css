@@ -399,6 +399,9 @@ opacity: 0;
 .sTit br{display: none;}
 .txt br{display: none;}
 
+/* Platform 섹션에서는 br 태그 표시 */
+#platform .mTxt br{display: block;}
+
 
 /* 데모 체험 */
 #demo{}
