@@ -912,7 +912,7 @@
 	#privacyConsentModal {
 		display: none;
 		position: fixed;
-		z-index: 10000;
+		z-index: 1000000;
 		left: 0;
 		top: 0;
 		width: 100%;
@@ -929,7 +929,6 @@
 		background-color: #fff;
 		margin: auto;
 		padding: 30px;
-		border: none;
 		width: 90%;
 		max-width: 600px;
 		max-height: 90vh;
@@ -945,6 +944,11 @@
 		margin-bottom: 25px;
 		padding-bottom: 15px;
 		border-bottom: 1px solid #e0e0e0;
+		position: sticky;
+		top: 0;
+		background-color: #fff;
+		z-index: 10000;
+		padding-top: 0;
 	}
 	.privacy-modal-header h2 {
 		margin: 0;
@@ -966,6 +970,9 @@
 		align-items: center;
 		justify-content: center;
 		line-height: 1;
+		position: relative;
+		z-index: 11;
+		flex-shrink: 0;
 	}
 	.privacy-modal-close:hover {
 		color: #000;
