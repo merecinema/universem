@@ -519,7 +519,7 @@
 			padding: 0 !important;
 		}
 	#visual .visual_in .roll {
-		padding-top: max(5vh, calc(env(safe-area-inset-top) + 60px)) !important;
+		padding-top: 5vh !important;
 		width: 100% !important;
 		max-width: 100% !important;
 	}
@@ -841,7 +841,7 @@
 		min-height: 450px !important;
 	}
 	#visual .visual_in .roll {
-		padding-top: max(3vh, calc(env(safe-area-inset-top) + 50px)) !important;
+		padding-top: 3vh !important;
 	}
 		#visual .visual_in .roll .v_cont {
 			padding: 12px !important;
