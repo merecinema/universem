@@ -46,6 +46,7 @@
 								<option value="ja">日本語</option>
 								<option value="zh">中文</option>
 								<option value="fr">Français</option>
+								<option value="it">Italiano</option>
 								<option value="vi">Tiếng Việt</option>
 							</select>
 						</div>
@@ -834,6 +835,85 @@
 						agree: 'Vui lòng đồng ý với Chính sách Bảo mật.'
 					}
 				}
+			},
+			it: {
+				menu: { platform: 'Piattaforma', features: 'Caratteristiche', trial: 'Prova gratuita', pricing: 'Prezzi', contact: 'Contatti' },
+				hero: { 
+					subtitle: 'Piattaforma di streaming video basata su cloud',
+					title: 'UniverseM',
+					description: 'Inizia il tuo business di streaming in modo semplice ed economico.',
+					tagline: 'Gestisci il tuo servizio di streaming in stile Netflix senza il budget di Netflix.',
+					contactBtn: 'Contatti',
+					demoBtn: 'Prova gratuita'
+				},
+				platform: {
+					title: "Cos'è UniverseM?",
+					description: "UniverseM è una piattaforma OTT basata su cloud che fornisce servizi di streaming video ai clienti tramite pagamenti automatici,<br>come gli abbonamenti, o tramite pagamenti individuali.<br>Gestisci il tuo servizio di streaming in stile Netflix senza il budget di Netflix."
+				},
+				features: {
+					title: 'Caratteristiche principali',
+					description: 'Puoi operare in modo efficiente con funzioni fondamentali differenziate.',
+					features: [
+						{ num: '01', subtitle: 'UI/UX sofisticata', title: 'UI/UX semplice', desc: "Puoi utilizzare un'interfaccia utente e un design pratico che riflette le tendenze moderne per facilitarne l'uso." },
+						{ num: '02', subtitle: 'Sistema di gestione dei contenuti', title: 'Sistema di gestione in tempo reale', desc: 'Puoi registrare contenuti integrandoti con piattaforme e API in tempo reale e gestire le attività operative dei contenuti con viste complete.' },
+						{ num: '03', subtitle: 'Configurazione flessibile della pagina principale', title: 'Servizio di membership', desc: 'Gli operatori possono progettare liberamente la pagina principale utilizzando una varietà di moduli, tra cui classifiche, parole chiave, argomenti, banner promozionali, preferiti e altro.' },
+						{ num: '04', subtitle: 'Vari metodi di pagamento', title: 'Sistema di pagamento completo', desc: 'Puoi gestire in base ai metodi di pagamento adattati a vari modelli operativi, inclusi pagamenti automatici, pagamenti individuali e pagamenti individuali basati su programmi.' },
+						{ num: '05', subtitle: 'Politiche di abbonamento flessibili', title: 'Gestione completa dei contenuti', desc: 'Puoi gestire i tuoi servizi in vari modi in base alle politiche di abbonamento per diversi gruppi di piani, come Basic, Standard, Premium e Free.' },
+						{ num: '06', subtitle: 'Sicurezza robusta e sistema stabile', title: 'Sistema di visualizzazione e pagamento affidabile', desc: 'Con protezione contro hacking e ransomware, backup di dati multilivello e supporto del team di infrastruttura professionale per la gestione degli incidenti del server, il sistema può gestire centinaia di migliaia di connessioni simultanee.' }
+					]
+				},
+				demo: {
+					title: 'Esperienza di prova gratuita',
+					description: 'Inizia il tuo servizio di streaming con <span class="medium">UniverseM</span>. Provalo ora.',
+					userTitle: 'Prova utente',
+					userDesc: 'Prova il sito utente su qualsiasi dispositivo<br>e inizia lo streaming immediatamente.',
+					userBtn: 'Prova utente',
+					adminTitle: 'Prova amministratore',
+					adminDesc: 'Prova il sistema di amministrazione con vista estesa<br>e gestione in tempo reale.',
+					adminBtn: 'Prova amministratore'
+				},
+				pricing: {
+					title: 'Prezzi',
+					description: 'Ti aiutiamo a ridurre i costi operativi con prezzi ragionevoli.',
+					starter: 'Starter',
+					standard: 'Standard',
+					professional: 'Professional',
+					perMonth: 'al mese',
+					videoStorage: 'Capacità di archiviazione video',
+					monthlyTransfer: 'Trasferimento video mensile',
+					channelTraffic: 'Traffico del canale',
+					unlimited: 'Illimitato',
+					excessCharges: 'Costi aggiuntivi',
+					storage: 'Archiviazione (per 1GB)',
+					transfer: 'Trasferimento (per 1GB)',
+					getStarted: 'Inizia'
+				},
+				contact: {
+					title: 'Contatti',
+					description: 'Ci piacerebbe sentirti.',
+					name: 'Nome',
+					email: 'Email',
+					company: 'Azienda',
+					phone: 'Telefono',
+					message: 'Messaggio',
+					agree: 'Accetto la Politica sulla Privacy.',
+					sendBtn: 'Invia',
+					placeholders: {
+						company: 'Inserisci il nome della tua azienda.',
+						name: 'Inserisci il tuo nome.',
+						phone: 'Inserisci il tuo numero di telefono.',
+						email: 'Inserisci la tua email.',
+						message: 'Inserisci il tuo messaggio.'
+					},
+					errors: {
+						company: 'Inserisci il nome della tua azienda.',
+						name: 'Inserisci il tuo nome.',
+						phone: 'Inserisci il tuo numero di telefono.',
+						email: 'Inserisci il tuo indirizzo email.',
+						message: 'Inserisci il tuo messaggio.',
+						agree: 'Accetta la Politica sulla Privacy.'
+					}
+				}
 			}
 		};
 
@@ -850,7 +930,7 @@
 			const langCode = browserLang.toLowerCase().split('-')[0];
 			
 			// Available languages
-			const availableLangs = ['en', 'ko', 'ja', 'zh', 'fr', 'vi'];
+			const availableLangs = ['en', 'ko', 'ja', 'zh', 'fr', 'it', 'vi'];
 			
 			// Check if browser language matches any available language
 			if (availableLangs.includes(langCode)) {
@@ -1049,7 +1129,7 @@
 			currentLang = selectedLang;
 
 			// Available languages with full translations now in-page
-			const availableLangs = ['en','ko','ja','zh','fr','vi'];
+			const availableLangs = ['en','ko','ja','zh','fr','it','vi'];
 			
 			if (availableLangs.includes(selectedLang)) {
 				applyTranslation(selectedLang);
