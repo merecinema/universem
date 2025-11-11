@@ -518,11 +518,11 @@
 			max-width: 100% !important;
 			padding: 0 !important;
 		}
-		#visual .visual_in .roll {
-			padding-top: 5vh !important;
-			width: 100% !important;
-			max-width: 100% !important;
-		}
+	#visual .visual_in .roll {
+		padding-top: max(5vh, calc(env(safe-area-inset-top) + 60px)) !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 		#visual .visual_in .roll .v_cont {
 			padding: 15px !important;
 			width: 100% !important;
@@ -837,12 +837,12 @@
 			visibility: visible !important;
 			opacity: 1 !important;
 		}
-		#visual {
-			min-height: 450px !important;
-		}
-		#visual .visual_in .roll {
-			padding-top: 3vh !important;
-		}
+	#visual {
+		min-height: 450px !important;
+	}
+	#visual .visual_in .roll {
+		padding-top: max(3vh, calc(env(safe-area-inset-top) + 50px)) !important;
+	}
 		#visual .visual_in .roll .v_cont {
 			padding: 12px !important;
 		}
