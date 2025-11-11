@@ -1166,29 +1166,20 @@
 					handleLanguageChange(selectedLang);
 				});
 				
-				// Also add click event for mobile touch
-				newLangSelect.addEventListener('click', function(e) {
-					e.stopPropagation(); // 다른 요소의 클릭 이벤트 전파 방지
-				}, true); // capture phase에서 실행하여 먼저 처리
+			// Also add click event for mobile touch
+			newLangSelect.addEventListener('click', function(e) {
+				e.stopPropagation();
+			}, true);
 			}
 		}
 		
-		// Initialize on DOM ready
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', initLanguageSelector);
-		} else {
-			initLanguageSelector();
-		}
-
-		// Smooth scroll to section with proper offset - hide visual section
+		// Smooth scroll to section with proper offset
 		function scrollToSection(targetId) {
 			const targetElement = document.querySelector(targetId);
 			
 			if (targetElement && targetId !== '#visual' && targetId !== '#top') {
-				const headerHeight = 100; // 헤더 높이
-				// 요소의 절대 위치 계산 (페이지 상단 기준)
+				const headerHeight = 100;
 				const elementTop = targetElement.offsetTop;
-				// 헤더 높이만큼 여백 추가하여 해당 섹션 시작 부분이 헤더 바로 아래 보이도록
 				const targetPosition = elementTop - headerHeight;
 				
 				window.scrollTo({
@@ -1198,9 +1189,40 @@
 			}
 		}
 		
-		// Handle anchor link clicks for menu navigation
+		// Ensure mobile menu is visible on mobile devices
+		function ensureMobileMenuVisible() {
+			if (window.innerWidth <= 768) {
+				const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+				if (mobileMenuToggle) {
+					mobileMenuToggle.style.setProperty('display', 'block', 'important');
+					mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
+					mobileMenuToggle.style.setProperty('opacity', '1', 'important');
+				}
+			}
+		}
+		
+		// Initialize all functionality on DOM ready
 		document.addEventListener('DOMContentLoaded', function() {
-			// 모든 앵커 링크에 클릭 이벤트 추가
+			// Initialize language selector
+			initLanguageSelector();
+			
+			// Get default language
+			const lang = getDefaultLanguage();
+			
+			// Save detected language to localStorage if not already set
+			if (!localStorage.getItem('preferredLanguage')) {
+				localStorage.setItem('preferredLanguage', lang);
+			}
+			
+			currentLang = lang;
+			
+			const desktopSelect = document.getElementById('langSelect');
+			if (desktopSelect) desktopSelect.value = lang;
+			
+			// Apply translation
+			applyTranslation(lang);
+			
+			// Setup anchor link clicks
 			const anchorLinks = document.querySelectorAll('a[href^="#"]');
 			anchorLinks.forEach(function(link) {
 				link.addEventListener('click', function(e) {
@@ -1226,7 +1248,6 @@
 				const menuLinks = menuWrap.querySelectorAll('a');
 				menuLinks.forEach(function(link) {
 					link.addEventListener('click', function(e) {
-						// 언어선택 영역이면 메뉴를 닫지 않음
 						const langSelect = document.getElementById('langSelect');
 						if (langSelect && langSelect.contains(e.target)) {
 							return;
@@ -1241,12 +1262,11 @@
 					const langSelect = document.getElementById('langSelect');
 					const langSelector = e.target.closest('.lang-selector');
 					
-					// 언어선택 클릭 시에는 메뉴를 닫지 않음
 					if (langSelect && (e.target === langSelect || langSelect.contains(e.target) || e.target.closest('#langSelect'))) {
-						return; // 언어선택 이벤트는 처리하고 메뉴는 열어둠
+						return;
 					}
 					if (langSelector && (e.target === langSelector || langSelector.contains(e.target))) {
-						return; // 언어선택 컨테이너 클릭도 무시
+						return;
 					}
 					
 					if (!mobileMenuToggle.contains(e.target) && !menuWrap.contains(e.target)) {
@@ -1255,61 +1275,10 @@
 					}
 				});
 			}
-		});
-		
-		// Apply initial language on page load
-		document.addEventListener('DOMContentLoaded', function() {
-			// Get default language (detects browser language for first-time visitors)
-			const lang = getDefaultLanguage();
 			
-			// Save detected language to localStorage if not already set
-			if (!localStorage.getItem('preferredLanguage')) {
-				localStorage.setItem('preferredLanguage', lang);
-			}
-			
-			// Update currentLang to match
-			currentLang = lang;
-			
-			const desktopSelect = document.getElementById('langSelect');
-			if (desktopSelect) desktopSelect.value = lang;
-			
-			// Apply translation for all languages including English
-			applyTranslation(lang);
-			
-			// Additional setup based on language
-			if (lang !== 'ko') {
-				// Hide company info for non-Korean languages
-				const companyInfo = document.getElementById('companyInfo');
-				if (companyInfo) {
-					companyInfo.style.display = 'none';
-				}
-				// Show Legal link for non-Korean languages
-				const legalLink = document.querySelector('.legal-link');
-				if (legalLink) {
-					legalLink.style.setProperty('display', 'inline-block', 'important');
-				}
-			}
-			
-			// Force hamburger menu visibility on mobile - must run after all other scripts
-			// Check if screen is mobile size
-			function ensureMobileMenuVisible() {
-				if (window.innerWidth <= 768) {
-					const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-					if (mobileMenuToggle) {
-						// Force display with highest priority
-						mobileMenuToggle.style.setProperty('display', 'block', 'important');
-						mobileMenuToggle.style.setProperty('visibility', 'visible', 'important');
-						mobileMenuToggle.style.setProperty('opacity', '1', 'important');
-					}
-				}
-			}
-			
-			// Run immediately and after a short delay to override any conflicting styles
+			// Ensure mobile menu visibility
 			ensureMobileMenuVisible();
-			setTimeout(ensureMobileMenuVisible, 100);
 			setTimeout(ensureMobileMenuVisible, 500);
-			
-			// Also run on window resize
 			window.addEventListener('resize', ensureMobileMenuVisible);
 		});
 
