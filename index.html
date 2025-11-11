@@ -1004,13 +1004,22 @@
 					if (dataStrong[0]) dataStrong[0].textContent = t.pricing.videoStorage;
 					if (dataStrong[1]) dataStrong[1].textContent = t.pricing.monthlyTransfer;
 					if (dataStrong[2]) dataStrong[2].textContent = t.pricing.channelTraffic;
-					const dataP = box.querySelectorAll('.charge_data li p');
-					dataP.forEach(function(p) {
-						const text = p.textContent.trim();
-						if (text.toLowerCase() === 'unlimited' || text === 'Unlimited' || text === '무제한' || text === t.pricing.unlimited) {
-							p.textContent = t.pricing.unlimited;
-						}
-					});
+				const dataP = box.querySelectorAll('.charge_data li p');
+				dataP.forEach(function(p) {
+					const text = p.textContent.trim();
+					// Check if the text matches any language's "unlimited" translation
+					if (text.toLowerCase() === 'unlimited' || 
+						text === 'Unlimited' || 
+						text === '무제한' || 
+						text === '無制限' || 
+						text === '不限量' || 
+						text === 'Illimité' || 
+						text === 'Illimitato' || 
+						text === 'Không giới hạn' || 
+						text === t.pricing.unlimited) {
+						p.textContent = t.pricing.unlimited;
+					}
+				});
 					const ec = box.querySelector('.excess_cost');
 					if (ec) {
 						const dt = ec.querySelector('dt');
